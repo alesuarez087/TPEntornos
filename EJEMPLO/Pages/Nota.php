@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
  <title>Nota</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/social.css" />
 </head>
 <body>
     <div class="container">
@@ -53,11 +54,49 @@
         <div class="embed-responsive embed-responsive-16by9">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/kI8_x6Jiql8?list=PLE4YrDCbrAPThNtmj5hpcpriJWI4wUhPK" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
+        <br /><br /><br />
+        
+        <div id="share-buttons">
+        <h3>Compartir</h3>
+        <!-- Facebook -->
+        	<a class="social-button" href="http://www.facebook.com/sharer.php?u=<$php obtenerURL $>">
+            <i class="fb_50_color"></i>
+        </a>
+
+        <!-- Google+ -->
+        <a class="social-button" href="https://plus.google.com/share?url=http://www.ole.com.ar">
+            <i class="gmail_50_color"></i>
+        </a>
+        <!-- Twitter -->
+        <a class="social-button" href="https://twitter.com/share?url=http://www.ole.com.ar;text=Mira esta noticia, te puede interesar !">
+            <i class="twitter_50_color"></i>
+        </a>
+        </div>
     </div>
 
 
+<?php
+function obtenerURL 
+	echo "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']".php"
+?>
+	<script>
+        var lba = document.getElementsByClassName("social-button")
+
+        function myPopup() {
+            window.open(this.href, 'mywin',
+                    'left=20,top=20,width=500,height=500,toolbar=1,resizable=0');
+            event.preventDefault();
+            return false;
+        }
+
+        for (var i = 0; i < lba.length; i++) {
+            lba[i].addEventListener("click", myPopup, false);
+        }
+
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+
