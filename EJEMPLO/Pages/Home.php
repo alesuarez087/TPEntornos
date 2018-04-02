@@ -37,6 +37,7 @@
                 </div>
             </div>
             <a class="nav-link text-white" href="#">Fotos</a>
+            <a class="nav-link text-white" href="../Pages/Autogestion.php"
         </nav>
 
         <br />
