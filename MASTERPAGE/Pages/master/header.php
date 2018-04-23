@@ -1,3 +1,13 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Club Atlético Libertad</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
 <!-- CABECERA -->
 <div class="row align-items-center">
 	<div class="col-lg-10" style="background-color:white">
@@ -31,37 +41,3 @@
 	<a class="nav-link text-white" href="../Autogestion.php"></a>
 </nav>
 
-
-<!-- MODAL LOGIN -->
-<div class="modal fade" id="login">
-	<div class="modal-dialog modal-md modal-dialog-centered">
-		<div class="modal-content">
-			<!-- cabecera del diálogo -->
-          <div class="modal-header">
-            <h4 class="modal-title">Título del diálogo</h4>
-            <button type="button" class="close" data-dismiss="modal">X</button>
-          </div>
-    
-          <!-- cuerpo del diálogo -->
-          <div class="modal-body">
-            Contenido del diálogo.
-          </div>
-    
-          <!-- pie del diálogo -->
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          </div>
-		</div>
-	</div>
-</div>
-
-
-<?php
-function AsignarPagina($pagina)
-{
-    if($_COOKIE["pagina"] == "")
-        echo "paginas/".$pagina.".php";
-    else 
-        echo $pagina.'.php';
-}
-?>
