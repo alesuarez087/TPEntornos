@@ -45,24 +45,8 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
 
 		<h2 class="page-header">Discos</h2>
-		<?php 
-				if (isset($_COOKIE["id_item"])) { echo $_COOKIE["id_item"]; }
-				if (isset($_COOKIE["ale"])) { echo $_COOKIE["ale"];	}
-		?>
-		
 		<br>
-		<?php 
-			#if(isset($_COOKIE["id_item"])) {
-			#	$vID = $_COOKIE['id_item']; echo( $vID);
-			#	include("../code/conexion.inc");
-			#	$vSql = "CALL ItemsGetOne('$vID')";
-			#	$vResultado = mysqli_query($link, $vSql);
-			#	$fila = mysqli_fetch_array($vResultado);
-			#}
-			
-
-		?>
-		<form role="form" action="<?php if(isset($_COOKIE["id_item"])) { ?> ../code/itemMOD.php <?php }else{ ?> ../code/itemALTA.php <?php }?>" method="post" id="formTabla" name="formTabla">
+		<form role="form" action="../code/itemALTA.php" method="post" id="formTabla" name="formTabla">
 			<table>
 <!--			<% if(request.getSession().getAttribute("message")!=null){ %>									ESTE ERROR HAY QUE SACARLO DE OTRA MANERA Y PROBAR HACIENDO UN  MODAL
 			<tr>
@@ -76,14 +60,12 @@
 				<tr>
 					<td><b>Código:</b></td>
 					
-					<td><input type="text" readonly class="form-control" id="idItem" name="idItem" value="<?php if(isset($_COOKIE["id_item"])) echo $fila['id_item']?>" size="43" /></td>
+					<td><input type="text" readonly class="form-control" id="idItem" name="idItem" size="43" /></td>
 				</tr>
 				<tr>
 					<td><b>Título:</b></td>
 					<td>
-						<div class="form-inline">
-							<input type="text" class="form-control" id="tituloItem" name="tituloItem" value="<?php if(isset($_COOKIE["id_item"])) echo $fila['titulo']?>" size="55"  required="required" />
-						</div>
+						<input type="text" class="form-control" id="tituloItem" name="tituloItem" size="55"  required="required" />
 					</td>
 				</tr>
 				<tr>
@@ -121,25 +103,31 @@
 				</tr>
 				<tr>
 					<td><b>Año Lanzamiento: </b></td>
-					<td><input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" value="<?php if(isset($_COOKIE["id_item"])) echo $fila['anio_lanzamiento']?>"  required="required" /></td>
+					<td><input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" required="required" /></td>
 				</tr>
 				<tr>
 					<td><b>Precio:</b></td>
-					<td><input type="text" class="form-control" id="precioItem" name="precioItem" value="<?php if(isset($_COOKIE["id_item"])) echo $fila['monto']?>"  required="required" /></td>
+					<td><input type="text" class="form-control" id="precioItem" name="precioItem" required="required" /></td>
 				</tr>
 				<tr>
 					<td><b>Stock:</b></td>
-					<td><input type="text" class="form-control" id="stock" name="stock" value="<?php if(isset($_COOKIE["id_item"])) echo $fila['stock']?>"  required="required" /></td>
+					<td><input type="text" class="form-control" id="stock" name="stock" required="required" /></td>
 				</tr>
 				<tr>
 					<td><b>URL Portada:</b></td>
-					<td><input type="text" class="form-control" id="urlPortada" name="urlPortada" value="<?php if(isset($_COOKIE["id_item"])) echo $fila['url_portada']?>"></td>
+					<td><input type="text" class="form-control" id="urlPortada" name="urlPortada" required="required" /></td>
+				</tr>
+				<tr>
+					<td><b>Habilitado:</b></td>
+					<td>
+						<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" />
+					</td>
 				</tr>
 				<tr><td> <br /> </td></tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input class="btn btn-success" type="submit" value="Guardar" id="saveItem" name="saveItem" />
-					<input class="btn btn-default" type="submit" value="Cancelar" id="clearForm" name="clearForm" />
+					<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" />
+					<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
 				</td>
 			</tr>
 			</table>
@@ -183,18 +171,23 @@
 						<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
 					</td>
 					<td></td>
-					<form role="form" action="../code/cookieMOD.php" method="post" id="botonera" name="botonera">
+					<form role="form" action="../code/itemModificar.php" method="post" id="botonera" name="botonera">
 						<td style="vertical-align: middle">
 							<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
-							<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="eventUpdate" name="eventUpdate" /> 
-							<input class="btn btn-danger btn-sm" type="submit" value="Eliminar" id="eventDelete" name="eventDelete" />
+							<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 
+							<input class="btn btn-danger btn-sm" type="submit" value="Eliminar" id="event" name="event" />
 						</td>
 					</form>
 				</tr>
 				<?php 	} ?>
 			</tbody>
 		</table>
-
+		<?php
+			function cookie(){
+				setcookie('id_item', idSelect, 60);
+				header("location:../pages/item.php");
+			}
+		?>
 
 	</div>
 </body>
