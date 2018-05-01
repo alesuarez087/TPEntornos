@@ -122,7 +122,7 @@ CREATE TABLE `items` (
   CONSTRAINT `item_artista` FOREIGN KEY (`id_artista`) REFERENCES `artistas` (`id_artista`),
   CONSTRAINT `item_genero` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id_genero`),
   CONSTRAINT `item_tipo_item` FOREIGN KEY (`id_tipo_disco`) REFERENCES `tipos_item` (`id_tipo_item`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',89,1,1,1,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(4,'Máquina de Sangre','2003',100,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(20,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(21,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(22,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(23,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg');
+INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',89,1,1,1,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `precios` (
 
 LOCK TABLES `precios` WRITE;
 /*!40000 ALTER TABLE `precios` DISABLE KEYS */;
-INSERT INTO `precios` VALUES (0,'2018-04-26',200),(1,'2017-03-05',100),(1,'2017-04-17',200),(2,'2017-03-05',100),(2,'2017-04-21',200),(3,'2017-03-05',100),(4,'2017-03-05',100),(5,'2017-03-05',100),(6,'2017-03-05',100),(7,'2017-03-05',200),(24,'2018-04-26',200),(25,'2018-04-26',200),(26,'2018-04-26',200);
+INSERT INTO `precios` VALUES (0,'2018-04-26',200),(1,'2017-03-05',100),(1,'2017-04-17',200),(1,'2018-05-01',200),(2,'2017-03-05',100),(2,'2017-04-21',200),(2,'2018-05-01',200),(3,'2017-03-05',100),(4,'2017-03-05',100),(5,'2017-03-05',100),(5,'2018-05-01',100),(6,'2017-03-05',100),(7,'2017-03-05',200),(24,'2018-04-26',200),(25,'2018-04-26',200),(26,'2018-04-26',200),(27,'2018-05-01',200),(28,'2018-05-01',197),(29,'2018-05-01',400);
 /*!40000 ALTER TABLE `precios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,7 +383,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ArtistasGetAllHabilitado` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -391,20 +390,20 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ArtistasGetAllHabilitado`()
 BEGIN
 SELECT *
 FROM artistas
-WHERE artistas.habilitado = true;
+WHERE artistas.habilitado = true
+ORDER BY artistas.nombre_artista;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ArtistasGetOne` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -801,7 +800,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ItemsBusqueda` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -809,14 +807,24 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsBusqueda`(IN busca VARCHAR(45))
 BEGIN
-select *
+drop temporary table if exists valores_actuales;
+
+create temporary table valores_actuales(
+select id_item, max(fecha_desde) as vigencia_desde
+from precios
+group by id_item
+);
+
+select it.*, ar.nombre_artista as nombre_artista, p.monto
 from items it
 inner join artistas ar on ar.id_artista = it.id_artista
-where it.titulo like (concat('%', busca, '%')) or ar.nombre_artista like (concat('%', busca, '%'))
+inner join precios p on p.id_item = it.id_item
+inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+where (it.titulo like busca or ar.nombre_artista like busca)
 group by it.id_item
 ;
 END ;;
@@ -825,7 +833,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ItemsDelete` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -990,7 +997,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ItemsGetOne` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -998,20 +1004,36 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsGetOne`(IN id INT)
 BEGIN
-	SELECT *
-    FROM items
-    WHERE id_item = id;
+
+    drop temporary table if exists valores_actuales;
+
+	create temporary table valores_actuales(
+	select id_item, max(fecha_desde) as vigencia_desde
+	from precios
+	group by id_item
+	);
+
+	select it.*, ar.id_artista as id_artista, ar.nombre_artista as nombre_artista, g.id_genero as id_genero, 
+			g.desc_genero as desc_genero, p.monto, ti.id_tipo_item as id_tipo_item, ti.desc_tipo_item
+	from items it
+	inner join artistas ar on it.id_artista = ar.id_artista
+	inner join generos g on it.id_genero = g.id_genero
+	inner join precios p on p.id_item = it.id_item
+	inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+	inner join tipos_item ti on it.id_tipo_disco = ti.id_tipo_item
+    where it.id_item = id and it.habilitado = 1
+	group by it.id_item
+    ;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ItemsGetTop8` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1038,6 +1060,7 @@ inner join artistas ar on it.id_artista = ar.id_artista
 inner join venta_item vi on it.id_item = vi.id_item
 inner join precios p on p.id_item = it.id_item
 inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+where it.habilitado = 1
 group by it.id_item
 order by cantidad desc 
 limit 0,8
@@ -1076,7 +1099,7 @@ inner join venta_item vi on it.id_item = vi.id_item
 inner join ventas ve on vi.id_venta = ve.id_venta
 inner join precios p on p.id_item = it.id_item
 inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
-where ve.fecha <= curdate() and ve.fecha>= date_sub(now(), interval 1 month)
+where ve.fecha <= curdate() and ve.fecha>= date_sub(now(), interval 1 month) and it.habilitado = 1
 group by it.id_item
 order by cantidad desc 
 limit 0,4
@@ -1115,7 +1138,7 @@ inner join venta_item vi on it.id_item = vi.id_item
 inner join ventas ve on vi.id_venta = ve.id_venta
 inner join precios p on p.id_item = it.id_item
 inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
-where ve.fecha <= curdate() and ve.fecha>= date_sub(now(), interval 7 day)
+where ve.fecha <= curdate() and ve.fecha>= date_sub(now(), interval 7 day) and it.habilitado = 1
 group by it.id_item
 order by cantidad desc 
 limit 0,8;
@@ -1152,6 +1175,42 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `ItemsNovedades` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsNovedades`()
+BEGIN
+drop temporary table if exists valores_actuales;
+
+create temporary table valores_actuales(
+select id_item, max(fecha_desde) as vigencia_desde
+from precios
+group by id_item
+);
+
+select it.*, ar.nombre_artista as nombre_artista, p.monto
+from items it
+inner join artistas ar on it.id_artista = ar.id_artista
+inner join precios p on p.id_item = it.id_item
+inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+where it.habilitado = 1
+group by it.id_item
+order by it.id_item desc 
+limit 0,8
+;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ItemsUpdate` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1773,4 +1832,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-26 16:36:48
+-- Dump completed on 2018-05-01 19:59:03

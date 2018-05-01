@@ -10,10 +10,7 @@
 </head>
 
 	<?php 
-		include("../code/conexion.inc");
 		
-		$vSql = 'CALL ItemsGetTop8';
-		$vResultado = mysqli_query($link, $vSql);
 		
 		
 	?>
@@ -51,7 +48,7 @@
 				<li><a href="login.php">Iniciar Sesión</a></li>
 				<?php } ?>
 			</ul>
-			<form action="srvItem" method="post" class="navbar-form navbar-right" >
+			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
 				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
 			</form>
 		</div>
@@ -74,11 +71,16 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<h2 class="page-header">Discos</h2>
 		
-		<!-- CARGA DE DISCOS MÁS VENDIDOS -->
+		<!-- CARGA DE DISCOS RECIENTESMENTE AGREGADOS -->
 		
 		<div class="row placeholders">
-			<h3>Top de Ventas</h3>
-			<?php while ($fila = mysqli_fetch_array($vResultado)){ ?>
+			<h3>Novedades</h3>
+			<?php 
+				include("../code/conexion.inc");
+				$vSql = 'CALL ItemsNovedades';
+				$vResultado = mysqli_query($link, $vSql);
+				while ($fila = mysqli_fetch_array($vResultado)){ 
+			?>
 			<div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h4><?php echo($fila['titulo']);?></h4>
@@ -86,7 +88,35 @@
 				<h4>
 					$<?php echo($fila['monto']);?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
+					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
+				</form>
+			</div>
+			<?php } ?>
+		</div>
+		
+		<br>
+		
+		
+		<!-- CARGA DE DISCOS MÁS VENDIDOS -->
+
+		
+		<div class="row placeholders">
+			<h3>Top de Ventas</h3>
+			<?php 
+				include("../code/conexion.inc");
+				$vSql = 'CALL ItemsGetTop8';
+				$vResultado = mysqli_query($link, $vSql);
+				while ($fila = mysqli_fetch_array($vResultado)){ 
+			?>
+			<div class="col-xs-6 col-sm-3 placeholder">
+				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($fila['titulo']);?></h4>
+				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
+				<h4>
+					$<?php echo($fila['monto']);?></h4>
+				<form action="srvCompra" method="post" id="compra" name="compra">
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -110,7 +140,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item'] ;?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -134,7 +164,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -158,7 +188,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" />
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" />
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -166,6 +196,5 @@
 		</div>
 
 	</div>
-
 </body>
 </html>
