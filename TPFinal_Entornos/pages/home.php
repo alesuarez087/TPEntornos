@@ -11,7 +11,7 @@
 
 	<?php 
 		
-		
+
 		
 	?>
 
@@ -45,7 +45,7 @@
 				?>
 				<li><a href="valid.jsp">Cerrar Sesión</a></li>
 				<?php } else { ?>
-				<li><a href="login.php">Iniciar Sesión</a></li>
+				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
 				<?php } ?>
 			</ul>
 			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
@@ -69,6 +69,8 @@
 	</div>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<?php if(isset( $_COOKIE['usuario'])) echo $_COOKIE['usuario']; ?>
+	
 		<h2 class="page-header">Discos</h2>
 		
 		<!-- CARGA DE DISCOS RECIENTESMENTE AGREGADOS -->
@@ -192,7 +194,7 @@
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
-			<?php } ?>
+			<?php } mysqli_close($link); ?>
 		</div>
 
 	</div>

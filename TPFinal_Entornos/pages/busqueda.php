@@ -66,12 +66,11 @@
 		
 		<!-- CARGAS DE RESULTADOS  --->
 		<?php
-			echo $vBuscar;
 			include("../code/conexion.inc");
 			$vSql = "CALL ItemsBusqueda('$vBuscar')";
 			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));
-			if($vResultado != NULL){ 
-				while($fila = mysqli_fetch_array($vResultado)){
+			if(isset($vResultado)){  
+				while($fila = mysqli_fetch_array($vResultado)){ echo ("FILA TIENE ALGO"); echo $vBuscar;
 		?>
 				<div class="row placeholders">
 					<h3>Resultados de la busqueda</h3>

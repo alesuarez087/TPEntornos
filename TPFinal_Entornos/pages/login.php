@@ -4,7 +4,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../styles/css/bootstrap.min.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -38,7 +38,7 @@
 		<div class="panel panel-primary">
 			<h3 class="panel-heading">Iniciar Sesión</h3>
 			<div class="panel-body">
-				<form role="form" action="srvInicio" method="post" id="formInicio" name="formInicio">
+				<form role="form" action="../code/login.php" method="post" id="login" name="login">
 					<div class="form-group">
 						<label for="userregister">Usuario:</label> 
 						<input type="text" class="form-control" id="userLogin" name="userLogin" >
@@ -47,11 +47,13 @@
 						<label for="password">Contraseña:</label>
 						<input type="password" class="form-control" id="passLogin" name="passLogin">
 					</div>
-					<%if (request.getAttribute("messageError")!=null){ %>
+					
+<!--					<%if (request.getAttribute("messageError")!=null){ %>
 					<font color="#FF0000"> <%=request.getAttribute("messageError") %> </font> <br />
 					<%} %>
+-->
 					<div class="form-group">
-						<input class="btn btn-success btn-block" type="submit" value="Ingresar" id="btnIngresar" name="eventLogin" />
+						<input class="btn btn-success btn-block" type="submit" value="Ingresar" id="event" name="event" />
 					</div>
 				</form>
 			</div>
@@ -63,11 +65,12 @@
 			<h3 class="panel-heading">Registrarse</h3>
 			<div class="panel-body">
 				<form role="form" action="srvInicio" method="post" id="formReg" name="formReg">
-					<%if (request.getAttribute("messageError2")!=null){ %>
+<!--					<%if (request.getAttribute("messageError2")!=null){ %>
 						<div class="form-group">
 							<font color="#FF0000"> <%=request.getAttribute("messageError2") %></font>
 						</div>
 					<%} %>
+-->
 					<div class="form-group">
 						<label for="user">Usuario</label>
 						<input type="text" class="form-control" id="userCreate" name="userCreate">
@@ -100,7 +103,7 @@
 	</div>
 
 	<?php
-		} else header('Location: home.php');
+		} else header('Location: ../pages/home.php');
 	?>
 
 </body>
