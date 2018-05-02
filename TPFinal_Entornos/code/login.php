@@ -8,13 +8,15 @@
 			$vUser = $_POST['userLogin'];
 			$vPass = $_POST['passLogin'];
 			
+			echo $vUser;
+			
 			include("../code/conexion.inc");
 			$vSql = "CALL UsuariosLogin('$vUser', '$vPass')";
 			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));
 			
-			while($fila = mysqli_fetch_row($vResultado)){
-					setcookie('usuario', $fila['id_usuario'], time()+60*60);
-					setcookie('tipo_usuario', $fila['id_tipo_usuario'], time()+60*60);
+			while($fila = mysqli_fetch_array($vResultado)){
+					setcookie("usuario", $fila['id_usuario'], time()+3600, "/");
+					setcookie("tipo_usuario", $fila['id_tipo_usuario'], time()+3600, "/");
 					header('Location: ../pages/home.php');
 			}
 		}

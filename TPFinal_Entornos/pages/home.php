@@ -69,8 +69,6 @@
 	</div>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	<?php if(isset( $_COOKIE['usuario'])) echo $_COOKIE['usuario']; ?>
-	
 		<h2 class="page-header">Discos</h2>
 		
 		<!-- CARGA DE DISCOS RECIENTESMENTE AGREGADOS -->
