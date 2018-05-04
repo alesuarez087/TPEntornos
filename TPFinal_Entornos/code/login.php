@@ -19,6 +19,11 @@
 					setcookie("tipo_usuario", $fila['id_tipo_usuario'], time()+3600, "/");
 					header('Location: ../pages/home.php');
 			}
+		} else {
+			setcookie("usuario", '', time()-3600, "/");
+			setcookie("tipo_usuario", '', time()-3600, "/");
+			
+			header('Location: ../pages/home.php');
 		}
 	?>
 </body>

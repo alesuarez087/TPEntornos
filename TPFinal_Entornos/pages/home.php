@@ -9,11 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
 
-	<?php 
-		
 
-		
-	?>
 
 <body>	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -22,7 +18,7 @@
 			<a class="navbar-brand">Luzbelito</a>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="home.php">Discos</a></li>
-				<?php 	if(isset($_COOKIE["usuario"])) { 
+				<?php 	if(isset($_COOKIE["usuario"]) and $_COOKIE["usuario"]!= " ") { 
 					if ($_COOKIE["tipo_usuario"]==1){ ?>
 				<li><a href="adminInicio.jsp">Editar</a></li>
 				<?php } else { ?>
@@ -33,7 +29,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<?php 
-						if (isset($_COOKIE["usuario"])){
+						if (isset($_COOKIE["usuario"]) and $_COOKIE["usuario"]!= " "){
 							if ($_COOKIE["tipo_usuario"]==3){ 
 							  if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
 							  else $vNRO=0;
@@ -43,7 +39,7 @@
 				<?php 
 							} 
 				?>
-				<li><a href="valid.jsp">Cerrar Sesión</a></li>
+				<li><a href="../code/login.php">Cerrar Sesión</a></li>
 				<?php } else { ?>
 				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
 				<?php } ?>
@@ -69,6 +65,11 @@
 	</div>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<?php 
+		
+
+		
+	?>
 		<h2 class="page-header">Discos</h2>
 		
 		<!-- CARGA DE DISCOS RECIENTESMENTE AGREGADOS -->
