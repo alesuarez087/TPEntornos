@@ -7,18 +7,18 @@
 
 <?php 
 
-	setcookie("modificar", "", time()-3600, "/"); 
-	setcookie("eliminar", "", time()-3600, "/"); 
-	include("../code/conexion.inc");
-	$fila = "NO ME ANDA";
-	$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
-	$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
+	if(isset($_POST['idSelect'])){
+		setcookie("modificar", "", time()-3600, "/"); 
+		setcookie("eliminar", "", time()-3600, "/"); 
+		include("../code/conexion.inc");
+		$fila = "NO ME ANDA";
+		$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
+		$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
 
-	$vResultado = mysqli_query($link, $vSql);
-	if(!$vResultado){echo mysqli_error($link); exit;}
-	$fila = mysqli_fetch_row($vResultado);
+		$vResultado = mysqli_query($link, $vSql);
+		if(!$vResultado){echo mysqli_error($link); exit;}
+		$fila = mysqli_fetch_row($vResultado);
 	
-
 		$vHab = FALSE;
 		setcookie("id_item", $fila[0], time()+3600, "/");
 		setcookie("titulo", $fila[1], time()+3600, "/");
@@ -31,12 +31,12 @@
 		setcookie("id_tipo_item", $fila[7], time()+3600, "/");
 		setcookie("url", $fila[8], time()+3600, "/");
 		setcookie("precio", $fila[9], time()+3600, "/");
-																				
-		if($_POST['event'] != 'Eliminar'){ setcookie("modificar", "Modificar", time()+3600, "/"); }
-		else { setcookie("eliminar", "Eliminar", time()+3600, "/"); }
+																			
+		if($_POST['event'] != 'Eliminar') setcookie("modificar", "Modificar", time()+3600, "/");
+		else setcookie("eliminar", "Eliminar", time()+3600, "/"); 
 		
-		header("location:../pages/item.php");
-#	}
+	}
+	header("location:../pages/item.php");
 
 ?>
 
