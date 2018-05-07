@@ -18,7 +18,7 @@
 			<a class="navbar-brand">Luzbelito</a>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="home.php">Discos</a></li>
-				<?php 	if(isset($_COOKIE["usuario"]) and $_COOKIE["usuario"]!= " ") { 
+				<?php 	if(isset($_COOKIE["usuario"])) { 
 					if ($_COOKIE["tipo_usuario"]==1){ ?>
 				<li><a href="adminInicio.jsp">Editar</a></li>
 				<?php } else { ?>
@@ -29,7 +29,7 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<?php 
-						if (isset($_COOKIE["usuario"]) and $_COOKIE["usuario"]!= " "){
+						if (isset($_COOKIE["usuario"])){
 							if ($_COOKIE["tipo_usuario"]==3){ 
 							  if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
 							  else $vNRO=0;
