@@ -10,17 +10,26 @@
 <body>
 	<script>
 		function validar(){
-			var anio = document.getElementById("anioLanzamiento").value;
-			var precio = document.getElementById("precioItem").value;
-			var stock = document.getElementById("stock").value;
-			
+			anio = document.form.anioLanzamiento.value
+			precio = document.form.precioItem.value
+			stock = document.form.stock.value
+			indiceArtista = document.form.cmbArtista.selectedIndex
+			indiceGenero = document.form.cmbGenero.selectedIndex
+			indiceTipoDisco = document.form.cmbTipoDisco.selectedIndex
+					
 			if (isNaN(anio)){
 				alert("El año no es un número"); return false;
-			} else if (isNaN(stock){
+			} else if (isNaN(stock)){
 				alert("El stock no es un número"); return false;
-			} else if(isNaN(precio){
+			} else if(isNaN(precio)){
 				alert("El precio no es un número"); return false;
-			}else return true
+			} else if(indiceArtista == null || indiceArtista == 0) {
+				alert("Seleccione un Artista"); return false;
+			} else if(indiceGenero == null || indiceGenero == 0) {
+				alert("Seleccione un Genero"); return false;
+			} else if(indiceTipoDisco == null || indiceTipoDisco == 0) {
+				alert("Seleccione un Tipo de Item"); return false;
+			} else return true
 		}
 	</script>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -63,7 +72,7 @@
 			  else { ?> <h2 class="page-header">Nuevo Item</h2> <?php } ?>	
 		<br>
 		
-		<form role="form" action="../code/itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
+		<form role="form" action="../code/itemGUARDAR.php" method="post" id="form" name="form" onsubmit="return validar()">
 			<table>
 <!--			<% if(request.getSession().getAttribute("message")!=null){ %>									ESTE ERROR HAY QUE SACARLO DE OTRA MANERA Y PROBAR HACIENDO UN  MODAL
 			<tr>
