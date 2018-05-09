@@ -19,12 +19,19 @@
 					setcookie("tipo_usuario", $fila['id_tipo_usuario'], time()+3600, "/");
 					header('Location: ../pages/home.php');
 			}
-		} else {
-			setcookie("usuario", '', time()-3600, "/");
-			setcookie("tipo_usuario", '', time()-3600, "/");
+		}else if($_POST['event']=='Registrar'){
+			$vUser= $_POST['userCreate']
+			$vPass = $_POST['passCreate']
+			$vNombre = $_POST['nombre']
+			$vApellido = $_POST['apellido']
+			$vDNI= $_POST['dni']
+			$vEmail = $_POST['email']
+			}else {
+				setcookie("usuario", '', time()-3600, "/");
+				setcookie("tipo_usuario", '', time()-3600, "/");
 			
-			header('Location: ../pages/home.php');
-		}
+				header('Location: ../pages/home.php');
+			}
 	?>
 </body>
 </html>

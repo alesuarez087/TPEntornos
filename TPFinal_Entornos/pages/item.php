@@ -8,7 +8,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
+	<script>
+		function validar(){
+			var anio = document.getElementById("anioLanzamiento").value;
+			var precio = document.getElementById("precioItem").value;
+			var stock = document.getElementById("stock").value;
+			
+			if (isNaN(anio)){
+				alert("El año no es un número"); return false;
+			} else if (isNaN(stock){
+				alert("El stock no es un número"); return false;
+			} else if(isNaN(precio){
+				alert("El precio no es un número"); return false;
+			}else return true
+		}
+	</script>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
@@ -46,15 +60,10 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
 		<?php if(isset($_COOKIE["modificar"])) { ?> <h2 class="page-header">Modificar Item</h2> <?php }
 			  else if(isset($_COOKIE["eliminar"])) { ?> <h2 class="page-header">Eliminar Item</h2> <?php }
-			  else { ?> <h2 class="page-header">Nuevo Item</h2> <?php } ?>
-		<?php 
-#			$_COOKIE["item"];
-#			if(isset($_COOKIE["item"])){ $item = $_COOKIE["id_item"];
-		?>
-		
+			  else { ?> <h2 class="page-header">Nuevo Item</h2> <?php } ?>	
 		<br>
 		
-		<form role="form" action="../code/itemGUARDAR.php" method="post" id="formTabla" name="formTabla">
+		<form role="form" action="../code/itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<table>
 <!--			<% if(request.getSession().getAttribute("message")!=null){ %>									ESTE ERROR HAY QUE SACARLO DE OTRA MANERA Y PROBAR HACIENDO UN  MODAL
 			<tr>

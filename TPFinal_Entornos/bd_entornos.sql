@@ -122,7 +122,7 @@ CREATE TABLE `items` (
   CONSTRAINT `item_artista` FOREIGN KEY (`id_artista`) REFERENCES `artistas` (`id_artista`),
   CONSTRAINT `item_genero` FOREIGN KEY (`id_genero`) REFERENCES `generos` (`id_genero`),
   CONSTRAINT `item_tipo_item` FOREIGN KEY (`id_tipo_disco`) REFERENCES `tipos_item` (`id_tipo_item`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',89,1,1,1,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg');
+INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',100,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas peleandole al viento','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `precios` (
 
 LOCK TABLES `precios` WRITE;
 /*!40000 ALTER TABLE `precios` DISABLE KEYS */;
-INSERT INTO `precios` VALUES (0,'2018-04-26',200),(1,'2017-03-05',100),(1,'2017-04-17',200),(1,'2018-05-01',200),(2,'2017-03-05',100),(2,'2017-04-21',200),(2,'2018-05-01',200),(3,'2017-03-05',100),(4,'2017-03-05',100),(5,'2017-03-05',100),(5,'2018-05-01',100),(6,'2017-03-05',100),(7,'2017-03-05',200),(24,'2018-04-26',200),(25,'2018-04-26',200),(26,'2018-04-26',200),(27,'2018-05-01',200),(28,'2018-05-01',197),(29,'2018-05-01',400);
+INSERT INTO `precios` VALUES (0,'2018-04-26',200),(0,'2018-05-04',250),(0,'2018-05-07',250),(1,'2017-03-05',100),(1,'2017-04-17',200),(1,'2018-05-01',200),(2,'2017-03-05',100),(2,'2017-04-21',200),(2,'2018-05-01',200),(2,'2018-05-04',200),(2,'2018-05-07',200),(3,'2017-03-05',100),(4,'2017-03-05',100),(5,'2017-03-05',100),(5,'2018-05-01',100),(5,'2018-05-07',100),(6,'2017-03-05',100),(7,'2017-03-05',200),(24,'2018-04-26',200),(25,'2018-04-26',200),(26,'2018-04-26',200),(27,'2018-05-01',200),(28,'2018-05-01',197),(29,'2018-05-01',400),(30,'2018-05-04',250),(31,'2018-05-04',250),(31,'2018-05-07',250),(32,'2018-05-07',250),(33,'2018-05-07',250),(34,'2018-05-07',0),(35,'2018-05-08',350),(36,'2018-05-08',0);
 /*!40000 ALTER TABLE `precios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -824,7 +824,7 @@ from items it
 inner join artistas ar on ar.id_artista = it.id_artista
 inner join precios p on p.id_item = it.id_item
 inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
-where (it.titulo like busca or ar.nombre_artista like busca)
+where (it.titulo like concat('%', busca, '%') or ar.nombre_artista like concat('%', busca, '%')) and it.habilitado = 1
 group by it.id_item
 ;
 END ;;
@@ -1017,15 +1017,11 @@ BEGIN
 	group by id_item
 	);
 
-	select it.*, ar.id_artista as id_artista, ar.nombre_artista as nombre_artista, g.id_genero as id_genero, 
-			g.desc_genero as desc_genero, p.monto, ti.id_tipo_item as id_tipo_item, ti.desc_tipo_item
+	select it.*, p.monto
 	from items it
-	inner join artistas ar on it.id_artista = ar.id_artista
-	inner join generos g on it.id_genero = g.id_genero
 	inner join precios p on p.id_item = it.id_item
 	inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
-	inner join tipos_item ti on it.id_tipo_disco = ti.id_tipo_item
-    where it.id_item = id and it.habilitado = 1
+    where it.id_item = id
 	group by it.id_item
     ;
 END ;;
@@ -1832,4 +1828,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-01 19:59:03
+-- Dump completed on 2018-05-09 11:25:20

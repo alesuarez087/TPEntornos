@@ -64,7 +64,7 @@
 		<div class="panel panel-primary">
 			<h3 class="panel-heading">Registrarse</h3>
 			<div class="panel-body">
-				<form role="form" action="srvInicio" method="post" id="formReg" name="formReg">
+				<form role="form" action="../code/login.php" method="post" id="formReg" name="formReg">
 <!--					<%if (request.getAttribute("messageError2")!=null){ %>
 						<div class="form-group">
 							<font color="#FF0000"> <%=request.getAttribute("messageError2") %></font>
@@ -95,7 +95,7 @@
 						<input type="text" class="form-control" id="email" name="email">
 					</div>
 					<div class="form-group">
-						<input class="btn btn-success btn-block" type="submit" value="Registrar" id="eventoRegistrar" name="eventRegisterUser" />
+						<input class="btn btn-success btn-block" type="submit" value="Registrar" id="event" name="event" />
 					</div>
 				</form>
 			</div>
