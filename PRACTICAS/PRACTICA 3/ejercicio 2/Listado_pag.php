@@ -7,8 +7,8 @@
 <body>
 
 	<?php
-		include("conexion.inc");
-		$Cant_por_Pag = 2;
+		include("conexion1.inc");
+		$Cant_por_Pag = 10;
 		$pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
 
 		if (!$pagina) {
@@ -18,26 +18,27 @@
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
 		}// total de páginas
-		$vSql = "SELECT * FROM ciudades";
+		$vSql = "SELECT * FROM items";
 		$vResultado = mysqli_query($link, $vSql);
 		$total_registros=mysqli_num_rows($vResultado);
 		$total_paginas = ceil($total_registros/ $Cant_por_Pag);
-		echo "Numero de registros encontrados: " . $total_registros . "<br>";
-		echo "Se muestran paginas de " . $Cant_por_Pag . " registros cada una<br>";
-		echo "Mostrando la pagina " . $pagina . " de " . $total_paginas . "<p>";
-		$vSql = "SELECT * FROM ciudades"." limit " . $inicio . "," . $Cant_por_Pag;
+		
+		$vSql = "CALL ItemsGetAllLimit('$inicio', '$Cant_por_Pag')";
 		$vResultado = mysqli_query($link, $vSql);
 		$total_registros=mysqli_num_rows($vResultado);
 
 	?>
 	<table border=1>
 		<tr>
-			<td><b>ID</b></td>
-			<td><b>CIUDAD</b></td>
-			<td><b>PAIS</b></td>
-			<td><b>HABITANTES</b></td>
-			<td><b>SUPERFICIE (m²)</b></td>
-			<td><b>METRO</b></td>
+			<th>Código</th>
+					<th>Título</th>
+					<th>Autor</th>
+					<th>Año Lanzamiento</th>
+					<th>Género</th>
+					<th>Precio</th>
+					<th>Stock</th>
+					<th>Habilitado</th>
+					<th></th>
 		</tr>
 
 		<?php
@@ -45,17 +46,33 @@
 			{
 		?>
 		<tr>
-			<td><?php echo ($fila['id_ciudad']); ?></td>
-			<td><?php echo ($fila['nombre']); ?></td>
-			<td><?php echo ($fila['pais']); ?></td>
-			<td><?php echo ($fila['habitantes']); ?></td>
-			<td><?php echo ($fila['superficie']); ?></td>
-			<td><?php echo ($fila['metro']); ?></td>
+			<td><?php echo $fila['id_item']; ?></td>
+					<td><?php echo $fila['titulo']; ?></td>
+					<td><?php echo $fila['nombre_artista']; ?></td>
+					<td><?php echo $fila['anio_lanzamiento']; ?></td>
+					<td><?php echo $fila['desc_genero']; ?></td>
+					<td><?php echo $fila['monto']; ?></td>
+					<td><?php echo $fila['stock']; ?></td>
+					<td style="vertical-olign: middle">
+						<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
+					</td>
+					<td></td>
+					<form role="form" action="../code/itemONE.php" method="post" id="botonera" name="botonera">
+						<td style="vertical-align: middle">
+							<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
+							<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 
+							<input class="btn btn-danger btn-sm" type="submit" <?php if(!$fila['habilitado']){ ?>  disabled="disabled" <?php } ?> value="Eliminar" id="event" name="event" />
+						</td>
+					</form>
 		</tr>
 	<?php } ?>
-
-		<tr><td colspan="6"><p align="center"><a href="Menu.html">Volver al men&uacute; del ABM</a></p></td></tr>
-	</table>
+		<tr>
+			<td colspan="9" style="text-align:center">
+				<?php echo "Pagina ". $pagina . " de " . $total_paginas ; ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="9" style="text-align:center">
 	<?php
 		// Liberar conjunto de resultados
 		mysqli_free_result($vResultado);
@@ -74,7 +91,9 @@
 			}
 		}
 	?>
-
+		</td>
+	</tr>
+	</table>
 </body>
 </html>
 
