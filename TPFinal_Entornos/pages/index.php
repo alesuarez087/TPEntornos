@@ -1,3 +1,18 @@
+<?php 
+	session_start(); 
+	$tipoUsuario = NULL;
+	if(isset($_SESSION['usuario'])){
+		$id = $_SESSION['usuario'];
+		include("../code/conexion.inc");
+		$vSql = "CALL UsuariosGetOneForId('$id')";
+		$vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));
+			
+		if($fila = mysqli_fetch_array($vResultado)){
+			$tipoUsuario = $fila['id_tipo_usuario'];
+		}
+	}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,31 +36,58 @@
 			<a class="navbar-brand">Luzbelito</a>
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="home.php">Discos</a></li>
-				<?php 	if(isset($_COOKIE["usuario"])) { 
-					if ($_COOKIE["tipo_usuario"]==1){ ?>
+				<?php 	if ($tipoUsuario ==1){ ?>
 				<li><a href="adminInicio.jsp">Editar</a></li>
 				<?php } else { ?>
 				<li><a href="listCompras.jsp">Compras</a></li>
-				<?php } }?>
+				<?php } ?>
+
+			
+<!--				<li class="active"><a href="home.php">Discos</a></li>
+				<?php #	if(isset($_COOKIE["usuario"])) { 
+				#	if ($_COOKIE["tipo_usuario"]==1){ ?>
+				<li><a href="adminInicio.jsp">Editar</a></li>
+				<?php #} else { ?>
+				<li><a href="listCompras.jsp">Compras</a></li>
+				<?php #} }?>
+-->
 			</ul>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<?php 
-						if (isset($_COOKIE["usuario"])){
-							if ($_COOKIE["tipo_usuario"]==3){ 
-							  if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
-							  else $vNRO=0;
+			 
+			<?php 
+					if (isset($tipoUsuario)){
+						if ($tipoUsuario==3){ 
+							if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
+							else $vNRO=0;
 				?>
-				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php echo ($vNRO); ?>)</a></li>
+				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</a></li>
 
 				<?php 
 							} 
 				?>
 				<li><a href="../code/login.php">Cerrar Sesión</a></li>
-				<?php } else { ?>
+				<?php  } else { ?>
 				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
 				<?php } ?>
+				
+<!--				<?php 
+					#	if (isset($_COOKIE["usuario"])){
+						#	if ($_COOKIE["tipo_usuario"]==3){ 
+						#	  if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
+						#	  else $vNRO=0;
+				?>
+				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php # echo ($vNRO); ?>)</a></li>
+
+				<?php 
+						#	} 
+				?>
+				<li><a href="../code/login.php">Cerrar Sesión</a></li>
+				<?php # } else { ?>
+				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
+				<?php #} ?>
+-->
 			</ul>
 			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
 				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">

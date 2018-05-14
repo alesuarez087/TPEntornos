@@ -47,11 +47,6 @@
 						<label for="password">Contraseña:</label>
 						<input type="password" class="form-control" id="passLogin" name="passLogin">
 					</div>
-					
-<!--					<%if (request.getAttribute("messageError")!=null){ %>
-					<font color="#FF0000"> <%=request.getAttribute("messageError") %> </font> <br />
-					<%} %>
--->
 					<div class="form-group">
 						<input class="btn btn-success btn-block" type="submit" value="Ingresar" id="event" name="event" />
 					</div>
@@ -65,12 +60,6 @@
 			<h3 class="panel-heading">Registrarse</h3>
 			<div class="panel-body">
 				<form role="form" action="../code/login.php" method="post" id="formReg" name="formReg">
-<!--					<%if (request.getAttribute("messageError2")!=null){ %>
-						<div class="form-group">
-							<font color="#FF0000"> <%=request.getAttribute("messageError2") %></font>
-						</div>
-					<%} %>
--->
 					<div class="form-group">
 						<label for="user">Usuario</label>
 						<input type="text" class="form-control" id="userCreate" name="userCreate">
