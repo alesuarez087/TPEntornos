@@ -7,16 +7,21 @@
 <link href="../styles/css/dashboard.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-</head>
-<body>	
-	<?php $vBuscar = $_POST['buscar']; ?>
-
+</head>	
+	<?php  
+		function error(){
+			echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
+		}
+		if(isset($_POST['buscar'])){
+			$vBuscar = '%'.$_POST['buscar'].'%'; 
+	?>
+<body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand">Luzbelito</a>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="home.php">Discos</a></li>
+				<li class="active"><a href="index.php">Discos</a></li>
 				<?php 	if(isset($_COOKIE["usuario"])) { 
 					if ($_COOKIE["tipo_usuario"]==1){ ?>
 				<li><a href="adminInicio.jsp">Editar</a></li>
@@ -56,45 +61,51 @@
 				<ul class="nav nav-sidebar">
 					<li><a>Seleccione Búsqueda<span class="sr-only">(current)</span></a></li>
 					<li class="active"><a href="../pages/home.php">Inicio<span class="sr-only">(current)</span></a></li>
-					<li><a href="itemForGenero.jsp">Géneros</a></li>
+					<li><a href="#">Géneros</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<h2 class="page-header">Resultados de la búsqueda</h2>
 		
 		<!-- CARGAS DE RESULTADOS  --->
-		<?php
+		<?php 
 			include("../code/conexion.inc");
+#			$vSql = "select * from items where titulo like '%".$vBuscar."%'";
 			$vSql = "CALL ItemsBusqueda('$vBuscar')";
-			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));
-			if(isset($vResultado)){  
-				while($fila = mysqli_fetch_array($vResultado)){ echo ("FILA TIENE ALGO"); echo $vBuscar;
+			$vResultado = mysqli_query($link, $vSql) or die (error());
+			if(mysqli_num_rows($vResultado) == 0){
+		?>
+				<h3>No se encontraron resultados</h3>
+		<?php
+			} else{
 		?>
 				<div class="row placeholders">
-					<h3>Resultados de la busqueda</h3>
-					<div class="col-xs-6 col-sm-3 placeholder">
-						<img src="<?php echo $fila['url_portada']; ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-						<h4><?php echo $fila['titulo'] ;?></h4>
-						<span class="text-muted"><?php echo $fila['nombre_artista'];  ?></span>
-						<h4>$<?php echo $fila['monto'];?></h4>
-						<form action="srvCompra" method="post" id="compra" name="compra">
-							<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
-							<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
-						</form>
-					</div>
-				</div>
-				
 		<?php
-				} 
-			} else{
+					while($vItem = mysqli_fetch_array($vResultado)){					
 		?>	
-			<h3>No se encontraron resultados</h3>
+					<div class="col-xs-6 col-sm-3 placeholder">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($vItem['titulo']);?></h4>
+				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
+				<h4>
+					$<?php echo($vItem['monto']);?></h4>
+				<form action="srvCompra" method="post" id="compra" name="compra">
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
+					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
+				</form>
+			</div>
 		<?php	
+					}
+		?>
+				</div>
+		<?php
 			}
 		?>
 
 	</div>
 </body>
+<?php } else error(); ?>
 </html>

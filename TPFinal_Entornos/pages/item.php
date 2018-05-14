@@ -6,7 +6,7 @@
 <link href="../styles/css/bootstrap.min.css" rel="stylesheet">
 <link href="../styles/css/dashboard.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+</head>	
 <body>
 	<script>
 		function validar(){
@@ -31,8 +31,19 @@
 				alert("Seleccione un Tipo de Item"); return false;
 			} else return true
 		}
+		
+		function busqueda(){
+			buscar = document.form.busqueda.value
+			if(buscar == null){
+				alert("Ingrese nombre a buscar"); return false;
+			} else return true;
+		}
 	</script>
-
+	<?php 
+		function error(){
+			echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
+		}	
+	?>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
@@ -41,7 +52,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="../pages/home.php">Discos</a></li>
+				<li><a href="../pages/index.php">Discos</a></li>
 				<li class="active"><a href="adminInicio">Editar</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -94,7 +105,7 @@
 					<td><b>Autor:</b></td>
 					<td><select class="form-control" id="cmbArtista" name="cmbArtista"   required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> >
 							<option>Seleccion Artista</option>
-							<?php include("../code/conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql); while($artista = mysqli_fetch_array($vResultado)){?>
+							<?php include("../code/conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
 							<option <?php if(isset($_COOKIE["id_artista"])) { if($_COOKIE["id_artista"]==$artista['id_artista']) { ?> selected="selected" <?php } } ?> value="<?php echo $artista['id_artista']; ?>">
 								<?php echo $artista['nombre_artista']; ?>
 							</option>
@@ -105,7 +116,7 @@
 					<td><b>Género:</b></td>
 					<td><select class="form-control" id="cmbGenero" name="cmbGenero"  required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> >
 							<option>Seleccione Género</option>
-							<?php include("../code/conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql); while($genero = mysqli_fetch_array($vResultado)){?>
+							<?php include("../code/conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
 							<option <?php if(isset($_COOKIE["id_genero"])) { if($_COOKIE["id_genero"]==$genero['id_genero']) { ?> selected="selected" <?php } } ?> value="<?php echo $genero['id_genero']; ?>">
 								<?php echo $genero['desc_genero']; ?>
 							</option>
@@ -116,7 +127,7 @@
 					<td><b>Tipo de Disco:</b></td>
 					<td><select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco"  required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> >
 							<option>Seleccione Tipo de Disco</option>
-							<?php include("../code/conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql); while($tipos = mysqli_fetch_array($vResultado)){?>
+							<?php include("../code/conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($tipos = mysqli_fetch_array($vResultado)){?>
 							<option <?php if(isset($_COOKIE["id_tipo_item"])) { if($_COOKIE["id_tipo_item"]==$tipos['id_tipo_item']) { ?> selected="selected" <?php } } ?> value="<?php echo $tipos['id_tipo_item']; ?>">
 								<?php echo $tipos['desc_tipo_item']; ?>
 							</option>
@@ -188,7 +199,27 @@
 		
 		<br> <br> <br>
 
-
+		<form role="form" action="../code/itemONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+			<table>
+				<tr>
+					<td><b>Buscar</b></td>
+					<td>&nbsp;</td>
+					<td>
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder = "Buscar" />
+					</td>
+					<td>&nbsp;</td>
+					<td>
+						<input class="btn btn-success btn-sm" type="submit" value="Buscar" id="event" name="event" />
+					</td>
+					<td>&nbsp;</td>
+					<td>
+						<input class="btn btn-default btn-sm" type="submit" value="Reset" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php }?> />
+					</td>
+				</tr>
+			</table>
+		</form>
+					
+ 
 		<?php
 		include("../code/conexion.inc");
 		$Cant_por_Pag = 10;
@@ -201,18 +232,40 @@
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
 		}// total de páginas
-		$vSql = "SELECT * FROM items";
-		$vResultado = mysqli_query($link, $vSql);
-		$total_registros=mysqli_num_rows($vResultado);
-		$total_paginas = ceil($total_registros/ $Cant_por_Pag);
+		if(isset($_COOKIE['busqueda'])) { 
+			unset($link);
+			$vBuscar = $_COOKIE['busqueda'];
+			setcookie("busqueda", '', time()-3600, "/");
+			$vSql = "CALL ItemsBusqueda('$vBuscar')"; 
+			include("../code/conexion.inc");
+			$vResultado = mysqli_query($link, $vSql) or die("Falla la busqueda");
+			
+			$total_registros=mysqli_num_rows($vResultado);
+			$total_paginas = ceil($total_registros/ $Cant_por_Pag);
+			unset($link, $vResultado);
 		
-		$vSql = "CALL ItemsGetAllLimit('$inicio', '$Cant_por_Pag')";
-		$vResultado = mysqli_query($link, $vSql);
-		$total_registros=mysqli_num_rows($vResultado);
-
+			include("../code/conexion.inc");
+			$vSql = "CALL ItemsGetAllLimitBusqueda('$inicio', '$Cant_por_Pag', '$vBuscar')";
+			$vResultado = mysqli_query($link, $vSql) or die(mysqli_error());
+		} else {
+			$vSql = "CALL ItemsGetAll";
+			$vResultado = mysqli_query($link, $vSql) or die("Falla la busqueda");
+			
+			$total_registros=mysqli_num_rows($vResultado);
+			$total_paginas = ceil($total_registros/ $Cant_por_Pag);
+			unset($link, $vResultado);
+		
+			include("../code/conexion.inc");
+			$vSql = "CALL ItemsGetAllLimit('$inicio', '$Cant_por_Pag')";
+			$vResultado = mysqli_query($link, $vSql) or die(mysqli_error());
+		}
+#		else $vSql = "select * from items";
+		
+		
+#		$total_registros=mysqli_num_rows($vResultado);
 	?>
 	<table class="table table-hover">
-		<thead style="text-align:center">
+		<thead>
 			<th>Código</th>
 			<th>Título</th>
 			<th>Autor</th>
@@ -229,7 +282,7 @@
 			while ($fila = mysqli_fetch_array($vResultado))
 			{
 		?>
-		<tr style="text-align:center">
+		<tr>
 			<td><?php echo $fila['id_item']; ?></td>
 			<td><?php echo $fila['titulo']; ?></td>
 			<td><?php echo $fila['nombre_artista']; ?></td>
@@ -260,7 +313,7 @@
 	<?php
 		// Liberar conjunto de resultados
 		mysqli_free_result($vResultado);
-
+		unset($vSql);
 		// Cerrar la conexion
 		mysqli_close($link);
 		if ($total_paginas > 1){
@@ -270,7 +323,7 @@
 					echo $pagina . " ";
 				} else{
 					//si la página no es la actual, coloco el enlace para ir a esa página
-					echo "<a href='Listado_pag.php?pagina=" . $i ."'>" . $i . "</a> ";
+					echo "<a href='item.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}
 		}

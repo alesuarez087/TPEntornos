@@ -17,7 +17,7 @@
 			while($fila = mysqli_fetch_array($vResultado)){
 					setcookie("usuario", $fila['id_usuario'], time()+3600, "/");
 					setcookie("tipo_usuario", $fila['id_tipo_usuario'], time()+3600, "/");
-					header('Location: ../pages/home.php');
+					header('Location: ../pages/index.php');
 			}
 		}else if($_POST['event']=='Registrar'){
 			$vUser= $_POST['userCreate']
@@ -30,7 +30,7 @@
 				setcookie("usuario", '', time()-3600, "/");
 				setcookie("tipo_usuario", '', time()-3600, "/");
 			
-				header('Location: ../pages/home.php');
+				header('Location: ../pages/index.php');
 			}
 	?>
 </body>

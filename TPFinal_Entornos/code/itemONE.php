@@ -15,8 +15,7 @@
 		$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
 		$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
 
-		$vResultado = mysqli_query($link, $vSql);
-		if(!$vResultado){echo mysqli_error($link); exit;}
+		$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
 		$fila = mysqli_fetch_row($vResultado);
 	
 		$vHab = FALSE;
@@ -35,6 +34,10 @@
 		if($_POST['event'] != 'Eliminar') setcookie("modificar", "Modificar", time()+3600, "/");
 		else setcookie("eliminar", "Eliminar", time()+3600, "/"); 
 		
+	}
+	
+	if($_POST['event'] == 'Buscar'){
+		setcookie("busqueda", '%'.$_POST['buscar'].'%', time()+3600, "/");
 	}
 	header("location:../pages/item.php");
 

@@ -8,12 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-
-	<?php 
-		
-		
-		
-	?>
+<?php  
+		function error(){
+			echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
+		}
+?>
 
 <body>	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -43,12 +42,12 @@
 				<?php 
 							} 
 				?>
-				<li><a href="valid.jsp">Cerrar Sesión</a></li>
+				<li><a href="../code/login.php">Cerrar Sesión</a></li>
 				<?php } else { ?>
-				<li><a href="login.php">Iniciar Sesión</a></li>
+				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
 				<?php } ?>
 			</ul>
-			<form action="srvItem" method="post" class="navbar-form navbar-right" >
+			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
 				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
 			</form>
 		</div>
@@ -69,6 +68,11 @@
 	</div>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<?php 
+		
+
+		
+	?>
 		<h2 class="page-header">Discos</h2>
 		
 		<!-- CARGA DE DISCOS RECIENTESMENTE AGREGADOS -->
@@ -78,7 +82,7 @@
 			<?php 
 				include("../code/conexion.inc");
 				$vSql = 'CALL ItemsNovedades';
-				$vResultado = mysqli_query($link, $vSql);
+				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($fila = mysqli_fetch_array($vResultado)){ 
 			?>
 			<div class="col-xs-6 col-sm-3 placeholder">
@@ -88,7 +92,7 @@
 				<h4>
 					$<?php echo($fila['monto']);?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -106,7 +110,7 @@
 			<?php 
 				include("../code/conexion.inc");
 				$vSql = 'CALL ItemsGetTop8';
-				$vResultado = mysqli_query($link, $vSql);
+				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($fila = mysqli_fetch_array($vResultado)){ 
 			?>
 			<div class="col-xs-6 col-sm-3 placeholder">
@@ -116,7 +120,7 @@
 				<h4>
 					$<?php echo($fila['monto']);?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -129,7 +133,7 @@
 		<?php
 			include("../code/conexion.inc");
 			$vSql = 'CALL ItemsGetTopSemana';
-			$vResultado = mysqli_query($link, $vSql);
+			$vResultado = mysqli_query($link, $vSql) or die (error());
 		?>
 		<div class="row placeholders">
 			<h3>Top Semanal</h3>
@@ -140,7 +144,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item'] ;?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -153,7 +157,7 @@
 		<?php
 			include("../code/conexion.inc");
 			$vSql = 'CALL ItemsGetTopMes';
-			$vResultado = mysqli_query($link, $vSql);
+			$vResultado = mysqli_query($link, $vSql) or die (error());
 		?>
 		<div class="row placeholders">
 			<h3>Top Mensual</h3>
@@ -164,7 +168,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
@@ -177,7 +181,7 @@
 		<?php
 			include("../code/conexion.inc");
 			$vSql = 'CALL ItemsGetMejorPromedio';
-			$vResultado = mysqli_query($link, $vSql);
+			$vResultado = mysqli_query($link, $vSql) or die (error());
 		?>
 		<div class="row placeholders">
 			<h3>Mejores Calificados</h3>
@@ -188,14 +192,13 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
 				<form action="srvCompra" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php $fila['id_item'] ?>" />
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" />
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
 			</div>
-			<?php } ?>
+			<?php } mysqli_close($link); ?>
 		</div>
 
 	</div>
-
 </body>
 </html>

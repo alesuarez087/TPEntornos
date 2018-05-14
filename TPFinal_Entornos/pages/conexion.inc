@@ -1,4 +1,4 @@
 <?php
-$link = mysqli_connect("localhost", "root") or die ("Problemas de conexión a la base de datos");
-mysqli_select_db($link, "entornos_final");
+	$link = mysqli_connect("localhost", "root") or die ("Error al conectar la Base de Datos");
+	mysqli_select_db($link, "entornos_final");
 ?>
