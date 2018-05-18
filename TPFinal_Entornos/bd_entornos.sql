@@ -131,7 +131,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',100,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg'),(37,'Don Leopardo','1996',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitdonleopardo.jpg'),(38,'... Y Punto','1992',200,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitypunto.jpg'),(40,'?','2007',200,1,5,1,2,'http://2.bp.blogspot.com/-0XZRltZnuGw/VNQxBm0ywgI/AAAAAAAAAJY/Tr-tYyWsj1c/s1600/Bersuit%2B%5BDelantera%5D.jpg'),(41,'Kink of king','2006',200,1,8,5,2,'http://images.mp3teca.com/14950_250.jpg'),(42,'iDon','2009',100,1,8,5,2,'https://is3-ssl.mzstatic.com/image/thumb/Music/0d/45/fd/mzi.svxtqwqj.jpg/268x0w.jpg'),(43,'Meet the Orphans','2010',100,1,8,5,2,'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Meet_the_Orphans_album_cover.jpg/220px-Meet_the_Orphans_album_cover.jpg'),(44,'Meet the Orphans 2','2012',100,1,8,5,2,'http://www.reggaetonline.net/images/CDs/meet-the-orphans-2.jpg'),(45,'Asquerosa alegría','1994',100,1,5,1,2,'https://www.lacanciondelpais.com.ar/sitio/jpg/asquerosa%20alegria.jpg'),(46,'Hijos del culo','2000',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuithijosdelculo.jpg');
+INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',100,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg'),(37,'Don Leopardo','1996',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitdonleopardo.jpg'),(38,'... Y Punto','1992',200,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitypunto.jpg'),(40,'?','2007',200,1,5,1,2,'http://2.bp.blogspot.com/-0XZRltZnuGw/VNQxBm0ywgI/AAAAAAAAAJY/Tr-tYyWsj1c/s1600/Bersuit%2B%5BDelantera%5D.jpg'),(41,'Kink of king','2006',200,1,8,5,2,'http://images.mp3teca.com/14950_250.jpg'),(42,'iDon','2009',100,1,8,5,2,'https://is3-ssl.mzstatic.com/image/thumb/Music/0d/45/fd/mzi.svxtqwqj.jpg/268x0w.jpg'),(43,'Meet the Orphans','2010',100,1,8,5,2,'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Meet_the_Orphans_album_cover.jpg/220px-Meet_the_Orphans_album_cover.jpg'),(44,'Meet the Orphans 2','2012',100,1,8,5,2,'http://www.reggaetonline.net/images/CDs/meet-the-orphans-2.jpg'),(45,'Asquerosa alegría','1994',100,1,5,1,2,'https://www.lacanciondelpais.com.ar/sitio/jpg/asquerosa%20alegria.jpg'),(46,'Hijos del culo','2000',99,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuithijosdelculo.jpg');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +254,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id_usuario`),
   KEY `id_tipo_usuario` (`id_tipo_usuario`),
   CONSTRAINT `id_tipo_usuario` FOREIGN KEY (`id_tipo_usuario`) REFERENCES `tipos_usuario` (`id_tipo_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +263,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'David','Martínez',1,3,'fer12345','martinezd@gmail.com','martinezd','12345678'),(3,'Ale','Suarez',1,1,'fer12345','a@gmail.com','suareza','holis@gmail.com'),(4,'Araceli','Castelletta',1,1,'fer12345','12','arac','arac@gmail.com'),(5,'Diego','Maradona',1,2,'fer12345','3223','maradonad','diegote@gmail.com');
+INSERT INTO `usuarios` VALUES (2,'David','Martínez',1,3,'fer12345','martinezd@gmail.com','martinezd','12345678'),(3,'Ale','Suarez',1,1,'fer12345','a@gmail.com','suareza','holis@gmail.com'),(4,'Araceli','Castelletta',1,1,'fer12345','12','arac','arac@gmail.com'),(5,'Diego','Maradona',1,2,'fer12345','3223','maradonad','diegote@gmail.com'),(6,'1','1',0,3,'fer12345','a','golpe','a');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +291,7 @@ CREATE TABLE `venta_item` (
 
 LOCK TABLES `venta_item` WRITE;
 /*!40000 ALTER TABLE `venta_item` DISABLE KEYS */;
-INSERT INTO `venta_item` VALUES (5,1,3),(6,2,3),(6,3,2),(7,5,1),(8,3,3),(8,6,4),(9,1,3),(9,2,4),(10,1,4),(20,3,3),(21,2,1),(21,6,1);
+INSERT INTO `venta_item` VALUES (5,1,3),(6,2,3),(6,3,2),(7,5,1),(8,3,3),(8,6,4),(9,1,3),(9,2,4),(10,1,4),(20,3,3),(21,2,1),(21,6,1),(23,46,1);
 /*!40000 ALTER TABLE `venta_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -319,7 +319,7 @@ CREATE TABLE `ventas` (
   KEY `venta_usuario` (`id_usuario`),
   KEY `venta_provincia_idx` (`id_provincia`),
   CONSTRAINT `venta_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -328,7 +328,7 @@ CREATE TABLE `ventas` (
 
 LOCK TABLES `ventas` WRITE;
 /*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
-INSERT INTO `ventas` VALUES (5,'2017-03-05','aaa','1212',1,2,'','0','0',0,NULL,NULL),(6,'2017-03-12','yo','44',1,2,'','0','0',0,NULL,NULL),(7,'2017-03-25','Dios','443',1,2,'','0','0',0,NULL,NULL),(8,'2017-03-30','kakak','2323',1,2,'','0','0',0,NULL,NULL),(9,'2017-04-17','Macri Gato','43434',1,2,'','0','0',0,NULL,NULL),(10,'2017-04-24','Loco','34343434',1,2,'San Juan','5329','Rosario',22,NULL,NULL),(11,'2017-04-26','Adolf','heils',1,2,'Falsa','123','Charata',5,'1','a'),(20,'2017-04-29','Dios','1234123412341234',1,2,'Falsa','123','Corrientes',8,NULL,NULL),(21,'2018-04-24','Dios','123412341231234',1,2,'Falsa','123','Rosario',22,NULL,NULL);
+INSERT INTO `ventas` VALUES (5,'2017-03-05','aaa','1212',1,2,'','0','0',0,NULL,NULL),(6,'2017-03-12','yo','44',1,2,'','0','0',0,NULL,NULL),(7,'2017-03-25','Dios','443',1,2,'','0','0',0,NULL,NULL),(8,'2017-03-30','kakak','2323',1,2,'','0','0',0,NULL,NULL),(9,'2017-04-17','Macri Gato','43434',1,2,'','0','0',0,NULL,NULL),(10,'2017-04-24','Loco','34343434',1,2,'San Juan','5329','Rosario',22,NULL,NULL),(11,'2017-04-26','Adolf','heils',1,2,'Falsa','123','Charata',5,'1','a'),(20,'2017-04-29','Dios','1234123412341234',1,2,'Falsa','123','Corrientes',8,NULL,NULL),(21,'2018-04-24','Dios','123412341231234',1,2,'Falsa','123','Rosario',22,NULL,NULL),(22,'2018-05-16','Cosme Fulanito','1111111111111111',1,2,'San Juan','5329','Rosario',22,'0',''),(23,'2018-05-16','Cosme Fulanito','1111111111111111',1,2,'San Juan','5329','Rosario',22,'0','');
 /*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1084,17 +1084,28 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsGetOne`(IN id INT)
 BEGIN
 
     drop temporary table if exists valores_actuales;
-
+	drop temporary table if exists promedio;
 	create temporary table valores_actuales(
 	select id_item, max(fecha_desde) as vigencia_desde
 	from precios
 	group by id_item
 	);
 
-	select it.*, p.monto
+	create temporary table promedio(
+	SELECT id_item, AVG(puntos) as prom
+	FROM clasificaciones
+	WHERE id_item = id
+	GROUP BY id_clasificacion
+    );
+
+
+	select it.*, ar.nombre_artista, p.monto, prom.prom,  g.desc_genero
 	from items it
 	inner join precios p on p.id_item = it.id_item
+    inner join artistas ar on it.id_artista = ar.id_artista
 	inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+    inner join generos g on g.id_genero = it.id_genero
+    left join promedio prom on it.id_item = prom.id_item 
     where it.id_item = id
 	group by it.id_item
     ;
@@ -1307,6 +1318,26 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `ItemsUpdateStock` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsUpdateStock`(in id int, in st int)
+BEGIN
+UPDATE items SET stock=st
+WHERE id_item = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `PrecioGetToday` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1902,4 +1933,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-14  0:15:39
+-- Dump completed on 2018-05-18 10:19:55

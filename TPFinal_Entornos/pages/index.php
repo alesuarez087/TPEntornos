@@ -1,15 +1,11 @@
 <?php 
 	session_start(); 
 	$tipoUsuario = NULL;
+	$vNRO = NULL;
 	if(isset($_SESSION['usuario'])){
-		$id = $_SESSION['usuario'];
-		include("../code/conexion.inc");
-		$vSql = "CALL UsuariosGetOneForId('$id')";
-		$vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));
-			
-		if($fila = mysqli_fetch_array($vResultado)){
-			$tipoUsuario = $fila['id_tipo_usuario'];
-		}
+		$fila = $_SESSION['usuario'];
+		$tipoUsuario = $fila['TipoUsuario'];
+		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
 	}
 ?>
 
@@ -41,16 +37,6 @@
 				<?php } else { ?>
 				<li><a href="listCompras.jsp">Compras</a></li>
 				<?php } ?>
-
-			
-<!--				<li class="active"><a href="home.php">Discos</a></li>
-				<?php #	if(isset($_COOKIE["usuario"])) { 
-				#	if ($_COOKIE["tipo_usuario"]==1){ ?>
-				<li><a href="adminInicio.jsp">Editar</a></li>
-				<?php #} else { ?>
-				<li><a href="listCompras.jsp">Compras</a></li>
-				<?php #} }?>
--->
 			</ul>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
@@ -59,10 +45,8 @@
 			<?php 
 					if (isset($tipoUsuario)){
 						if ($tipoUsuario==3){ 
-							if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
-							else $vNRO=0;
 				?>
-				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</a></li>
+				<li><a href="carrito.php"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</a></li>
 
 				<?php 
 							} 
@@ -72,22 +56,6 @@
 				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
 				<?php } ?>
 				
-<!--				<?php 
-					#	if (isset($_COOKIE["usuario"])){
-						#	if ($_COOKIE["tipo_usuario"]==3){ 
-						#	  if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
-						#	  else $vNRO=0;
-				?>
-				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php # echo ($vNRO); ?>)</a></li>
-
-				<?php 
-						#	} 
-				?>
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>
-				<?php # } else { ?>
-				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
-				<?php #} ?>
--->
 			</ul>
 			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
 				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
@@ -112,8 +80,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<?php 
 		
-
-		
+			
 	?>
 		<h2 class="page-header">Discos</h2>
 		
@@ -133,7 +100,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
 				<h4>
 					$<?php echo($fila['monto']);?></h4>
-				<form action="srvCompra" method="post" id="compra" name="compra">
+				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>

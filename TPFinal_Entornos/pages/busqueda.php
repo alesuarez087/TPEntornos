@@ -1,3 +1,14 @@
+<?php 
+	session_start(); 
+	$tipoUsuario = NULL;
+	$vNRO = NULL;
+	if(isset($_SESSION['usuario'])){
+		$fila = $_SESSION['usuario'];
+		$tipoUsuario = $fila['TipoUsuario'];
+		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
+	}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,15 +44,12 @@
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
 				<?php 
-						if (isset($_COOKIE["usuario"])){
-							if ($_COOKIE["tipo_usuario"]==3){ 
-							  if (isset($_COOKIE["carrito"])) $vNRO=$_COOKIE["carrito"];
-							  else $vNRO=0;
+					if (isset($tipoUsuario)){
+						if ($tipoUsuario==3){ 
 				?>
 				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php echo ($vNRO); ?>)</span></a></li>
-
 				<?php 
-							} 
+							} } 
 				?>
 				<li><a href="valid.jsp">Cerrar Sesión</a></li>
 				<?php } else { ?>
@@ -73,7 +81,6 @@
 		<!-- CARGAS DE RESULTADOS  --->
 		<?php 
 			include("../code/conexion.inc");
-#			$vSql = "select * from items where titulo like '%".$vBuscar."%'";
 			$vSql = "CALL ItemsBusqueda('$vBuscar')";
 			$vResultado = mysqli_query($link, $vSql) or die (error());
 			if(mysqli_num_rows($vResultado) == 0){
@@ -92,7 +99,7 @@
 				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
 				<h4>
 					$<?php echo($vItem['monto']);?></h4>
-				<form action="srvCompra" method="post" id="compra" name="compra">
+				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
