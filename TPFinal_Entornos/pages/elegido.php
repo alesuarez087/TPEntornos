@@ -6,8 +6,8 @@
 		$fila = $_SESSION['usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
 		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
-	}
-	$idItem = $_POST['idSelect'];
+		if(isset($_POST['idSelect'])) $idItem = $_POST['idSelect'];
+		else if(isset($_COOKIE["elegido"])) $idItem = $_COOKIE["elegido"]; else header("location:../pages/error.html");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -26,6 +26,13 @@
 		if(indiceCantidad == null || indiceCantidad == 0) {
 			alert("Seleccione Cantidad"); return false;
 		} else return true
+	}
+	function error($texto){
+		echo "<script type=\"text/javascript\">alert('$texto');</script>";
+		echo "<script type=\"text/javascript\">window.history.back();;</script>";
+	}
+	function error(){
+		echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
 	}
 </script>
 <body>
@@ -132,7 +139,9 @@
 								</table>
 							</td>		
 						</tr>
-							<?php } ?>	
+							<?php } 
+								if(isset($_COOKIE["elegido"])) setcookie("elegido", "", time()-3600, "/");
+							?>	
 						</table>
 					
 
@@ -185,3 +194,9 @@
 	</div>
 </body>
 </html>
+
+<?php } else {
+			setcookie("elegido", $_POST['idSelect'], time()+3600, "/");
+			header("location:../pages/login.php");
+		}
+?>

@@ -1,13 +1,4 @@
-<?php 
-	session_start(); 
-	$tipoUsuario = NULL;
-	$vNRO = NULL;
-	if(isset($_SESSION['usuario'])){
-		$fila = $_SESSION['usuario'];
-		$tipoUsuario = $fila['TipoUsuario'];
-		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
-	}
-?>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -18,43 +9,54 @@
 <link href="../styles/css/dashboard.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-</head>	
-	<?php  
-		function error(){
-			echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
-		}
-		if(isset($_POST['buscar'])){
-			$vBuscar = '%'.$_POST['buscar'].'%'; 
-	?>
+</head>
+<?php 
+	function error(){
+		echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
+	}
+	
+	if(isset($_POST['buscar'])){
+		$vBuscar = '%'.$_POST['buscar'].'%'; 
+		session_start(); 
+		$tipoUsuario = NULL;
+		$vNRO = NULL;
+		if(isset($_SESSION['usuario'])){
+		$fila = $_SESSION['usuario'];
+		$tipoUsuario = $fila['TipoUsuario'];
+		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
+	}
+?>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a class="navbar-brand">Luzbelito</a>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Discos</a></li>
-				<?php 	if(isset($_COOKIE["usuario"])) { 
-					if ($_COOKIE["tipo_usuario"]==1){ ?>
+				<li class="active"><a href="home.php">Discos</a></li>
+				<?php 	if ($tipoUsuario ==1){ ?>
 				<li><a href="adminInicio.jsp">Editar</a></li>
 				<?php } else { ?>
 				<li><a href="listCompras.jsp">Compras</a></li>
-				<?php } }?>
+				<?php } ?>
 			</ul>
 		</div>
 		<div id="navbar" class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<?php 
+			 
+			<?php 
 					if (isset($tipoUsuario)){
 						if ($tipoUsuario==3){ 
 				?>
-				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php echo ($vNRO); ?>)</span></a></li>
+				<li><a href="carrito.php"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</a></li>
+
 				<?php 
-							} } 
+							} 
 				?>
-				<li><a href="valid.jsp">Cerrar Sesión</a></li>
-				<?php } else { ?>
-				<li><a href="login.php">Iniciar Sesión</a></li>
+				<li><a href="../code/login.php">Cerrar Sesión</a></li>
+				<?php  } else { ?>
+				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
 				<?php } ?>
+				
 			</ul>
 			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
 				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
@@ -114,5 +116,5 @@
 
 	</div>
 </body>
-<?php } else error(); ?>
+<?php } else echo "HOLA"; ?>
 </html>

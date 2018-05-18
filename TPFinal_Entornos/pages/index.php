@@ -128,7 +128,7 @@
 				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
 				<h4>
 					$<?php echo($fila['monto']);?></h4>
-				<form action="srvCompra" method="post" id="compra" name="compra">
+				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
@@ -152,7 +152,7 @@
 				<h4><?php echo($fila['titulo']);?></h4>
 				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
-				<form action="srvCompra" method="post" id="compra" name="compra">
+				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item'] ;?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
@@ -176,7 +176,7 @@
 				<h4><?php echo($fila['titulo']);?></h4>
 				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
-				<form action="srvCompra" method="post" id="compra" name="compra">
+				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>
@@ -200,7 +200,7 @@
 				<h4><?php echo($fila['titulo']);?></h4>
 				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
 				<h4>$<?php echo($fila['monto']) ?></h4>
-				<form action="srvCompra" method="post" id="compra" name="compra">
+				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" />
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
 				</form>

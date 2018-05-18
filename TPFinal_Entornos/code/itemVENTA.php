@@ -43,7 +43,10 @@
 	if($_POST['event'] == 'Agregar'){
 		if(hayStock($_POST['idSelect'])){
 			if(isset($_SESSION["carro"])) $carro = $_SESSION["carro"];
-			$carro[$id] = array('Id'=>$_POST['idSelect'], 'Cantidad'=>$_POST['cmbCantidad'], 'Stock'=>$_POST['stock']);
+			$id = $_POST['idSelect'];
+			$cant = $_POST['cmbCantidad'];
+			$stock = $_POST['stock'];
+			$carro[$id] = array('Id'=>$id, 'Cantidad'=>$cant, 'Stock'=>$stock);
 			$_SESSION["carro"] = $carro;
 			correcto("Item agregado correctamente");
 		} else error("El item ".$titulo." no se encuentra en el stock solicitado. Serás redirigido a la página anterior");

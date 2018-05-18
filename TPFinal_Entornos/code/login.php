@@ -20,12 +20,13 @@
 			
 			include("../code/conexion.inc");
 			$vSql = "CALL UsuariosLogin('$vUser', '$vPass')";
-			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error($link));
+			$vResultado = mysqli_query($link, $vSql) or die (error($link));
 			
 			if($fila = mysqli_fetch_array($vResultado)){
 					$user = array('Id'=>$fila['id_usuario'],'Usuario'=>$fila['nombre'],'Nombre'=>$fila['nombre'], 'Apellido'=>$fila[''], 'TipoUsuario'=>$fila['id_tipo_usuario']);
 					$_SESSION['usuario'] = $user;
-					header('Location: ../pages/index.php');
+					if(isset($_COOKIE["elegido"])) header('Location: ../pages/elegido.php');
+					else header('Location: ../pages/index.php');
 			} else { 
 				error("Usuario o Contraseña incorrecto");
 			}
@@ -65,6 +66,7 @@
 			} else {
 				session_start();
 				session_destroy();
+				if(isset($_COOKIE["buscar"])) setcookie("buscar", '', time()-3600, "/");
 				header('Location: ../pages/index.php');
 			}
 		

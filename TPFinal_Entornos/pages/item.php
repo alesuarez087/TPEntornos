@@ -1,3 +1,11 @@
+<?php 
+	session_start(); 
+	$tipoUsuario = NULL;
+	$vNRO = NULL;
+	if(isset($_SESSION['usuario'])){
+		$fila = $_SESSION['usuario'];
+		$tipoUsuario = $fila['TipoUsuario'];
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -56,7 +64,7 @@
 				<li class="active"><a href="adminInicio">Editar</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>			<!-- REVISAR -->
+				<li><a href="../code/login.php">Cerrar Sesión</a></li>	
 			</ul>
 		</div>
 	</div>
@@ -66,13 +74,14 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-<!--					<% if(user.getTipoUsuario() == Usuario.TiposUsuario.Administrador){ %>					REVISAR-->
+						<?php if($tipoUsuario == 1) { ?>
+
 					<li><a href="adminArtista.jsp">Artistas</a></li>
 					<li><a href="adminGenero.jsp">Géneros</a></li>
 					<li class="active"><a href="adminItem.jsp">Discos<span
 							class="sr-only">(current)</span></a></li>
 					<li><a href="adminUsuario.jsp">Usuarios</a></li>
-<!--					<% } %>																		  REVISAR	-->
+						<?php } ?>																		 
 					<li><a href="adminStockPrecio.jsp">Remarcar</a></li>
 				</ul>
 			</div>
@@ -335,3 +344,7 @@
 	</div>
 </body>
 </html>
+
+<?php 
+	} else header("Location: ../pages/login.php");
+?>

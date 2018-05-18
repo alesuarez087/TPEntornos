@@ -6,7 +6,7 @@
 		$fila = $_SESSION['usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
 		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
-	}
+	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -196,3 +196,6 @@ function valida(){
 
 </body>
 </html>
+<?php 
+	}  else header("Location: ../pages/login.php");
+?>
