@@ -14,7 +14,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Discos</title>
-<link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
 <link href="../styles/css/dashboard.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -26,188 +26,126 @@
 ?>
 
 <body>	
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand">Luzbelito</a>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="home.php">Discos</a></li>
-				<?php 	if ($tipoUsuario ==1){ ?>
-				<li><a href="adminInicio.jsp">Editar</a></li>
-				<?php } else { ?>
-				<li><a href="listCompras.jsp">Compras</a></li>
-				<?php } ?>
-			</ul>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-			 
-			<?php 
-					if (isset($tipoUsuario)){
-						if ($tipoUsuario==3){ 
-				?>
-				<li><a href="carrito.php"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</a></li>
+	<?php include_once("cabecera.php"); ?>
 
-				<?php 
-							} 
-				?>
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>
-				<?php  } else { ?>
-				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
-				<?php } ?>
-				
-			</ul>
-			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
-				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
-			</form>
-		</div>
-	</div>
-	</nav>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
-					<li><a>Seleccione Búsqueda<span class="sr-only">(current)</span></a></li>
-					<li class="active"><a href="itemTop.jsp">Inicio<span
-							class="sr-only">(current)</span></a></li>
-					<li><a href="itemForGenero.jsp">Géneros</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<?php 
-		
-			
-	?>
-		<h2 class="page-header">Discos</h2>
-		
-		<!-- CARGA DE DISCOS RECIENTESMENTE AGREGADOS -->
-		
-		<div class="row placeholders">
-			<h3>Novedades</h3>
+	<h2 class="page-header">Novedades</h2>
+	<div class="row placeholders">
 			<?php 
 				include("../code/conexion.inc");
 				$vSql = 'CALL ItemsNovedades';
 				$vResultado = mysqli_query($link, $vSql) or die (error());
-				while ($fila = mysqli_fetch_array($vResultado)){ 
+				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-			<div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-				<h4><?php echo($fila['titulo']);?></h4>
-				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
+          <div class="col-xs-6 col-sm-2 placeholder">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($vItem['titulo']);?></h4>
+				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
 				<h4>
-					$<?php echo($fila['monto']);?></h4>
+					$<?php echo($vItem['monto']);?></h4>
 				<form action="elegido.php" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
 			</div>
-			<?php } ?>
-		</div>
-		
-		<br>
-		
-		
-		<!-- CARGA DE DISCOS MÁS VENDIDOS -->
-
-		
-		<div class="row placeholders">
-			<h3>Top de Ventas</h3>
-			<?php 
+		 <?php } ?>
+	
+	</div>
+	<br />
+	<h2 class="text-capitalize">Top Ventas</h2>
+	<div class="row placeholders">
+	<?php 
 				include("../code/conexion.inc");
 				$vSql = 'CALL ItemsGetTop8';
 				$vResultado = mysqli_query($link, $vSql) or die (error());
-				while ($fila = mysqli_fetch_array($vResultado)){ 
+				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-			<div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-				<h4><?php echo($fila['titulo']);?></h4>
-				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
+          <div class="col-xs-6 col-sm-2 placeholder">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($vItem['titulo']);?></h4>
+				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
 				<h4>
-					$<?php echo($fila['monto']);?></h4>
+					$<?php echo($vItem['monto']);?></h4>
 				<form action="elegido.php" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
 				</form>
 			</div>
-			<?php } ?>
-		</div>
-		
-		<br>
-		
-		<!-- CARGAS DE DISCOS MÁS VENDIDOS EN LA SEMANA --->
-		<?php
-			include("../code/conexion.inc");
-			$vSql = 'CALL ItemsGetTopSemana';
-			$vResultado = mysqli_query($link, $vSql) or die (error());
-		?>
-		<div class="row placeholders">
-			<h3>Top Semanal</h3>
-			<?php while ($fila = mysqli_fetch_array($vResultado)){ ?>
-			<div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-				<h4><?php echo($fila['titulo']);?></h4>
-				<span class="text-muted"><?php echo($fila['nombre_artista']);  ?></span>
-				<h4>$<?php echo($fila['monto']) ?></h4>
-				<form action="elegido.php" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item'] ;?>" /> 
-					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
-				</form>
-			</div>
-			<?php } ?>
-		</div>
-		
-		<br>
-		
-		<!-- CARGAS DE DISCOS MÁS VENDIDOS EN EL MES  --->
-		<?php
-			include("../code/conexion.inc");
-			$vSql = 'CALL ItemsGetTopMes';
-			$vResultado = mysqli_query($link, $vSql) or die (error());
-		?>
-		<div class="row placeholders">
-			<h3>Top Mensual</h3>
-			<?php while ($fila = mysqli_fetch_array($vResultado)){ ?>
-			<div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-				<h4><?php echo($fila['titulo']);?></h4>
-				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
-				<h4>$<?php echo($fila['monto']) ?></h4>
-				<form action="elegido.php" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
-					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
-				</form>
-			</div>
-			<?php } ?>
-		</div>
-		
-		<br>
-		
-		<!-- CARGAS DE DISCOS MEJORES CALIFICADOS  --->
-		<?php
-			include("../code/conexion.inc");
-			$vSql = 'CALL ItemsGetMejorPromedio';
-			$vResultado = mysqli_query($link, $vSql) or die (error());
-		?>
-		<div class="row placeholders">
-			<h3>Mejores Calificados</h3>
-			<?php while ($fila = mysqli_fetch_array($vResultado)){ ?>
-			<div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($fila['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-				<h4><?php echo($fila['titulo']);?></h4>
-				<span class="text-muted"><?php echo($fila['nombre_artista']);?></span>
-				<h4>$<?php echo($fila['monto']) ?></h4>
-				<form action="elegido.php" method="post" id="compra" name="compra">
-					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" />
-					<input class="btn btn-success btn-sm" type="submit" value="Agregar" id="eventSale" name="eventSale" />
-				</form>
-			</div>
-			<?php } mysqli_close($link); ?>
-		</div>
-
+		 <?php } ?>
+	
 	</div>
+	<br />
+	<h2 class="text-capitalize">Top Semanal</h2>
+	<div class="row placeholders">
+	<?php 
+				include("../code/conexion.inc");
+				$vSql = 'CALL ItemsGetTopSemana';
+				$vResultado = mysqli_query($link, $vSql) or die (error());
+				while ($vItem = mysqli_fetch_array($vResultado)){ 
+			?>
+          <div class="col-xs-6 col-sm-2 placeholder">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($vItem['titulo']);?></h4>
+				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
+				<h4>
+					$<?php echo($vItem['monto']);?></h4>
+				<form action="elegido.php" method="post" id="compra" name="compra">
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
+					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
+				</form>
+			</div>
+		 <?php } ?>
+	
+	</div>
+	<br />
+	<h2 class="text-capitalize">Top Mensual</h2>
+	<div class="row placeholders">
+	<?php 
+				include("../code/conexion.inc");
+				$vSql = 'CALL ItemsGetTopMes';
+				$vResultado = mysqli_query($link, $vSql) or die (error());
+				while ($vItem = mysqli_fetch_array($vResultado)){ 
+			?>
+          <div class="col-xs-6 col-sm-2 placeholder">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($vItem['titulo']);?></h4>
+				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
+				<h4>
+					$<?php echo($vItem['monto']);?></h4>
+				<form action="elegido.php" method="post" id="compra" name="compra">
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
+					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
+				</form>
+			</div>
+		 <?php } ?>
+	
+	</div>
+		<br />
+	<h2 class="text-capitalize">Mejores calificados</h2>
+	<div class="row placeholders">
+	<?php 
+				include("../code/conexion.inc");
+				$vSql = 'CALL ItemsGetMejorPromedio';
+				$vResultado = mysqli_query($link, $vSql) or die (error());
+				while ($vItem = mysqli_fetch_array($vResultado)){ 
+			?>
+          <div class="col-xs-6 col-sm-2 placeholder">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<h4><?php echo($vItem['titulo']);?></h4>
+				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
+				<h4>
+					$<?php echo($vItem['monto']);?></h4>
+				<form action="elegido.php" method="post" id="compra" name="compra">
+					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
+					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
+				</form>
+			</div>
+		 <?php } ?>
+	
+	</div>
+	
+	<?php include_once("modal.php"); ?>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
 </body>
 </html>

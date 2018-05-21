@@ -15,7 +15,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Disco</title>
-<link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
 <link href="../styles/css/dashboard.css" rel="stylesheet">
 <link href="../styles/css/propio.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,59 +27,19 @@
 			alert("Seleccione Cantidad"); return false;
 		} else return true
 	}
+</script>
+<?php
 	function error($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";
-		echo "<script type=\"text/javascript\">window.history.back();;</script>";
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
-	function error(){
-		echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
-	}
-</script>
+?>
 <body>
 
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand">Luzbelito</a>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Discos</a></li>
-				<li><a href="listCompras.jsp">Compras</a></li>
-			</ul>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<?php 
-					if (isset($tipoUsuario)){
-						if ($tipoUsuario==3){ 
-				?>
-				<li><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</span></a></li>
+	<?php include_once("cabecera.php") ?>
 
-				<?php 
-							} }
-				?>
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>
-			</ul>
-			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
-				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
-			</form>
-		</div>
-	</div>
-	</nav>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
-					<li><a>Seleccione Búsqueda<span class="sr-only">(current)</span></a></li>
-					<li><a href="index.php">Inicio</a></li>
-					<li><a href="itemForGenero.jsp">Géneros</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<div class="container">
 		<form role="form" action="../code/itemVENTA.php" method="post" id="compra" name="compra" onSubmit="return validar()">
 			<h2 class="page-header">Disco</h2>
 			<div class="row placeholders">
@@ -88,7 +48,7 @@
 						<?php 
 							include("../code/conexion.inc");
 							$vSql = "CALL ItemsGetOne('$idItem')"; 
-							$vResultado = mysqli_query($link, $vSql) or die(error());
+							$vResultado = mysqli_query($link, $vSql) or die(error(mysqli_error()));
 							while ($fila = mysqli_fetch_array($vResultado)){
 						?>
 						
@@ -157,7 +117,7 @@
 					unset($link, $vResultado);
 					include("../code/conexion.inc");
 					$vSql = "CALL ClasificacionesGetAll('$idItem')";
-					$vResultado = mysqli_query($link, $vSql) or die (error());
+					$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error()));
 					if(mysqli_num_rows($vResultado)!=0){
 						while ($fila = mysqli_fetch_array($vResultado)){
 							if($fila['mensaje_adjunto']!=NULL){

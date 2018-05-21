@@ -59,10 +59,11 @@
 					include("../code/conexion.inc");
 					$vSql = "CALL UsuariosInsert('$vApellido', '$vPass', '$vEmail', '$vNombre', '$vUser', '3', 'TRUE', '$vDNI')";
 					mysqli_query($link, $vSql) or die (error(mysqli_error($link)));	
-					mysqli_close($link);
-				
+					mysqli_close($link);				
 					correcto("Usuario agregado correctamente");	
 				}
+			} else if($_POST['event'] == 'No poseo cuenta'){
+				header('Location: ../pages/login.php');
 			} else {
 				session_start();
 				session_destroy();

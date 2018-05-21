@@ -11,9 +11,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
+<link href="../styles/css/dashboard.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Carrito de Compras</title>
-
+</head>
 <script type="text/javascript">
 function valida(){
 	if(confirmar.cmbProvincia.value == ''){alert('Ingrese Provincia'); return false;}
@@ -26,42 +29,11 @@ function valida(){
 	else return true
 }
 </script>
-<link href="../styles/css/bootstrap.min.css" rel="stylesheet">
-<link href="../styles/css/dashboard.css" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand">Luzbelito</a>
-			<ul class="nav navbar-nav">
-				<li><a href="index.php">Discos</a></li>
-				<li><a href="listCompras.jsp">Compras</a></li>
-			</ul>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-				<?php 
-					if (isset($tipoUsuario)){
-						if ($tipoUsuario==3){ 
-				?>
-				<li class="active"><a href="carrito.jsp"> <img alt="Brand" src="../styles/img/carrito25white.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</span></a></li>
+	<?php include_once("../pages/cabecera.php"); ?>
 
-				<?php 
-							} }
-				?>
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>
-			</ul>
-			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
-				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
-			</form>
-		</div>
-	</div>
-	</nav>
-
-	<div class="col-sm-9 col-md-10">
+	<div class="container">
 		<h2 class="page-header">Carrito de Compras</h2>
 		<?php if(isset($_SESSION["carro"]) && count($_SESSION["carro"]) != 0){  ?>
 		<table class="table table-hover">
@@ -108,10 +80,10 @@ function valida(){
 			</tbody>
 		</table>
 
-	</div>
+	
 	
 
-	<div class="col-lg-8 col-lg-offset-1" style="background-color: #ccc">
+	<div style="background-color: #ccc">
 		<div class="container">
 			<h3>
 				Total: <?php echo "$".$suma ?></h3>
@@ -136,8 +108,8 @@ function valida(){
 								<?php echo $fila['desc_provincia']; ?>
 							</option>
 							<?php } unset($link, $vResultado); ?>
-					</select></td>
-					<td>
+					</select>
+					</td>
 				</tr>
 				<tr>
 					<td><b>Localidad</b></td>
@@ -185,6 +157,7 @@ function valida(){
 				</tr>
 			</table>
 		</form>
+		</div>
 		<?php } else {
 		?>
 			<div style="text-align:center">		

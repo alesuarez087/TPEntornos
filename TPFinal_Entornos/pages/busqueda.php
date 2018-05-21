@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Discos</title>
-<link href="../styles/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
 <link href="../styles/css/dashboard.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -27,57 +27,8 @@
 	}
 ?>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand">Luzbelito</a>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="home.php">Discos</a></li>
-				<?php 	if ($tipoUsuario ==1){ ?>
-				<li><a href="adminInicio.jsp">Editar</a></li>
-				<?php } else { ?>
-				<li><a href="listCompras.jsp">Compras</a></li>
-				<?php } ?>
-			</ul>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav navbar-right">
-			 
-			<?php 
-					if (isset($tipoUsuario)){
-						if ($tipoUsuario==3){ 
-				?>
-				<li><a href="carrito.php"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</a></li>
-
-				<?php 
-							} 
-				?>
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>
-				<?php  } else { ?>
-				<li><a href="../pages/login.php">Iniciar Sesión</a></li>
-				<?php } ?>
-				
-			</ul>
-			<form action="../pages/busqueda.php" method="post" class="navbar-form navbar-right" >
-				<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
-			</form>
-		</div>
-	</div>
-	</nav>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
-					<li><a>Seleccione Búsqueda<span class="sr-only">(current)</span></a></li>
-					<li class="active"><a href="../pages/home.php">Inicio<span class="sr-only">(current)</span></a></li>
-					<li><a href="#">Géneros</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	<?php include_once("../pages/cabecera.php"); ?>
+	<div>
 		<h2 class="page-header">Resultados de la búsqueda</h2>
 		
 		<!-- CARGAS DE RESULTADOS  --->
@@ -95,7 +46,7 @@
 		<?php
 					while($vItem = mysqli_fetch_array($vResultado)){					
 		?>	
-					<div class="col-xs-6 col-sm-3 placeholder">
+			<div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h4><?php echo($vItem['titulo']);?></h4>
 				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>

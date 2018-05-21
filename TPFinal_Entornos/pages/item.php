@@ -11,8 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Item</title>
-<link href="../styles/css/bootstrap.min.css" rel="stylesheet">
-<link href="../styles/css/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>	
 <body>
@@ -51,42 +50,10 @@
 		function error(){
 			echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
 		}	
+		include_once("cabecera.php");
 	?>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<a class="navbar-brand">Luzbelito</a>
-		</div>
-		<div>
-			<ul class="nav navbar-nav">
-				<li><a href="../pages/index.php">Discos</a></li>
-				<li class="active"><a href="adminInicio">Editar</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../code/login.php">Cerrar Sesión</a></li>	
-			</ul>
-		</div>
-	</div>
-	</nav>
-
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
-						<?php if($tipoUsuario == 1) { ?>
-
-					<li><a href="adminArtista.jsp">Artistas</a></li>
-					<li><a href="adminGenero.jsp">Géneros</a></li>
-					<li class="active"><a href="adminItem.jsp">Discos<span
-							class="sr-only">(current)</span></a></li>
-					<li><a href="adminUsuario.jsp">Usuarios</a></li>
-						<?php } ?>																		 
-					<li><a href="adminStockPrecio.jsp">Remarcar</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
 		<?php if(isset($_COOKIE["modificar"])) { ?> <h2 class="page-header">Modificar Item</h2> <?php }
@@ -222,12 +189,13 @@
 					</td>
 					<td>&nbsp;</td>
 					<td>
-						<input class="btn btn-default btn-sm" type="submit" value="Reset" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php }?> />
+						<input class="btn btn-default btn-sm" type="submit" value="Reiniciar" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php }?> />
 					</td>
 				</tr>
 			</table>
 		</form>
-					
+		
+		<br />			
  
 		<?php
 		include("../code/conexion.inc");
