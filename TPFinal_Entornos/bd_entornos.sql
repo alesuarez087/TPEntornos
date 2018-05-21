@@ -1144,7 +1144,7 @@ inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
 where it.habilitado = 1
 group by it.id_item
 order by cantidad desc 
-limit 0,8
+limit 0,12
 ;
 END ;;
 DELIMITER ;
@@ -1284,7 +1284,7 @@ inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
 where it.habilitado = 1
 group by it.id_item
 order by it.id_item desc 
-limit 0,8
+limit 0,12
 ;
 END ;;
 DELIMITER ;
@@ -1933,4 +1933,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-18 10:19:55
+-- Dump completed on 2018-05-21 12:28:42
