@@ -23,7 +23,7 @@
 			$vResultado = mysqli_query($link, $vSql) or die (error($link));
 			
 			if($fila = mysqli_fetch_array($vResultado)){
-					$user = array('Id'=>$fila['id_usuario'],'Usuario'=>$fila['nombre'],'Nombre'=>$fila['nombre'], 'Apellido'=>$fila[''], 'TipoUsuario'=>$fila['id_tipo_usuario']);
+					$user = array('Id'=>$fila['id_usuario'],'Usuario'=>$fila['nombre'],'Nombre'=>$fila['nombre'], 'Apellido'=>$fila['apellido'], 'TipoUsuario'=>$fila['id_tipo_usuario']);
 					$_SESSION['usuario'] = $user;
 					if(isset($_COOKIE["elegido"])) header('Location: ../pages/elegido.php');
 					else header('Location: ../pages/index.php');
