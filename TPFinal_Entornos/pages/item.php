@@ -4,6 +4,7 @@
 	$vNRO = NULL;
 	if(isset($_SESSION['usuario'])){
 		$fila = $_SESSION['usuario'];
+		$nombreUsuario = $fila['Usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -50,17 +51,17 @@
 		function error(){
 			echo "<script type=\"text/javascript\">location.href='../pages/error.html';</script>";
 		}	
-		include_once("cabecera.php");
+		include_once("../pages/cabecera.php");
 	?>
-
 	
 
-	<div class="col-sm-9 col-sm-offset-3 col-md-12 col-md-offset-2 main">
+	<div class="col-sm-4 col-md-4">
 		<?php if(isset($_COOKIE["modificar"])) { ?> <h2 class="page-header">Modificar Item</h2> <?php }
 			  else if(isset($_COOKIE["eliminar"])) { ?> <h2 class="page-header">Eliminar Item</h2> <?php }
 			  else { ?> <h2 class="page-header">Nuevo Item</h2> <?php } ?>	
+
 		<br>
-		
+
 		<form role="form" action="../code/itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<table>
 				<tr>
@@ -174,7 +175,7 @@
 		?>
 		
 		<br> <br> <br>
-
+	
 		<form role="form" action="../code/itemONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
 				<tr>
@@ -194,7 +195,7 @@
 				</tr>
 			</table>
 		</form>
-		
+		</div>
 		<br />			
  
 		<?php
@@ -309,7 +310,10 @@
 	</tr>
 	</table>
 
-	</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+
 </body>
 </html>
 

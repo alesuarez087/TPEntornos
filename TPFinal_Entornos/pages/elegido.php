@@ -5,9 +5,12 @@
 	if(isset($_SESSION['usuario'])){
 		$fila = $_SESSION['usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
-		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
-		if(isset($_POST['idSelect'])) $idItem = $_POST['idSelect'];
-		else if(isset($_COOKIE["elegido"])) $idItem = $_COOKIE["elegido"]; else header("location:../pages/error.html");
+		if($tipoUsuario != 3) header("location:../pages/index.php");
+		else {
+			$nombreUsuario = $fila['Usuario'];
+			if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
+			if(isset($_POST['idSelect'])) $idItem = $_POST['idSelect'];
+			else if(isset($_COOKIE["elegido"])) $idItem = $_COOKIE["elegido"]; else header("location:../pages/error.html");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -39,9 +42,11 @@
 
 	<?php include_once("cabecera.php") ?>
 
+	<div class="col-sm-4 col-md-4">
+		<h2 class="page-header">Disco</h2>
+	</div>
 	<div class="container">
 		<form role="form" action="../code/itemVENTA.php" method="post" id="compra" name="compra" onSubmit="return validar()">
-			<h2 class="page-header">Disco</h2>
 			<div class="row placeholders">
 				<div class="placeholder">
 					<table>
@@ -66,14 +71,14 @@
 									</tr>
 									<tr style="vertical-align:text-bottom">
 										<td colspan="2">
-											<h2>Promedio: <?php if(!isset($fila['prom'])) echo "No fue calificado"; else {?></h2>
+											<h2>Promedio: <?php if(!isset($fila['prom'])) echo "No fue calificado"; else {?>
 											<p class="clasificacion">
 									<input id="radio1" name="estrellas" disabled="disabled" value="5" type="radio" <?php if(round($fila['prom'])==5){ ?> checked <?php } ?>><label for="radio1">&#9733;</label> 
 									<input id="radio2" name="estrellas" disabled="disabled" value="4" type="radio" <?php if(round($fila['prom'])==4){ ?> checked <?php } ?>><label for="radio2">&#9733;</label> 
 									<input id="radio3" name="estrellas" disabled="disabled" value="3" type="radio" <?php if(round($fila['prom'])==3){ ?> checked <?php } ?>><label for="radio3">&#9733;</label>
 									<input id="radio4" name="estrellas" disabled="disabled" value="2" type="radio" <?php if(round($fila['prom'])==2){ ?> checked <?php } ?>><label for="radio4">&#9733;</label> 
 									<input id="radio5" name="estrellas" disabled="disabled" value="1" type="radio" <?php if(round($fila['prom'])==1){ ?> checked <?php } ?>><label for="radio5">&#9733;</label>
-								</p> <?php } ?>
+								</p> <?php } ?></h2>
 										</td>
 									</tr>
 									<tr style="vertical-align:text-bottom">
@@ -109,53 +114,41 @@
 			</div>
 		</div>
 		</form>
-		
-		
-					<h3 class="page-subheader">Comentarios</h3>
-			
-				<?php
-					unset($link, $vResultado);
-					include("../code/conexion.inc");
-					$vSql = "CALL ClasificacionesGetAll('$idItem')";
-					$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error()));
-					if(mysqli_num_rows($vResultado)!=0){
-						while ($fila = mysqli_fetch_array($vResultado)){
-							if($fila['mensaje_adjunto']!=NULL){
-								unset($link);
-								$idUser = $fila['id_usuario'];
-								include("../code/conexion.inc");
-								$vSql = "CALL UsuariosGetOneForId('$idUser')";
-								$vRes = mysqli_query($link, $vSql) or die (error());
-								$vUsuario = mysqli_fetch_row($vRes);
-				?>
-					
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										Usuario:<?php echo $vUsuario[7]; ?>
-									</div>
-									<div class="panel-body">
-										<?php echo $fila['mensaje_adjunto']; ?>
-									</div>
-								</div>
-				<?php
-							} else
-				?>
-				<h4>Sin Comentarios</h4>
-				<?php
-						} 
-					} else {  
-				?>
-							<h4>Sin Comentarios</h4>
-				<?php 
-					}
-				?>
-			</tr>
-		</table>
+</div>
+		<div class="col-sm-4 col-md-4">
+		<h3 class="page-header">Comentarios</h3>
+		<?php
+			include("conexion.inc");
+			$vSql = "CALL ClasificacionesGetAll('$idItem')";
+			$vRes = mysqli_query($link, $vSql);
+			unset($link);
+			if(mysqli_num_rows($vRes) != 0){
+			while($fila = mysqli_fetch_array($vRes)){ if(isset($fila['mensaje_adjunto'])){
+		?>
+		<div class="col-md">        
+          <div class="card">
+            <div class="card-header">
+            	<?php echo "Usuario: ".$fila['nombre_usuario']; ?></div>
+            </div>
+            <div class="card-body">
+              <p class="card-text"><?php echo $fila['mensaje_adjunto']; ?> </p>
+            </div>
+          </div>          
+      </div>
+	  <br />
+		<?php } } } else{ ?>
+		<h4>Sin Comentarios</h4>
+		<?php } ?>
 	</div>
+	
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+
 </body>
 </html>
 
-<?php } else {
+<?php } } else {
 			setcookie("elegido", $_POST['idSelect'], time()+3600, "/");
 			header("location:../pages/login.php");
 		}

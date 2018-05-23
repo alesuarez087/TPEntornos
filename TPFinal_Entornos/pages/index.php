@@ -5,6 +5,7 @@
 	if(isset($_SESSION['usuario'])){
 		$fila = $_SESSION['usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
+		$nombreUsuario = $fila['Usuario'];
 		if(isset($_SESSION["carro"])) $vNRO=count($_SESSION["carro"]); else $vNRO=0;
 	}
 ?>
@@ -27,8 +28,9 @@
 
 <body>	
 	<?php include_once("cabecera.php"); ?>
-
-	<h2 class="page-header">Novedades</h2>
+	<div class="col-sm-4 col-md-4">
+		<h2 class="page-header">Novedades</h2>
+	</div>
 	<div class="row placeholders">
 			<?php 
 				include("../code/conexion.inc");
@@ -51,7 +53,9 @@
 	
 	</div>
 	<br />
-	<h2 class="text-capitalize">Top Ventas</h2>
+	<div class="col-sm-4 col-md-4">
+		<h2 class="text-capitalize">Top Ventas</h2>
+	</div>
 	<div class="row placeholders">
 	<?php 
 				include("../code/conexion.inc");
@@ -74,7 +78,9 @@
 	
 	</div>
 	<br />
-	<h2 class="text-capitalize">Top Semanal</h2>
+	<div class="col-sm-4 col-md-4">
+		<h2 class="text-capitalize">Top Semanal</h2>
+	</div>
 	<div class="row placeholders">
 	<?php 
 				include("../code/conexion.inc");
@@ -97,7 +103,9 @@
 	
 	</div>
 	<br />
-	<h2 class="text-capitalize">Top Mensual</h2>
+	<div class="col-sm-4 col-md-4">
+		<h2 class="text-capitalize">Top Mensual</h2>
+	</div>
 	<div class="row placeholders">
 	<?php 
 				include("../code/conexion.inc");
@@ -119,8 +127,10 @@
 		 <?php } ?>
 	
 	</div>
-		<br />
-	<h2 class="text-capitalize">Mejores calificados</h2>
+	<br />
+	<div class="col-sm-4 col-md-4">
+		<h2 class="text-capitalize">Mejores calificados</h2>
+	</div>
 	<div class="row placeholders">
 	<?php 
 				include("../code/conexion.inc");
