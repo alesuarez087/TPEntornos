@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `entornos_final` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
-USE `entornos_final`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
 -- Host: localhost    Database: entornos_final
@@ -60,7 +58,7 @@ CREATE TABLE `clasificaciones` (
   KEY `clasificaciones_item_idx` (`id_item`),
   CONSTRAINT `clasificaciones_item` FOREIGN KEY (`id_item`) REFERENCES `items` (`id_item`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `clasificaciones_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +67,7 @@ CREATE TABLE `clasificaciones` (
 
 LOCK TABLES `clasificaciones` WRITE;
 /*!40000 ALTER TABLE `clasificaciones` DISABLE KEYS */;
-INSERT INTO `clasificaciones` VALUES (1,4,NULL,2,1),(2,4,'discazo',2,2),(3,4,'jajaja',2,3),(4,3,'Le sobran acordes',2,5),(5,4,'Un punto menos porque critan a la Jefa',2,7);
+INSERT INTO `clasificaciones` VALUES (1,4,NULL,2,1),(2,4,'discazo',2,2),(3,4,'jajaja',2,3),(4,3,'Le sobran acordes',2,5),(5,4,'Un punto menos porque critan a la Jefa',2,7),(6,0,'caca',2,6);
 /*!40000 ALTER TABLE `clasificaciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +129,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',100,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg'),(37,'Don Leopardo','1996',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitdonleopardo.jpg'),(38,'... Y Punto','1992',200,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitypunto.jpg'),(40,'?','2007',200,1,5,1,2,'http://2.bp.blogspot.com/-0XZRltZnuGw/VNQxBm0ywgI/AAAAAAAAAJY/Tr-tYyWsj1c/s1600/Bersuit%2B%5BDelantera%5D.jpg'),(41,'Kink of king','2006',200,1,8,5,2,'http://images.mp3teca.com/14950_250.jpg'),(42,'iDon','2009',100,1,8,5,2,'https://is3-ssl.mzstatic.com/image/thumb/Music/0d/45/fd/mzi.svxtqwqj.jpg/268x0w.jpg'),(43,'Meet the Orphans','2010',100,1,8,5,2,'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Meet_the_Orphans_album_cover.jpg/220px-Meet_the_Orphans_album_cover.jpg'),(44,'Meet the Orphans 2','2012',100,1,8,5,2,'http://www.reggaetonline.net/images/CDs/meet-the-orphans-2.jpg'),(45,'Asquerosa alegría','1994',100,1,5,1,2,'https://www.lacanciondelpais.com.ar/sitio/jpg/asquerosa%20alegria.jpg'),(46,'Hijos del culo','2000',99,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuithijosdelculo.jpg');
+INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',100,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas peleándole al viento','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg'),(37,'Don Leopardo','1996',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitdonleopardo.jpg'),(38,'... Y Punto','1992',200,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitypunto.jpg'),(40,'?','2007',200,1,5,1,2,'http://2.bp.blogspot.com/-0XZRltZnuGw/VNQxBm0ywgI/AAAAAAAAAJY/Tr-tYyWsj1c/s1600/Bersuit%2B%5BDelantera%5D.jpg'),(41,'Kink of king','2006',200,1,8,5,2,'http://images.mp3teca.com/14950_250.jpg'),(42,'iDon','2009',100,1,8,5,2,'https://is3-ssl.mzstatic.com/image/thumb/Music/0d/45/fd/mzi.svxtqwqj.jpg/268x0w.jpg'),(43,'Meet the Orphans','2010',100,1,8,5,2,'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Meet_the_Orphans_album_cover.jpg/220px-Meet_the_Orphans_album_cover.jpg'),(44,'Meet the Orphans 2','2012',100,1,8,5,2,'http://www.reggaetonline.net/images/CDs/meet-the-orphans-2.jpg'),(45,'Asquerosa alegría','1994',100,1,5,1,2,'https://www.lacanciondelpais.com.ar/sitio/jpg/asquerosa%20alegria.jpg'),(46,'Hijos del culo','2000',99,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuithijosdelculo.jpg');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -497,7 +495,6 @@ DELIMITER ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ClasificacionesGetAll` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -505,22 +502,21 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ClasificacionesGetAll`(IN idItem INT)
 BEGIN
 SELECT *
-FROM clasificaciones
-WHERE id_item  = idItem;
+FROM clasificaciones c
+INNER JOIN usuarios u ON c.id_usuario = u.id_usuario
+WHERE c.id_item  = idItem;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ClasificacionesGetOne` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -528,20 +524,20 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ClasificacionesGetOne`(IN item INT, IN user INT)
 BEGIN
 SELECT *
-FROM clasificaciones
-WHERE id_usuario = user AND id_item = item;
+FROM clasificaciones c
+INNER JOIN usuarios u ON c.id_usuario = u.id_usuario
+WHERE c.id_usuario = user AND c.id_item = item;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ClasificacionesInsert` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1933,4 +1929,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-21 12:28:42
+-- Dump completed on 2018-05-25 12:34:21
