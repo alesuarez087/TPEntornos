@@ -140,10 +140,10 @@
 		</div>
 	</div>
 	<?php } 
-		setcookie("email", '', time()-3600, "/");
-		setcookie("dni", '', time()-3600, "/");
-		setcookie("apellido", '', time()-3600, "/");
-		setcookie("nombre", '', time()-3600, "/");
+		if (isset($_COOKIE["email"]))setcookie("email", '', time()-3600, "/");
+		if (isset($_COOKIE["dni"]))setcookie("dni", '', time()-3600, "/");
+		if (isset($_COOKIE["apellido"]))setcookie("apellido", '', time()-3600, "/");
+		if (isset($_COOKIE["nombre"]))setcookie("nombre", '', time()-3600, "/");
 	?>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
