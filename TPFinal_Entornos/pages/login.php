@@ -29,6 +29,8 @@
 			alert("El Apellido no puede ser un número"); return false;
 		} else if(contrasenia != confirmar){
 			alert("Las contraseñas son distintas"); return false;
+		} else if(!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email))){
+			alert("El mail no posee el formadto adecuado"); return false;
 		} else return true;
 	}
 </script>
