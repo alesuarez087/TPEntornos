@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 2</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+	<script type="text/javascript">
+	//abre en una nueva pestaña
+	function producto(){
+		window.open("http://productos.html");
+	}
+	//abre en la misma pestaña
+	function servicio(){
+		location.href = "http://servicios.html";
+	}
+	function login(){
+		user = document.form.usuario.value
+		pass = document.form.clave.value
+		if(user == ""){
+			alert("Ingrese nombre de usuario"); return false;
+		} else if(pass == ""){
+			alert("Ingrese contraseña"); return false;
+		} else return true;
+	}
+</script>
+
+	<div class="contenedor">
+		<div class="cabecera">
+				<img src="Invierno.jpg" alt=""  />
+			<h1>Banco &quot;NN&quot; de Rosario</h1>
+		</div>
+		<div class="menu">
+			<div class="izquierda">
+				<form onsubmit="return login()" action="log.php" method="post" name="form" id="form">
+					LOGIN<br /><br />
+					Usuario:<br /><input type="text" name="usuario" size="10" /><br /><br />
+					Clave:<br /><input type="password" name="clave" size="10"/><br /><br />
+					<input type="submit" name="enviar" id="enviar" value="enviar" />
+				</form>
+			</div>
+			<div class="derecha">
+				<ul>
+					<li>Home</li>
+					<li><a href="javascript:producto()">Productos</a></li>
+					<li><a href="javascript:servicio()" target="central">Servicios</a></li>
+					<li><a href="mailto:x@x.com">Consultas</a></li>
+				</ul>
+			</div>
+			<div class="centro">
+				<p class="lightblue">
+					Este banco cuenta con 5 sucursales en la ciudad de Rosario, etc., etc., etc...........
+				</p>
+    			<p class="pink">
+					............. texto .............. texto ................<br />
+			        ........ texto .................. texto ....................<br />
+			        ............. texto .............. texto ...................<br /> 
+			        ......... texto ........................ texto .............<br />
+			        ........ texto .................. texto ....................<br />
+    			    ............. texto .............. texto ...................<br />    
+			        ......... texto ........................ texto .............<br />  
+			        ............. texto .............. texto ................<br />                
+					.......................................
+				</p>
+				<p>&nbsp;</p>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

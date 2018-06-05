@@ -1,0 +1,83 @@
+/* CSS Document */
+html, body{
+	background-image:url(Colinas_azules.jpg);
+	background-repeat:repeat-x;
+	margin:0px;
+	padding:0px;
+	height:100%;
+}
+
+.contenedor{
+	width:100%;
+	height:inherit;
+}
+
+.cabecera{
+	text-align:center;
+	color:#CC0000;
+}
+
+.cabecera img{
+	width:100px;
+	height:80px;
+	float:right;
+	margin-right:10px;
+}
+
+.menu{
+	margin-top:5%;
+	height:inherit;
+}
+
+.izquierda{
+	background-color:white;
+	text-align:center;
+	float:left;
+	width:130px;
+	height:100%;
+}
+
+.derecha{
+	background-color:#006666;
+	color:#FFFF00;
+	font-weight:bold;
+	height:100%;
+	width:130px;
+	float:right;
+}
+
+.derecha ul{
+	list-style:none;
+}
+
+.derecha li{
+	border-color:#6666FF;
+	border-spacing:0px;
+	border-style:solid;
+	border-left-width:medium;
+	padding:2px;
+	width:80px;
+}
+
+.derecha a:visited, .derecha a:link{
+	color:#FFFFFF;
+}
+
+.centro{
+	background-color:#666666;
+	height:100%;
+	overflow:auto;
+}
+
+p{
+	margin-left:10px;
+	margin-top:10px;
+}
+
+p.lightblue{
+	color:#00FFFF;
+}
+
+p.pink{
+	color:#FF99FF;
+}
