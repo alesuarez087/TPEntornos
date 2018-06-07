@@ -1,0 +1,8 @@
+ABM Artistas
+ABM Generos
+ABM Usuario
+ABM Tipo Item
+Item por generos
+M Congtrol Precios (remarcar.php)
+Agregar mail al final de la venta
+Agregar contacto desde la navbar home

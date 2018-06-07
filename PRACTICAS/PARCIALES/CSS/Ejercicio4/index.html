@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="style.css" rel="stylesheet" />
+<title>Documento sin t&iacute;tulo</title>
+</head>
+<body>
+<Script Language="JavaScript">
+    function DameLaFechaHora() {
+      var hora = new Date()
+      var hrs = hora.getHours();
+      var min = hora.getMinutes();
+      var hoy = new Date();
+      var m = new Array();
+      var d = new Array()
+      var an= hoy.getYear();
+      m[0]="Enero";  m[1]="Febrero";  m[2]="Marzo";
+      m[3]="Abril";   m[4]="Mayo";  m[5]="Junio";
+      m[6]="Julio";    m[7]="Agosto";   m[8]="Septiembre";
+      m[9]="Octubre";   m[10]="Noviembre"; m[11]="Diciembre";
+      document.write("Son las "+hrs+":"+min+" (");
+      document.write(hoy.getDate());
+      document.write(" de ");
+      document.write(m[hoy.getMonth()]);
+      document.write(")");
+    }
+  </Script>
+  <div class="conteiner">
+	<div class="conteiner1">
+		<div class="left">
+			<img src="logo.jpg" alt="" width="130" height="130" />
+		</div>
+		<div class="right">
+			MUEBLERÍA "LA FLOR"<br />
+			ESTA EMPRESA SE DEDICA A LA VENTA DE MUEBLES ARTESANALES
+		</div>
+	</div>
+	<div class="conteiner2">
+		<div class="left">
+			texo
+		</div>
+		<div class="right">
+			<ul>
+				<li>Pedidos</li>
+				<li>Productos</li>
+			</ul>
+		</div>
+	</div>
+	<div class="conteiner3">
+		DameLaFechaHora()
+	</div>
+	</div>
+</body>
+</html>

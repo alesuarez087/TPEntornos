@@ -1,0 +1,52 @@
+/* CSS Document */
+html, body{
+	margin:0px;
+	padding:0px;
+	height:100%;
+}
+
+.conteiner{
+	height:inherit;
+}
+
+.conteiner1{
+	height:25%;
+}
+.conteiner1 .left{
+	width:20%;
+	float:left;
+	overflow:scroll;
+	border-style:double;
+	border-width:2px;
+	height:inherit;
+}
+.conteiner1 .right{
+	margin-left:20%;
+	border-style:double;
+	border-width:2px;
+	height:inherit;
+}
+
+.conteiner2{
+	height:50%;
+}
+.conteiner2 .left{
+	width:70%;
+	float:left;
+	border-style:double;
+	border-width:2px;
+	height:inherit;
+}
+.conteiner2 .right{
+	margin-left:70%;
+	border-style:double;
+	border-width:2px;
+	background-color:red;
+	height:inherit;
+}
+.conteiner3{
+	border-style:double;
+	border-width:2px;
+	height:25%;
+	text-align:left;
+}
