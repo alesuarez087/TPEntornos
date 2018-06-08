@@ -263,7 +263,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'David','Martínez',1,3,'fer12345','martinezd@gmail.com','martinezd','12345678'),(3,'Ale','Suarez',1,1,'fer12345','a@gmail.com','suareza','holis@gmail.com'),(4,'Araceli','Castelletta',1,1,'fer12345','12','arac','arac@gmail.com'),(5,'Diego','Maradona',1,2,'fer12345','3223','maradonad','diegote@gmail.com'),(6,'1','1',0,3,'fer12345','a','golpe','a');
+INSERT INTO `usuarios` VALUES (2,'David','Martínez',1,3,'fer12345','martinezd@gmail.com','martinezd','12345678'),(3,'Alejandro','Suarez',1,1,'fer12345','a@gmail.com','suareza','holis@gmail.com'),(4,'Araceli','Castelletta',1,1,'fer12345','12','arac','arac@gmail.com'),(5,'Diego','Maradona',1,2,'fer12345','3223','maradonad','diegote@gmail.com'),(6,'1','1',0,3,'fer12345','a','golpe','a');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1767,6 +1767,25 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `UsuariosUpadteData` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosUpadteData`(IN id INT, IN ape varchar(100), IN nom varchar(100), IN mail varchar(100), in clav varchar(50))
+BEGIN
+UPDATE usuarios SET apellido=ape, nombre=nom, email=mail, clave=clav WHERE id_usuario = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UsuariosUpdate` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1794,6 +1813,25 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `UsuariosUpdateData` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosUpdateData`(IN id INT, IN ape varchar(100), IN nom varchar(100), IN mail varchar(100), in clav varchar(50))
+BEGIN
+UPDATE usuarios SET apellido=ape, nombre=nom, email=mail, clave=clav WHERE id_usuario = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `VentaItemGetAll` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1991,4 +2029,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-08 17:18:03
+-- Dump completed on 2018-06-08 18:32:29
