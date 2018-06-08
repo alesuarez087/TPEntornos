@@ -29,7 +29,7 @@
 
 	<?php include_once("../pages/cabecera.php"); ?>
 
-	<h3 class="page-header">Clasificar</h3>
+	<h3 class="page-header">Calificar</h3>
 	<div class="container">
 		
 		<table class="table table-hover">
@@ -58,7 +58,7 @@
 				<form role="form" action="calificar.php" method="post" id="botonera" name="botonera">
 					<td style="vertical-align: middle">
 						<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $filaI['id_item'] ?>" /> 
-						<input class="btn btn-success btn-sm" type="submit" value="Clasificar" id="eventSelect" name="eventSelect" />
+						<input class="btn btn-success btn-sm" type="submit" value="Calificar" id="eventSelect" name="eventSelect" />
 					</td>
 				</form>
 			</tr>
