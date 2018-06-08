@@ -56,7 +56,7 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo ("Hola ".$nombreUsuario); ?></a>
     					<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="adminArtista.jsp">Configuración</a>
+							<a class="dropdown-item" href="editarDatos.php">Editar Datos</a>
 							<a class="dropdown-item" href="../code/login.php">Cerrar Sesión</a>
 				    	</div>
 				     </li>

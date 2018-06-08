@@ -131,7 +131,7 @@
 		
 			include("../code/conexion.inc");
 			$vSql = "CALL ArtistasGetAllLimit('$inicio', '$Cant_por_Pag')";
-			$vResultado = mysqli_query($link, $vSql) or die(mysqli_error());
+			$vResultado = mysqli_query($link, $vSql) or die(mysqli_error($link));
 		}
 	?>
 	<table class="table table-hover">
