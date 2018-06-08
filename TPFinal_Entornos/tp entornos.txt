@@ -1,5 +1,4 @@
 ABM Artistas
-ABM Generos
 ABM Usuario
 ABM Tipo Item
 Item por generos
