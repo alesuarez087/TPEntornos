@@ -27,7 +27,7 @@
 						<a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Compras</a>
             			<div class="dropdown-menu" aria-labelledby="dropdown02">
 							<a class="dropdown-item" href="resumenCompras.php">Listado de Compras</a>
-							<a class="dropdown-item" href="itemsComprados.php">Clasificar</a>
+							<a class="dropdown-item" href="itemsComprados.php">Calificar</a>
     	    		    </div>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="carrito.php"> <img alt="Brand" src="../styles/img/carrito25.png"> Carrito de compras <span clase="badge">(<?php  echo ($vNRO); ?>)</span></a></li>
@@ -49,7 +49,7 @@
 				} ?>
     		    </ul>
 	    	    <form action="../pages/busqueda.php" method="post" class="form-inline my-2 my-md-0" >
-					<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que estás buscando?">
+					<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que est&aacute;s buscando?">
 				</form>
 				<ul class="navbar-nav my-2 my-md-0">
 					<?php if (isset($tipoUsuario)){ ?>
@@ -61,7 +61,7 @@
 				    	</div>
 				     </li>
 					<?php  } else { ?>
-					<li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#dialogo">Iniciar Sesión</a></li>
+					<li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#dialogo">Iniciar Sesi&oacute;n</a></li>
 					<?php } ?>
 				</ul>
 			</div>
