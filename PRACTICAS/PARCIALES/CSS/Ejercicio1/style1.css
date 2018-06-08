@@ -1,0 +1,94 @@
+/* CSS Document */
+html, body{
+	color:#FFFF00;
+	height:55%;
+}
+
+
+#contenedor{  
+	height:100%;
+}  
+#cabecera{  
+	background-image:url(Colinas_azules.jpg);
+	height:95px;
+}  
+h1 { 
+	color:#009900;
+    display: block;
+    font-size: 2em;
+    margin-top: 0px;
+    margin-bottom: 0em;
+    margin-left: 10px;
+    margin-right: 0;
+    font-weight: bold;
+}
+#cabecera img{
+	float:right;
+	height:60px;
+	width:80px;
+	margin-right:10px;
+	margin-top:25px;
+}
+#menu{  
+	height:10%;  
+	background-color:#C8CACC;  
+}  
+#cuerpo{
+	height:100%;
+	border-spacing:0px;
+	border-collapse:separate;
+}
+#izquierda{  
+	width: 130px;
+	background-color: #000066;
+	float:left;
+	font-weight:bold;
+	height:100%;
+}  
+
+#izquierda ul{
+	margin-left:10px;
+	margin-top:8px;
+	padding: 0px;
+	list-style: none;
+	border-collapse:collapse;
+}  
+
+#izquierda li{
+	padding: 5px;
+	width:80px;
+	font-weight: bold;
+	border-style:solid;
+	border-color:#6666FF;
+}
+
+#izquierda a:link, a:visited{
+	color: #FFFFFF;
+}
+
+#derecha{  
+	height:100%;  
+	width:100%;
+	background-color:#0033CC;  
+}  
+#pie{  
+	height:30px;  
+	background-color: #66FFCC;
+	text-align:center;
+	vertical-align:baseline;
+	color:#0000CC;
+	clear:both;  
+}  
+
+p{
+	margin-left:10px;
+	margin-top:0px;
+}
+
+#lightblue{
+	color:#00FFFF;
+}
+
+#pink{
+	color:#FF99FF;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ejercicio 1</title>
+<link href="style.css" rel="stylesheet" />
+</head>
+<script type="text/javascript">
+	function ventana(){
+		window.open("productos.html", "Nueva Ventana");
+	}
+	
+	function masinfo(){
+		 var respuesta=confirm("Desea obtener más información?");
+		 if (respuesta==true) alert("Consulte telefónicamente al 0341-123456");
+	} 
+</script>
+<body>
+	<div id="contenedor">
+		<div id="cabecera">
+			<img src="Invierno.jpg" height="60px" width="80px" align="right" >
+		    <h1>Empresa &quot;XXXXXXXXXXX&quot;</h1>
+		</div>
+		<div id="cuerpo">
+			<div id="lateral">
+				<ul>
+					<li>Home</a></li>
+					<li><a href="javascript:ventana()">Productos</a></li>
+					<li><a href="servicios.htm">Servicios</a></li>
+					<li><a href="mailto:x@x.com">Consultas</a></li>
+				</ul>
+			</div>
+			<div id="principal">
+				<p id="lightblue">
+					Esta empresa, desde hace más de 15 años, se dedica a la comercialización de Productos y Servicios relacionados con la Computación, etc., etc., etc...........
+				</p>
+			    <p id="pink">
+					............. texto .............. texto ................<br>
+			        ........ texto .................. texto ....................<br>
+			        .............. texto ....... texto .........................<br>    
+			        ........... texto ................... texto ................<br>    
+			        ............. texto .............. texto ...................<br>    
+			        ......... texto ........................ texto .............<br>    
+			        ............. texto .............. texto ................<br>                
+				    .......................................
+				</p>
+			    <p>&nbsp;</p>
+			</div>
+		</div>
+		<div id="pie">
+			<a href="javascript:masinfo()">Calle NN Nº9999 - Rosario - Argentina - Tel. 54 341 999999</a>
+		</div>
+	</div>
+</body>
+</html>

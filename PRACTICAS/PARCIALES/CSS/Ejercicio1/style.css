@@ -1,0 +1,84 @@
+/* CSS Document */
+html, body{
+	height:100%;
+	color:#FFFF00;
+}
+
+#contenedor{
+	height:inherit;
+	width:100%;
+}
+
+#cabecera{
+	background-image:url(Colinas_azules.jpg);
+	height:95px;
+}
+
+#cabecera h1{ 
+	color:#009900;
+    display: block;
+    font-size: 2em;
+	margin: 0px;
+    font-weight: bold;
+}
+
+#cuerpo{
+	height:100%;
+	margin:0px;
+}
+
+#lateral{
+	width: 130px;
+	background-color: #000066;
+	float:left;
+	font-weight:bold;
+	height:100%;
+}
+
+#lateral ul{
+	margin-left:10px;
+	margin-top:8px;
+	padding: 0px;
+	list-style: none;
+	border-collapse:collapse;
+}
+
+#lateral li{
+	padding: 5px;
+	width:80px;
+	font-weight: bold;
+	border-style:solid;
+	border-color:#6666FF;
+}
+
+#lateral a:link, a:visited{
+	color: #FFFFFF;
+}
+
+#principal{
+	height:100%;  
+	width:100%;
+	background-color:#0033CC;  
+}
+
+#pie{
+	height:30px;  
+	background-color: #66FFCC;
+	text-align:center;
+	vertical-align:baseline;
+	color:#0000CC;
+	clear:both;  
+}
+
+p{
+	margin-left:10px;
+	margin-top:0px;
+}
+
+#lightblue{
+	color:#00FFFF;
+}
+
+#pink{
+	color:#FF99FF;
+}
