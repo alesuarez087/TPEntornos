@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `entornos_final` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
+USE `entornos_final`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win32 (AMD64)
 --
 -- Host: localhost    Database: entornos_final
@@ -83,7 +85,7 @@ CREATE TABLE `generos` (
   `desc_genero` varchar(50) NOT NULL,
   `habilitado` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -92,7 +94,7 @@ CREATE TABLE `generos` (
 
 LOCK TABLES `generos` WRITE;
 /*!40000 ALTER TABLE `generos` DISABLE KEYS */;
-INSERT INTO `generos` VALUES (1,'Rock',1),(2,'Pop',1),(3,'Indie',1),(4,'Tango',1),(5,'Reggaeton',1);
+INSERT INTO `generos` VALUES (1,'Rock',1),(2,'Pop',1),(3,'Indie',1),(4,'Tango',1),(5,'Reggaeton',1),(6,'Trap',1),(7,'Cumbia',1);
 /*!40000 ALTER TABLE `generos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -609,8 +611,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
-/*!50003 DROP PROCEDURE IF EXISTS `GenerosDelete` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
+/*!50003 DROP PROCEDURE IF EXISTS `GenerosBusqueda` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -618,21 +619,39 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosDelete`(IN cod BOOLEAN)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosBusqueda`(IN busca VARCHAR(45))
 BEGIN
-UPDATE generos SET  habilitado = false
-WHERE id_genero = cod;
-UPDATE items SET habilitado = false
-WHERE id_genero = cod;
+select *
+from generos
+where (desc_genero like busca COLLATE utf8_spanish_ci ); 
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `GenerosDelete` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosDelete`(IN cod BOOLEAN)
+BEGIN
+UPDATE generos gen SET gen.habilitado = false where gen.id_genero = cod;
+UPDATE items it SET habilitado = false WHERE it.id_genero = cod;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `GenerosGetAll` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -680,8 +699,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
-/*!50003 DROP PROCEDURE IF EXISTS `GenerosGetOne` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
+/*!50003 DROP PROCEDURE IF EXISTS `GenerosGetAllLimit` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -689,20 +707,64 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosGetOne`(IN descr varchar(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosGetAllLimit`(IN inic int, IN pages int)
 BEGIN
-SELECT *
-FROM generos
-WHERE desc_genero = descr;
+select *
+from generos
+order by desc_genero
+limit inic,pages;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `GenerosGetAllLimitBusqueda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosGetAllLimitBusqueda`(IN inic int, IN pages int, IN busca VARCHAR(45))
+BEGIN
+select *
+from generos
+where (desc_genero like busca COLLATE utf8_spanish_ci )
+order by desc_genero
+limit inic,pages;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `GenerosGetOne` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GenerosGetOne`(IN id INT)
+BEGIN
+SELECT *
+FROM generos
+WHERE id_genero = id;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `GenerosGetOneForID` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1119,7 +1181,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsGetTop8`()
 BEGIN
@@ -1140,7 +1202,7 @@ inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
 where it.habilitado = 1
 group by it.id_item
 order by cantidad desc 
-limit 0,12
+limit 0,10
 ;
 END ;;
 DELIMITER ;
@@ -1260,7 +1322,7 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ItemsNovedades`()
 BEGIN
@@ -1280,7 +1342,7 @@ inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
 where it.habilitado = 1
 group by it.id_item
 order by it.id_item desc 
-limit 0,12
+limit 0,8
 ;
 END ;;
 DELIMITER ;
@@ -1929,4 +1991,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-25 12:34:21
+-- Dump completed on 2018-06-08 17:18:03
