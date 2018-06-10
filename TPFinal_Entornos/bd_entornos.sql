@@ -29,7 +29,7 @@ CREATE TABLE `artistas` (
   `nombre_artista` varchar(100) NOT NULL,
   `habilitado` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_artista`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `artistas` (
 
 LOCK TABLES `artistas` WRITE;
 /*!40000 ALTER TABLE `artistas` DISABLE KEYS */;
-INSERT INTO `artistas` VALUES (1,'Ciro y los persas',1),(2,'Los Piojos',1),(3,'Callejeros',1),(5,'Bersuit Vergarabat',1),(7,'Luis Alberto Spinetta',1),(8,'Don Omar',1),(9,'Salta la Banca',1);
+INSERT INTO `artistas` VALUES (1,'Ciro y los persas',1),(2,'Los Piojos',1),(3,'Callejeros',1),(5,'Bersuit Vergarabat',1),(7,'Luis Alberto Spinetta',1),(8,'Don Omar',1),(9,'Salta la Banca',1),(10,'Las pastillas del abuelo',1);
 /*!40000 ALTER TABLE `artistas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `items` (
 
 LOCK TABLES `items` WRITE;
 /*!40000 ALTER TABLE `items` DISABLE KEYS */;
-INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',100,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',95,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas peleándole al viento','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg'),(37,'Don Leopardo','1996',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitdonleopardo.jpg'),(38,'... Y Punto','1992',200,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitypunto.jpg'),(40,'?','2007',200,1,5,1,2,'http://2.bp.blogspot.com/-0XZRltZnuGw/VNQxBm0ywgI/AAAAAAAAAJY/Tr-tYyWsj1c/s1600/Bersuit%2B%5BDelantera%5D.jpg'),(41,'Kink of king','2006',200,1,8,5,2,'http://images.mp3teca.com/14950_250.jpg'),(42,'iDon','2009',100,1,8,5,2,'https://is3-ssl.mzstatic.com/image/thumb/Music/0d/45/fd/mzi.svxtqwqj.jpg/268x0w.jpg'),(43,'Meet the Orphans','2010',100,1,8,5,2,'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Meet_the_Orphans_album_cover.jpg/220px-Meet_the_Orphans_album_cover.jpg'),(44,'Meet the Orphans 2','2012',100,1,8,5,2,'http://www.reggaetonline.net/images/CDs/meet-the-orphans-2.jpg'),(45,'Asquerosa alegría','1994',100,1,5,1,2,'https://www.lacanciondelpais.com.ar/sitio/jpg/asquerosa%20alegria.jpg'),(46,'Hijos del culo','2000',99,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuithijosdelculo.jpg');
+INSERT INTO `items` VALUES (1,'Espejos','2010',74,1,1,1,2,'http://covers.discorder.com/fullsize/front/0656291228724.jpg'),(2,'27','2012',200,1,2,2,2,'http://1.bp.blogspot.com/-8HBeN45MWoE/UkcG-Kf-K-I/AAAAAAAABio/PwoxzD5n0_w/s1600/Ciro_Y_Los_Persas-27-Frontal.jpg'),(3,'Verde Paisaje del Infierno','2000',92,1,2,1,2,'http://images.coveralia.com/audio/l/Los_Piojos-Verde_Paisaje_Del_Infierno-Frontal.jpg'),(5,'Artaud','1973',0,1,7,1,5,'http://1.bp.blogspot.com/-JymquRyAGps/UKjeS7t_1dI/AAAAAAAAAP0/fDOUteefGA8/s1600/Pescado%2BRabioso%2B-%2BArtaud%2B-%2BCover.jpg'),(6,'The Last Don','2003',93,1,8,5,2,'http://obligao.net/ipauta/images/frontcuvu.jpg'),(7,'Visceral','2013',0,1,9,1,2,'http://www.cmtv.com.ar/tapas-cd/saltalabancavisceral.jpg'),(24,'Máquina de Sangre','2003',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojosmaquinadesangre.jpg'),(25,'Presión','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerospresion.jpg'),(26,'Señales','2006',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossenales.jpg'),(27,'Sed','2001',200,1,3,1,2,'http://www.cmtv.com.ar/tapas-cd/callejerossed.jpg'),(28,'Naranja Persa 2','2018',200,1,1,1,2,'https://pbs.twimg.com/media/DXolZNvXkAIV0Al.jpg'),(29,'Que placer verte otra vez','2015',200,1,1,1,3,'http://cyjdiscos.com.ar/subidas/300815204029c80a11.jpg'),(30,'Azul','1998',100,1,2,1,2,'https://images.genius.com/30385b258aefa11b6d94339292502e0d.953x953x1.jpg'),(31,'Tercer Arco','1996',100,1,2,1,2,'http://media.rock.com.ar/fotos/discos/000/001/211/original/piojos-tercer-arco.png'),(32,'Ay, Ay, Ay','1994',200,1,2,1,2,'http://fracturerecords.com.mx/tienda/images/lopiojosayayaycd.jpg'),(33,'Chac tu chac','1992',200,1,2,1,2,'http://www.cmtv.com.ar/tapas-cd/piojoschac.jpg'),(35,'Fantasmas peleándole al viento','2006',200,1,2,1,3,'https://ugc.kn3.net/i/origin/http://3.bp.blogspot.com/_DOwjLnlGyQ4/SQuE11RGg8I/AAAAAAAAAKQ/rmM45IpfuQw/s400/fantasmas.jpg'),(37,'Don Leopardo','1996',100,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitdonleopardo.jpg'),(38,'... Y Punto','1992',210,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuitypunto.jpg'),(40,'?','2007',200,1,5,1,2,'http://2.bp.blogspot.com/-0XZRltZnuGw/VNQxBm0ywgI/AAAAAAAAAJY/Tr-tYyWsj1c/s1600/Bersuit%2B%5BDelantera%5D.jpg'),(41,'Kink of king','2006',200,1,8,5,2,'http://images.mp3teca.com/14950_250.jpg'),(42,'iDon','2009',100,1,8,5,2,'https://is3-ssl.mzstatic.com/image/thumb/Music/0d/45/fd/mzi.svxtqwqj.jpg/268x0w.jpg'),(43,'Meet the Orphans','2010',100,1,8,5,2,'https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Meet_the_Orphans_album_cover.jpg/220px-Meet_the_Orphans_album_cover.jpg'),(44,'Meet the Orphans 2','2012',100,1,8,5,2,'http://www.reggaetonline.net/images/CDs/meet-the-orphans-2.jpg'),(45,'Asquerosa alegría','1994',100,1,5,1,2,'https://www.lacanciondelpais.com.ar/sitio/jpg/asquerosa%20alegria.jpg'),(46,'Hijos del culo','2000',99,1,5,1,2,'http://www.cmtv.com.ar/tapas-cd/bersuithijosdelculo.jpg');
 /*!40000 ALTER TABLE `items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `precios` (
 
 LOCK TABLES `precios` WRITE;
 /*!40000 ALTER TABLE `precios` DISABLE KEYS */;
-INSERT INTO `precios` VALUES (0,'2018-05-11',100),(1,'2017-03-05',100),(1,'2017-04-17',200),(1,'2018-05-01',200),(2,'2017-03-05',100),(2,'2017-04-21',200),(2,'2018-05-01',200),(2,'2018-05-04',200),(2,'2018-05-07',200),(3,'2017-03-05',100),(4,'2017-03-05',100),(5,'2017-03-05',100),(5,'2018-05-01',100),(5,'2018-05-07',100),(6,'2017-03-05',100),(7,'2017-03-05',200),(24,'2018-04-26',200),(25,'2018-04-26',200),(26,'2018-04-26',200),(27,'2018-05-01',200),(28,'2018-05-01',197),(29,'2018-05-01',400),(30,'2018-05-04',250),(31,'2018-05-04',250),(31,'2018-05-07',250),(32,'2018-05-07',250),(33,'2018-05-07',250),(34,'2018-05-07',0),(35,'2018-05-08',350),(36,'2018-05-08',0),(36,'2018-05-09',0),(37,'2018-05-09',102.2),(38,'2018-05-09',67.4),(39,'2018-05-09',100),(40,'2018-05-10',200),(41,'2008-05-11',100),(42,'2018-05-11',100),(43,'2018-05-11',100),(44,'2018-05-11',100),(45,'2018-05-11',100),(46,'2018-05-11',100);
+INSERT INTO `precios` VALUES (0,'2018-05-11',100),(1,'2017-03-05',100),(1,'2017-04-17',200),(1,'2018-05-01',200),(2,'2017-03-05',100),(2,'2017-04-21',200),(2,'2018-05-01',200),(2,'2018-05-04',200),(2,'2018-05-07',200),(3,'2017-03-05',100),(4,'2017-03-05',100),(5,'2017-03-05',100),(5,'2018-05-01',100),(5,'2018-05-07',100),(6,'2017-03-05',100),(7,'2017-03-05',200),(24,'2018-04-26',200),(25,'2018-04-26',200),(26,'2018-04-26',200),(27,'2018-05-01',200),(28,'2018-05-01',197),(29,'2018-05-01',400),(30,'2018-05-04',250),(31,'2018-05-04',250),(31,'2018-05-07',250),(32,'2018-05-07',250),(33,'2018-05-07',250),(34,'2018-05-07',0),(35,'2018-05-08',350),(36,'2018-05-08',0),(36,'2018-05-09',0),(37,'2018-05-09',102.2),(38,'2018-05-09',67.4),(38,'2018-06-09',100),(39,'2018-05-09',100),(40,'2018-05-10',200),(40,'2018-06-09',100),(41,'2008-05-11',100),(42,'2018-05-11',100),(43,'2018-05-11',100),(44,'2018-05-11',100),(45,'2018-05-11',100),(46,'2018-05-11',100);
 /*!40000 ALTER TABLE `precios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,7 +254,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id_usuario`),
   KEY `id_tipo_usuario` (`id_tipo_usuario`),
   CONSTRAINT `id_tipo_usuario` FOREIGN KEY (`id_tipo_usuario`) REFERENCES `tipos_usuario` (`id_tipo_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -263,7 +263,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (2,'David','Martínez',1,3,'fer12345','martinezd@gmail.com','martinezd','12345678'),(3,'Alejandro','Suarez',1,1,'fer12345','a@gmail.com','suareza','holis@gmail.com'),(4,'Araceli','Castelletta',1,1,'fer12345','12','arac','arac@gmail.com'),(5,'Diego','Maradona',1,2,'fer12345','3223','maradonad','diegote@gmail.com'),(6,'1','1',0,3,'fer12345','a','golpe','a');
+INSERT INTO `usuarios` VALUES (2,'David','Martínez',1,3,'fer12345','12345678','martinezd','martinezd@gmail.com'),(3,'Alejandro','Suarez',1,1,'fer12345','36005591','suareza','alepersa087@gmail.com'),(4,'Araceli','Castelletta',0,1,'fer12345','12','arac','arac@gmail.com'),(5,'Diego','Maradona',1,2,'fer12345','3223','maradonad','diegote@gmail.com'),(6,'Golep','Golep',1,3,'fer12345','34','golpe',''),(7,'Fernando','Suarez',1,2,'fer12345','36000000','suarezF','fersuarez@gmail.com.ar');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -474,7 +474,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ArtistasGetOne` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -482,20 +481,19 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ArtistasGetOne`(IN nombre VARCHAR(100))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ArtistasGetOne`(IN id INT)
 BEGIN
 SELECT *
 FROM artistas
-WHERE nombre_artista = nombre;
+WHERE id_artista = id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `ArtistasGetOneForID` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1003,14 +1001,13 @@ BEGIN
 	group by id_item
 	);
 
-	select it.*, ar.nombre_artista as nombre_artista, g.desc_genero as desc_genero, p.monto, ti.desc_tipo_item
+	select it.*, ar.nombre_artista as nombre_artista, g.desc_genero as desc_genero, pr.monto, ti.desc_tipo_item
 	from items it
 	inner join artistas ar on it.id_artista = ar.id_artista
 	inner join generos g on it.id_genero = g.id_genero
-	inner join precios p on p.id_item = it.id_item
-	inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+	inner join valores_actuales va on va.id_item = it.id_item
+    inner join precios pr ON va.id_item = pr.id_item and va.vigencia_desde = pr.fecha_desde
 	inner join tipos_item ti on it.id_tipo_disco = ti.id_tipo_item
-	group by it.id_item
 	order by titulo
 ;
 END ;;
@@ -1108,12 +1105,12 @@ drop temporary table if exists valores_actuales;
 	group by id_item
 	);
 
-	select it.*, ar.nombre_artista as nombre_artista, g.desc_genero as desc_genero, p.monto, ti.desc_tipo_item
+	select it.*, ar.nombre_artista as nombre_artista, g.desc_genero as desc_genero, pr.monto, ti.desc_tipo_item
 	from items it
 	inner join artistas ar on it.id_artista = ar.id_artista
 	inner join generos g on it.id_genero = g.id_genero
-	inner join precios p on p.id_item = it.id_item
-	inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+	inner join valores_actuales va on va.id_item = it.id_item
+    inner join precios pr ON va.id_item = pr.id_item and va.vigencia_desde = pr.fecha_desde
 	inner join tipos_item ti on it.id_tipo_disco = ti.id_tipo_item
 	group by it.id_item
 	order by titulo
@@ -1145,11 +1142,11 @@ from precios
 group by id_item
 );
 
-select it.*, ar.nombre_artista as nombre_artista, g.desc_genero as desc_genero, p.monto
+select it.*, ar.nombre_artista as nombre_artista, g.desc_genero as desc_genero, pr.monto
 from items it
 inner join artistas ar on ar.id_artista = it.id_artista
-inner join precios p on p.id_item = it.id_item
-inner join valores_actuales va on va.vigencia_desde = p.fecha_desde
+inner join valores_actuales va on va.id_item = it.id_item
+inner join precios pr ON va.id_item = pr.id_item and va.vigencia_desde = pr.fecha_desde
 inner join generos g on it.id_genero = g.id_genero
 where (it.titulo like busca COLLATE utf8_spanish_ci or ar.nombre_artista like busca COLLATE utf8_spanish_ci) and it.habilitado = 1
 group by it.id_item 
@@ -1697,8 +1694,7 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
-/*!50003 DROP PROCEDURE IF EXISTS `UsuariosDelete` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
+/*!50003 DROP PROCEDURE IF EXISTS `UsuariosBusqueda` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1706,19 +1702,40 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosDelete`(IN cod int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosBusqueda`(in busca varchar(100))
 BEGIN
-UPDATE usuarios SET habilitado = false
-WHERE id=cod;
+select *
+from usuarios
+where (nombre_usuario like busca COLLATE utf8_spanish_ci or nombre like busca COLLATE utf8_spanish_ci or apellido like busca COLLATE utf8_spanish_ci) 
+;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `UsuariosDelete` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosDelete`(IN cod int)
+BEGIN
+UPDATE usuarios SET habilitado = false
+WHERE id_usuario=cod;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UsuariosGetAll` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1741,6 +1758,54 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
+/*!50003 DROP PROCEDURE IF EXISTS `UsuariosGetAllLimit` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosGetAllLimit`(in inic int, in pages int)
+BEGIN
+select u.*, ti.desc_tipo_usuario
+from usuarios u 
+inner join tipos_usuario ti on ti.id_tipo_usuario = u.id_tipo_usuario
+order by u.nombre_usuario
+limit inic,pages
+;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UsuariosGetAllLimitBusqueda` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosGetAllLimitBusqueda`(in inic int, in pages int, in busca varchar(100))
+BEGIN
+select u.*, ti.desc_tipo_usuario
+from usuarios
+inner join tipos_usuario ti on ti.id_tipo_usuario = u.id_tipo_usuario
+where (nombre_usuario like busca COLLATE utf8_spanish_ci or nombre like busca COLLATE utf8_spanish_ci or apellido like busca COLLATE utf8_spanish_ci) 
+limit inic,pages
+;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UsuariosGetOne` */;
 ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -1856,7 +1921,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UsuariosUpdate` */;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -1864,15 +1928,15 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_general_ci ;
 /*!50003 SET character_set_results = utf8 */ ;
 /*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosUpdate`(IN ape varchar(100), IN cla varchar(50), 
 								 IN mail varchar(100), IN nom varchar(100), 
-                                 IN user varchar(50), IN tipo INT, IN hab BOOLEAN,
+                                 IN tipo INT, IN hab BOOLEAN,
                                  IN doc varchar(50), IN num INT)
 BEGIN
 UPDATE usuarios SET apellido=ape, clave=cla, email=mail, nombre=nom, 
-					nombre_usuario=user, id_tipo_usuario=tipo, 
+					id_tipo_usuario=tipo, 
                     habilitado=hab, dni=doc
 WHERE usuarios.id_usuario = num;
 END ;;
@@ -1881,7 +1945,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 DROP PROCEDURE IF EXISTS `UsuariosUpdateData` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1892,9 +1955,9 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosUpdateData`(IN id INT, IN ape varchar(100), IN nom varchar(100), IN mail varchar(100), in clav varchar(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UsuariosUpdateData`(IN id INT, IN ape varchar(100), IN nom varchar(100), IN mail varchar(100), in clav varchar(50), in doc varchar(50))
 BEGIN
-UPDATE usuarios SET apellido=ape, nombre=nom, email=mail, clave=clav WHERE id_usuario = id;
+UPDATE usuarios SET apellido=ape, nombre=nom, email=mail, clave=clav, dni=doc WHERE id_usuario = id;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2098,4 +2161,4 @@ ALTER DATABASE `entornos_final` CHARACTER SET utf8 COLLATE utf8_bin ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-08 19:08:42
+-- Dump completed on 2018-06-10 14:27:38

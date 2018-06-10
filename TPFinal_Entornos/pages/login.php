@@ -146,6 +146,8 @@
 		if (isset($_COOKIE["dni"]))setcookie("dni", '', time()-3600, "/");
 		if (isset($_COOKIE["apellido"]))setcookie("apellido", '', time()-3600, "/");
 		if (isset($_COOKIE["nombre"]))setcookie("nombre", '', time()-3600, "/");
+		
+		include("pie.php");
 	?>
 </body>
 </html>

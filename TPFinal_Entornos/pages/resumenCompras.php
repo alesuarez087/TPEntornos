@@ -84,7 +84,7 @@
 				</table>
 			</div>
 		</div>
-
+	<?php 		include("pie.php"); ?>
 </body>
 <?php
 	} else header("location:../pages/index.php"); 

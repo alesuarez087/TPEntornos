@@ -29,7 +29,7 @@
 
 	<div class="col-sm-4 col-md-4">
 
-	<h2 class="page-header">Géneros</h2>
+	<h2 class="page-header">G&eacute;neros</h2>
 
 		<form role="form" action="../code/generoGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<table>
@@ -201,7 +201,7 @@
 		</td>
 	</tr>
 	</table>
-
+	<?php include("pie.php"); ?>
 </body>
 </html>
 <?php 

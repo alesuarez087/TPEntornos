@@ -53,10 +53,9 @@
 		?>	
 			<div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-				<h4><?php echo($vItem['titulo']);?></h4>
-				<span class="text-muted"><?php echo($vItem['nombre_artista']);  ?></span>
-				<h4>
-					$<?php echo($vItem['monto']);?></h4>
+				<h5><?php echo($vItem['titulo']);?></h5>
+				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
+				<h4>$<?php echo($vItem['monto']);?></h4>
 				<form action="elegido.php" method="post" id="compra" name="compra">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $vItem['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Agregar"	id="eventSale" name="eventSale" />
@@ -71,7 +70,7 @@
 include("modal.php");
 		?>
 			
-
+	<?php include("pie.php"); ?>
 </body>
 </html>
 <?php } else header("Location:../pages/error.html"); ?>

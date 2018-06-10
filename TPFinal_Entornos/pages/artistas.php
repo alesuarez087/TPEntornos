@@ -19,7 +19,7 @@
 <body>
 <?php include("cabecera.php"); ?>
 
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div class="col-sm-4 col-md-4">
 
 	<h2 class="page-header">Artistas</h2>
 
@@ -28,17 +28,15 @@
 				<tr>
 					<td><b>Id artista:</b></td>
 					<td>
-						<div class="form-inline">
-							<input type="text" class="form-control" id="idArtista" name="idArtista" readonly								<?php if(isset($_COOKIE["idArtista"])) { ?> value="<?php echo $_COOKIE["idArtista"]; ?>" <?php } ?>
-								size="43">
-						</div>
+						<input type="text" class="form-control" id="idArtista" name="idArtista"	<?php if(isset($_COOKIE["idArtista"])) { ?> value="<?php echo $_COOKIE["idArtista"]; ?>" <?php } ?> readonly />
 					</td>
 				</tr>
 				<tr>
 					<td><b>Nombre:</b></td>
-					<td><input type="text" class="form-control" id="nombreArtista"
-						name="nombreArtista"
-						<?php if(isset($_COOKIE["nombreArtista"])) { ?> value="<?php echo $_COOKIE["nombreArtista"]; ?>" <?php } ?>></td>
+					<td>
+						<input type="text" class="form-control" id="nombreArtista" name="nombreArtista"
+						<?php if(isset($_COOKIE["nombreArtista"])) { ?> value="<?php echo $_COOKIE["nombreArtista"]; ?>" <?php } if(isset($_COOKIE['eliminar'])) {?> readonly <?php } ?> />
+					</td>
 				</tr>
 				<tr>
 					<td><b>Habilitado:</b></td>
@@ -65,8 +63,8 @@
 		</form>
 		<?php 
 			#elimnar las cookies
-			if(isset($_COOKIE["idArtista"])) setcookie("idGenero", '', time()-3600, "/");
-			if(isset($_COOKIE["nombreArtista"])) setcookie("descGenero", '', time()-3600, "/");
+			if(isset($_COOKIE["idArtista"])) setcookie("idArtista", '', time()-3600, "/");
+			if(isset($_COOKIE["nombreArtista"])) setcookie("nombreArtista", '', time()-3600, "/");
 			if(isset($_COOKIE["habilitado"])) setcookie("habilitado", '', time()-3600, "/");
 			if(isset($_COOKIE["modificar"])) setcookie("modificar", '', time()-3600, "/");
 			if(isset($_COOKIE["eliminar"])) setcookie("eliminar", '', time()-3600, "/");
@@ -191,7 +189,8 @@
 		</td>
 	</tr>
 	</table>
-
+	
+	<?php include("pie.php"); ?>
 </body>
 </html>
 <?php 

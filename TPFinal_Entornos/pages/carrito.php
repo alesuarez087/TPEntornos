@@ -170,6 +170,7 @@ function valida(){
 		<?php }?>
 	</div>
 
+	<?php include("pie.php"); ?>
 </body>
 </html>
 <?php 

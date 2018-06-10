@@ -140,7 +140,7 @@
 		<h4>Sin Comentarios</h4>
 		<?php } ?>
 	</div>
-	
+	<?php include("pie.php"); ?>	
 </body>
 </html>
 

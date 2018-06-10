@@ -122,6 +122,7 @@
 		<?php } ?>
 	</div>
 
+	<?php include("pie.php"); ?>
 </body>
 </html>
 <?php } } else header("location:../pages/resumenCompras.php"); ?>

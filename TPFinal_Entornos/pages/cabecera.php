@@ -14,12 +14,8 @@
 
 		<div class="collapse navbar-collapse" id="cabecera">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
-            		<div class="dropdown-menu" aria-labelledby="dropdown01">
-						<a class="dropdown-item" href="index.php">Top de Ventas</a>
-						<a class="dropdown-item" href="itemGeneros.php">Géneros</a>
-        		    </div>
+				<li class="nav-item">
+					<a class="nav-link" href="index.php">Home</a>
 				</li>
 	<?php 	if(isset($tipoUsuario)){	
 				if ($tipoUsuario == 3){ ?>
@@ -38,7 +34,7 @@
     		<div class="dropdown-menu" aria-labelledby="dropdown03">
 				<?php if($tipoUsuario == 1) { ?>
 					<a class="dropdown-item" href="artistas.php">Artistas</a>
-					<a class="dropdown-item" href="generos.php">Géneros</a>
+					<a class="dropdown-item" href="generos.php">G&eacute;neros</a>
 					<a class="dropdown-item"href="item.php">Productos</a>
 					<a class="dropdown-item" href="usuarios.php">Usuarios</a>
 				<?php } ?>																		 
@@ -46,7 +42,10 @@
 	    	</div>
 	     </li>
 			<?php } 
-				} ?>
+			 } ?>
+					<li class="nav-item">
+						<a class="nav-link" href="contacto.php">Contacto</a>
+					</li>
     		    </ul>
 	    	    <form action="../pages/busqueda.php" method="post" class="form-inline my-2 my-md-0" >
 					<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que est&aacute;s buscando?">

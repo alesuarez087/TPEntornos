@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Documento sin t&iacute;tulo</title>
+<title></title>
 </head>
 <body>
 <?php
 	function correcto($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";
-		echo "<script type=\"text/javascript\">location.href='../pages/generos.php';</script>";
+		echo "<script type=\"text/javascript\">location.href='../pages/artistas.php';</script>";
 	}
  	function error($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";

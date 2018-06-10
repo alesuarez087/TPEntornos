@@ -18,19 +18,28 @@
 <body>
 	<?php include("cabecera.php"); ?>
 	
-	<script type="text/javascript">
-	function validar(){
-		if(formTabla.nombre == ""){alert('Ingrese nombre');return false;}
-		else if(formTabla.apellido == ""){alert('Ingrese Apeliido');return false;}
-		else if(formTabla.dni == ""){alert('Ingrese DNI');return false;}
-		else if(formTabla.email==""){alert('Ingrese Email'); return false;}
-		else if(formTabla.nombreUsuario == ""){alert('Ingrese Nombre de Usuario');return false;}
-		else if(formTabla.clave == ""){alert('Ingrese Clave'); return false;}
-		else if(formTabla.confirmarClave = ""){alert('No confirmó la clave'); return false;
+	<script>
+		function validar(){
+			dni = document.formTabla.dni.value
+			nombre = document.formTabla.nombre.value
+			apellido = document.formTabla.apellido.value
+			email = document.formTabla.email.value
+			clave = document.formTabla.clave.value
+			cClave = document.formTabla.confirmarClave.value
+			
+			if (!isNaN(nombre)){
+				alert("El Nombre no puede ser un número"); return false;
+			} else if (!isNaN(apellido)){
+				alert("El Apellido no puede ser un número"); return false;		
+			} else if (isNaN(dni)){
+				alert("El dni no es un número"); return false;
+			} else if(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email)){
+				alert("El mail no posee el formato adecuado"); return false;
+			} else if(clave != cClave){
+				alert("Las claves son distintas"); return false;
+			} else return true
 		}
-		return true;
-	}
-</script>
+	</script>
 	<div class="col-sm-4 col-md-4">
 
 		<h2 class="page-header">Editar Datos</h2>
@@ -54,49 +63,50 @@
 				<tr>
 					<td><b>Nombre:</b></td>
 					<td>
-						<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $_SESSION['usuario']['Nombre']?>" />
+						<input type="text" class="form-control" id="nombre" name="nombre" required="required" value="<?php echo $_SESSION['usuario']['Nombre']?>" />
 					</td>
 				</tr>
 				<tr>
 					<td><b>Apellido:</b></td>
 					<td>
-						<input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $_SESSION['usuario']['Apellido']?>"  />
+						<input type="text" class="form-control" id="apellido" name="apellido" required="required" value="<?php echo $_SESSION['usuario']['Apellido']?>"  />
 					</td>
 				</tr>
 				<tr>
 					<td><b>DNI:</b></td>
 					<td>
-						<input type="text" class="form-control" id="dni" name="dni" value="<?php echo $_SESSION['usuario']['DNI'] ?>" />
+						<input type="text" class="form-control" id="dni" name="dni" required="required" value="<?php echo $_SESSION['usuario']['DNI'] ?>" />
 					</td>
 				</tr>
 				<tr>
 					<td><b>Email:</b></td>
 					<td>
-						<input type="text" class="form-control" id="email" name="email" value="<?php echo $_SESSION['usuario']['Email'] ?>" />
+						<input type="text" class="form-control" id="email" name="email" required="required" value="<?php echo $_SESSION['usuario']['Email'] ?>" />
 					</td>
 				</tr>
 				<tr>
 					<td><b>Clave:</b></td>
 					<td>
-						<input type="password" class="form-control" id="clave" name="clave" />
+						<input type="password" class="form-control" id="clave" name="clave" required="required" />
 					</td>
 				</tr>
 				<tr>
 					<td><b>Confirmar Clave:</b></td>
 					<td>
-						<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" />
+						<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" required="required" />
 					</td>
 				</tr>
+				<tr><td><br /></td></tr>
 				<tr>
 					<td colspan="2" align="center">
-						<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
+						<input class="btn btn-success" type="submit" value="Editar" id="event" name="event" /> 
 						<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
 					</td>
 				</tr>
 			</table>
 		</form>
 
-
+	<?php include("pie.php"); ?>
 </body>
 </html>
 <?php } else header("location:login.php"); ?>
