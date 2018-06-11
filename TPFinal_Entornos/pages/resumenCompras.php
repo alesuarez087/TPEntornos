@@ -28,9 +28,9 @@
 
 
 	<?php include_once("cabecera.php"); ?>
-<h3>Compras</h3>
+
 		<div class="container">
-			
+			<h3>Compras</h3>			
 			<div class="row">
 				<table class="table table-hover" style="text-align: left">
 					<thead>

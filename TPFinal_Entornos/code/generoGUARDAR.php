@@ -44,7 +44,6 @@
 		while($fila = mysqli_fetch_array($vResultado)){		
 			if($fila['desc_genero']==$vDescripcionGenero){
 				$validar = FALSE;
-				exit();
 			}
 		}
 		unset($vResultado, $link);

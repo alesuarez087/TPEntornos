@@ -27,51 +27,34 @@
 	</script>
 	<?php include("cabecera.php"); ?>
 
-	<div class="col-sm-4 col-md-4">
+	<div class="col-sm-5 col-md-5">
 
 	<h2 class="page-header">G&eacute;neros</h2>
 
 		<form role="form" action="../code/generoGUARDAR.php" method="post" id="formTabla" name="formTabla">
-			<table>
-				<tr>
-					<td><b>Código:</b></td>
-					<td>
-						<div class="form-inline">
-							<input type="text" class="form-control" id="idGenero" name="idGenero" readonly
-								<?php if(isset($_COOKIE["idGenero"])) { ?> value="<?php echo $_COOKIE["idGenero"]; ?>" <?php } ?>
-								size="43">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td><b>Nombre:</b></td>
-					<td><input type="text" class="form-control" id="descGenero"
-						name="descGenero"
-						<?php if(isset($_COOKIE["descGenero"])) { ?> value="<?php echo $_COOKIE["descGenero"]; ?>" <?php } ?>
-						<?php if(isset($_COOKIE["eliminar"])) { ?> readonly <?php } ?>></td>
-				</tr>
-				<tr>
-					<td><b>Habilitado:</b></td>
-					<td colspan="2">
-						<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php }
-							if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> />
-					</td>
-				</tr>
-				<tr>
-					
-					<td></td>
-				</tr>
-				<tr><td> <br /> </td></tr>
-			<tr>
-				<td colspan="2" align="center">
-					<?php if(isset($_COOKIE["modificar"])) { ?> <input class="btn btn-success" type="submit" value="Modificar" id="event" name="event" /> <?php }
-					else if(isset($_COOKIE["eliminar"])) { ?> 	<input class="btn btn-danger" type="submit" value="Eliminar" id="event" name="event" /> <?php }
-					else { ?> 								  	<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> <?php } ?>
-															  	<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
-				</td>
-			</tr>
-			</table>
-			
+			<div class="form-group">
+				<b>Código:</b>
+				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly="true" <?php if(isset($_COOKIE["idGenero"])) { ?> value="<?php echo $_COOKIE["idGenero"]; ?>" <?php } ?> />
+			</div>
+			<div class="form-group">
+				<b>Nombre:</b>
+				<input type="text" class="form-control" id="descGenero" name="descGenero" <?php if(isset($_COOKIE["descGenero"])) { ?> value="<?php echo $_COOKIE["descGenero"]; ?>" <?php } if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> />
+			</div>
+			<div class="form-group">
+				<b>Habilitado:</b>
+				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> />
+			</div>
+			<br />
+			<div class="form-group" align="center">
+				<?php if(isset($_COOKIE["modificar"])) { ?> 
+					<input class="btn btn-success" type="submit" value="Modificar" id="event" name="event" /> 
+				<?php } else if(isset($_COOKIE["eliminar"])) { ?> 	
+					<input class="btn btn-danger" type="submit" value="Eliminar" id="event" name="event" /> 
+				<?php } else { ?>
+					<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
+				<?php } ?>
+				  	<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
+			</div>
 		</form>
 		<?php 
 			#elimnar las cookies

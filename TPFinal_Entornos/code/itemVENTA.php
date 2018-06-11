@@ -116,7 +116,9 @@
 				}
 			}
 			unset($_SESSION["carro"]);
-			correcto("Compra exitosa");
+			
+			$email = mail($_SESSION['usuario']['Emial'],"Luzbelito informa","La compra fue realizada con éxito");
+			correcto("Compra exitosa. Pronto recibirá un mail con a confirmación de la misma");
 		}
 	}
 					

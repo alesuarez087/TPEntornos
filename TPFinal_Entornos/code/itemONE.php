@@ -29,7 +29,7 @@
 		setcookie("id_genero", $fila[6], time()+3600, "/");
 		setcookie("id_tipo_item", $fila[7], time()+3600, "/");
 		setcookie("url", $fila[8], time()+3600, "/");
-		setcookie("precio", $fila[9], time()+3600, "/");
+		setcookie("precio", $fila[10], time()+3600, "/");
 																			
 		if($_POST['event'] != 'Eliminar') setcookie("modificar", "Modificar", time()+3600, "/");
 		else setcookie("eliminar", "Eliminar", time()+3600, "/"); 

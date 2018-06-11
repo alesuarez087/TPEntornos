@@ -26,21 +26,24 @@
 	<div class="col-sm-6 col-md-6">
 	<h2>Contacto</h2>
 	<form name="form" action="../code/mail.php" method="post">
-		<div>
+		<div class="form-group">
 			<b>Mail de Contacto: </b>
-			<input type="text" name="mail" id="mail" width="350px" value="<?php if(isset($_SESSION["usuario"]["Email"])) echo($_SESSION["usuario"]["Email"]) ?> "/>
+			<input type="text" class="form-control" required="required" name="mail" id="mail" width="350px" value="<?php if(isset($_SESSION["usuario"]["Email"])) echo($_SESSION["usuario"]["Email"]) ?> "/>
 		</div>
-		<div>
+		<div class="form-group">
 			<b>Texto:</b><br />
-			<textarea style="height: 200px; width: 100%; overflow: auto;" name="tex" id="tex"></textarea>
+			<textarea style="height: 200px; width: 100%; overflow: auto;" required="required" class="form-control" name="tex" id="tex"></textarea>
 		</div><br />
-		<div style="text-align:center">
+		<div class="form-group" style="text-align:center">
 			<input type="submit" name="event" id="event" value="Enviar" class="btn btn-success" />
 			<input type="reset" name="event" id="event" value="Borrar" class="btn btn-default" />
 		</div>
 	</form>
 	</div>
 	
-	<?php include("pie.php");?>
+	<?php 
+		include("modal.php");
+		include("pie.php");
+	?>
 </body>
 </html>

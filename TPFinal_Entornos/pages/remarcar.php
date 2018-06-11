@@ -45,105 +45,83 @@
 	?>
 	
 
-	<div class="col-sm-6 col-md-6">
+	<div class="col-sm-5 col-md-5">
 		<h2 class="page-header">Remarcar Precio - Stock</h2>
 		<br>
 
 		<form role="form" action="../code/remarcar.php" method="post" id="form" name="form" onSubmit="return validar()">
-			<table>
-				<tr>
-					<td><b>Código:</b></td>
-					<td colspan="2">
-						<input type="text" class="form-control" id="idItem" name="idItem" <?php if(isset($_COOKIE["id_item"])) { ?> value="<?php echo $_COOKIE["id_item"]; ?>" <?php } ?> readonly="true"/>
-					</td>
-				</tr>
-				<tr>
-					<td><b>Título:</b></td>
-					<td colspan="2">
-						<input type="text" class="form-control" id="tituloItem" name="tituloItem" readonly="true" <?php if(isset($_COOKIE["titulo"])) { ?> value="<?php echo $_COOKIE["titulo"]; ?>" <?php } ?> />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Autor:</b></td>
-					<td colspan="2">
-						<select class="form-control" id="cmbArtista" name="cmbArtista" readonly="true">
-							<option>Seleccion Artista</option>
-							<?php include("../code/conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
-							<option <?php if(isset($_COOKIE["id_artista"])) { if($_COOKIE["id_artista"]==$artista['id_artista']) { ?> selected="selected" <?php } } ?> value="<?php echo $artista['id_artista']; ?>">
-								<?php echo $artista['nombre_artista']; ?>
-							</option>
-							<?php } ?>
-					</select></td>
-				</tr>
-				<tr>
-					<td><b>Género:</b></td>
-					<td colspan="2">
-						<select class="form-control" id="cmbGenero" name="cmbGenero" readonly="true" >
-							<option>Seleccione Género</option>
-							<?php include("../code/conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
-							<option <?php if(isset($_COOKIE["id_genero"])) { if($_COOKIE["id_genero"]==$genero['id_genero']) { ?> selected="selected" <?php } } ?> value="<?php echo $genero['id_genero']; ?>">
-								<?php echo $genero['desc_genero']; ?>
-							</option>
-							<?php } ?>
-					</select></td>
-				</tr>
-				<tr>
-					<td><b>Tipo de Disco:</b></td>
-					<td colspan="2">
-						<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco" readonly="true" >
-							<option>Seleccione Tipo de Disco</option>
-							<?php include("../code/conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($tipos = mysqli_fetch_array($vResultado)){?>
-							<option <?php if(isset($_COOKIE["id_tipo_item"])) { if($_COOKIE["id_tipo_item"]==$tipos['id_tipo_item']) { ?> selected="selected" <?php } } ?> value="<?php echo $tipos['id_tipo_item']; ?>">
-								<?php echo $tipos['desc_tipo_item']; ?>
-							</option>
-							<?php } ?>
-					</select></td>
-				</tr>
-				<tr>
-					<td><b>Año Lanzamiento: </b></td>
-					<td colspan="2">
-						<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="true" <?php if(isset($_COOKIE["anio"])) { ?> value="<?php echo $_COOKIE["anio"]; ?>" <?php } ?> />
-					</td>
-				</tr>
-				<tr>
-					<td><b>URL Portada:</b></td>
-					<td colspan="2">
-						<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="true" <?php if(isset($_COOKIE["url"])) { ?> value="<?php echo $_COOKIE["url"]; ?>" <?php } ?> />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Precio:</b></td>
-					<td>
+			<div class="form-group">
+				<b>Código:</b>
+				<input type="text" class="form-control" id="idItem" name="idItem" <?php if(isset($_COOKIE["id_item"])) { ?> value="<?php echo $_COOKIE["id_item"]; ?>" <?php } ?> readonly="true"/>
+			</div>
+			<div class="form-group">
+				<b>Título:</b>
+				<input type="text" class="form-control" id="tituloItem" name="tituloItem" readonly="true" <?php if(isset($_COOKIE["titulo"])) { ?> value="<?php echo $_COOKIE["titulo"]; ?>" <?php } ?> />
+			</div>
+			<div class="form-group">
+				<b>Autor:</b>
+				<select class="form-control" id="cmbArtista" name="cmbArtista" readonly="true">
+					<option>Seleccion Artista</option>
+					<?php include("../code/conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
+					<option <?php if(isset($_COOKIE["id_artista"])) { if($_COOKIE["id_artista"]==$artista['id_artista']) { ?> selected="selected" <?php } } ?> value="<?php echo $artista['id_artista']; ?>"><?php echo $artista['nombre_artista']; ?></option><?php } ?>
+				</select>
+			</div>
+			<div class="form-group">
+				<b>Género:</b>
+				<select class="form-control" id="cmbGenero" name="cmbGenero" readonly="true" >
+					<option>Seleccione Género</option>
+					<?php include("../code/conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
+					<option <?php if(isset($_COOKIE["id_genero"])) { if($_COOKIE["id_genero"]==$genero['id_genero']) { ?> selected="selected" <?php } } ?> value="<?php echo $genero['id_genero']; ?>"> <?php echo $genero['desc_genero']; ?></option><?php } ?>
+				</select>
+			</div>
+			<div class="form-group">
+				<b>Tipo de Disco:</b>
+				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco" readonly="true" >
+					<option>Seleccione Tipo de Disco</option>
+						<?php include("../code/conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($tipos = mysqli_fetch_array($vResultado)){?>
+					<option <?php if(isset($_COOKIE["id_tipo_item"])) { if($_COOKIE["id_tipo_item"]==$tipos['id_tipo_item']) { ?> selected="selected" <?php } } ?> value="<?php echo $tipos['id_tipo_item']; ?>"><?php echo $tipos['desc_tipo_item']; ?></option><?php } ?>
+					</select>
+			</div>
+			<div class="form-group">
+				<b>Año Lanzamiento: </b>
+				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="true" <?php if(isset($_COOKIE["anio"])) { ?> value="<?php echo $_COOKIE["anio"]; ?>" <?php } ?> />
+			</div>
+			<div class="form-group">
+				<b>URL Portada:</b>
+				<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="true" <?php if(isset($_COOKIE["url"])) { ?> value="<?php echo $_COOKIE["url"]; ?>" <?php } ?> />
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-5">
+						<b>Precio:</b>
 						<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="true" <?php if(isset($_COOKIE["precio"])) { ?> value="<?php echo $_COOKIE["precio"]; ?>" <?php } ?> />
-					</td>
-					<td>
+					</div>
+					<div class="col-5">
+						<b>Nuevo Precio:</b>
 						<input type="text" class="form-control" id="precioNuevo" name="precioNuevo" />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Stock:</b></td>
-					<td>
-						<input type="text" class="form-control" id="stock" name="stock"readonly="true" <?php if(isset($_COOKIE["stock"])) { ?> value="<?php echo $_COOKIE["stock"]; ?>" <?php } ?> />
-					</td>
-					<td>
-						<input type="text" class="form-control" id="stockNuevo" name="stockNuevo" />	
-					</td>
-				</tr>
-				
-				<tr>
-					<td><b>Habilitado:</b></td>
-					<td>
-						<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> readonly="true" />
-					</td>
-				</tr>
-				<tr><td> <br /> </td></tr>
-			<tr>
-				<td colspan="3" align="center">
-					<input class="btn btn-success" type="submit" value="Remarcar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> /> 
-					<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> />
-				</td>
-			</tr>
-			</table>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="row">
+					<div class="col-5">
+						<b>Stock:</b>
+						<input type="text" class="form-control" id="stock" name="stock" readonly="true" <?php if(isset($_COOKIE["stock"])) { ?> value="<?php echo $_COOKIE["stock"]; ?>" <?php } ?> />
+					</div>
+					<div class="col-5">
+						<b>Nuevo Stock:</b>
+						<input type="text" class="form-control" id="stockNuevo" name="stockNuevo" />
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<b>Habilitado:</b>
+				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> readonly="true" />
+			</div><br />
+			<div class="form-group" align="center">
+				<input class="btn btn-success" type="submit" value="Remarcar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> /> 
+				<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> />
+			</div>
 		</form>
 		
 		<?php 

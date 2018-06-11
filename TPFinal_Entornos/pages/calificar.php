@@ -28,7 +28,7 @@
 	<?php include_once("../pages/cabecera.php"); ?>
 	
 	<div class="col-sm-4 col-md-4">
-		<h3 class="page-header">Clasificar</h3>
+		<h3 class="page-header">Calificar</h3>
 	</div>
 	<div class="container">
 		<div class="row placeholders">

@@ -28,6 +28,7 @@
 
 <body>	
 	<?php include_once("cabecera.php"); ?>
+	<div class="container">
 	<div class="col-sm-4 col-md-4">
 		<h2 class="page-header">Novedades</h2>
 	</div>
@@ -38,7 +39,7 @@
 				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-          <div class="col-xs-6 col-sm-2 placeholder">
+          <div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
@@ -62,7 +63,7 @@
 				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-          <div class="col-xs-6 col-sm-2 placeholder">
+          <div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
@@ -86,7 +87,7 @@
 				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-          <div class="col-xs-6 col-sm-2 placeholder">
+          <div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
@@ -110,7 +111,7 @@
 				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-          <div class="col-xs-6 col-sm-2 placeholder">
+          <div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
@@ -134,7 +135,7 @@
 				$vResultado = mysqli_query($link, $vSql) or die (error());
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
-          <div class="col-xs-6 col-sm-2 placeholder">
+          <div class="col-xs-6 col-sm-3 placeholder">
 				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
@@ -147,10 +148,12 @@
 		 <?php } ?>
 	
 	</div>
-	<
+	</div>	
 	<?php 
 		include("pie.php");
 		include_once("modal.php"); 
 	?>
+
+
 </body>
 </html>

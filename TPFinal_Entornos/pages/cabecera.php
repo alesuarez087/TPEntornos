@@ -41,11 +41,17 @@
 					<a class="dropdown-item" href="remarcar.php">Remarcar</a>
 	    	</div>
 	     </li>
-			<?php } 
-			 } ?>
-					<li class="nav-item">
-						<a class="nav-link" href="contacto.php">Contacto</a>
-					</li>
+			<?php } else { ?>
+				<li class="nav-item">
+					<a class="nav-link" href="contacto.php">Contacto</a>
+				</li>
+			<?php } } 
+				if(!isset($_SESSION["usuario"])){
+			?>
+				<li class="nav-item">
+					<a class="nav-link" href="contacto.php">Contacto</a>
+				</li>
+			<?php } ?>
     		    </ul>
 	    	    <form action="../pages/busqueda.php" method="post" class="form-inline my-2 my-md-0" >
 					<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que est&aacute;s buscando?">

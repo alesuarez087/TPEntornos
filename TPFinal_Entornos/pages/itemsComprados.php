@@ -29,9 +29,8 @@
 
 	<?php include_once("../pages/cabecera.php"); ?>
 
-	<h3 class="page-header">Calificar</h3>
 	<div class="container">
-		
+		<h3 class="page-header">Calificar</h3>		
 		<table class="table table-hover">
 			<tr>
 				<th>Titulo</th>

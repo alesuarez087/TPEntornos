@@ -40,71 +40,52 @@
 			} else return true
 		}
 	</script>
-	<div class="col-sm-4 col-md-4">
+	<div class="col-sm-5 col-md-5">
 
 		<h2 class="page-header">Editar Datos</h2>
 
 		<br>
 
 		<form role="form" action="../code/usuario.php" method="post" id="formTabla" name="formTabla" onSubmit="return validar()">
-			<table>
-				<tr>
-					<td><b>Código:</b></td>
-					<td>
-						<input type="text" readonly class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['usuario']['Id']?>"  />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Nombre de Usuario:</b></td>
-					<td>
-						<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly value="<?php echo $_SESSION['usuario']['Usuario']?>" />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Nombre:</b></td>
-					<td>
-						<input type="text" class="form-control" id="nombre" name="nombre" required="required" value="<?php echo $_SESSION['usuario']['Nombre']?>" />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Apellido:</b></td>
-					<td>
-						<input type="text" class="form-control" id="apellido" name="apellido" required="required" value="<?php echo $_SESSION['usuario']['Apellido']?>"  />
-					</td>
-				</tr>
-				<tr>
-					<td><b>DNI:</b></td>
-					<td>
-						<input type="text" class="form-control" id="dni" name="dni" required="required" value="<?php echo $_SESSION['usuario']['DNI'] ?>" />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Email:</b></td>
-					<td>
-						<input type="text" class="form-control" id="email" name="email" required="required" value="<?php echo $_SESSION['usuario']['Email'] ?>" />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Clave:</b></td>
-					<td>
-						<input type="password" class="form-control" id="clave" name="clave" required="required" />
-					</td>
-				</tr>
-				<tr>
-					<td><b>Confirmar Clave:</b></td>
-					<td>
-						<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" required="required" />
-					</td>
-				</tr>
-				<tr><td><br /></td></tr>
-				<tr>
-					<td colspan="2" align="center">
-						<input class="btn btn-success" type="submit" value="Editar" id="event" name="event" /> 
-						<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
-					</td>
-				</tr>
-			</table>
+			<div class="form-group">
+				<b>Código:</b>
+				<input type="text" readonly class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['usuario']['Id']?>"  />
+			</div>
+			<div class="form-group">
+				<b>Nombre de Usuario:</b>
+				<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly value="<?php echo $_SESSION['usuario']['Usuario']?>" />
+			</div>
+			<div class="form-group">
+				<b>Nombre:</b>
+				<input type="text" class="form-control" id="nombre" name="nombre" required="required" value="<?php echo $_SESSION['usuario']['Nombre']?>" />
+			</div>
+			<div class="form-group">
+				<b>Apellido:</b>
+				<input type="text" class="form-control" id="apellido" name="apellido" required="required" value="<?php echo $_SESSION['usuario']['Apellido']?>"  />
+			</div>
+			<div class="form-group">
+				<b>DNI:</b>
+				<input type="text" class="form-control" id="dni" name="dni" required="required" value="<?php echo $_SESSION['usuario']['DNI'] ?>" />
+			</div>
+			<div class="form-group">
+				<b>Email:</b>
+				<input type="text" class="form-control" id="email" name="email" required="required" value="<?php echo $_SESSION['usuario']['Email'] ?>" />
+			</div>
+			<div class="form-group">
+				<b>Clave:</b>
+				<input type="password" class="form-control" id="clave" name="clave" required="required" />
+			</div>
+			<div class="form-group">
+				<b>Confirmar Clave:</b>
+				<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" required="required" />
+			</div>
+			<br />
+			<div class="form-group" align="center">
+				<input class="btn btn-success" type="submit" value="Editar" id="event" name="event" /> 
+				<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
+			</div>
 		</form>
+	</div>
 
 	<?php include("pie.php"); ?>
 </body>

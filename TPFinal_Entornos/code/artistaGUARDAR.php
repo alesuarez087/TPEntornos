@@ -44,7 +44,6 @@
 		while($fila = mysqli_fetch_array($vResultado)){		
 			if($fila['nombre_artista']==$vNombreArtista){
 				$validar = FALSE;
-				exit();
 			}
 		}
 		unset($vResultado, $link);

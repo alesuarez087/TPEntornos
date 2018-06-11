@@ -66,7 +66,6 @@
 		while($fila = mysqli_fetch_array($vResultado)){		
 			if($fila['titulo']==$vTitulo){
 				$validar = FALSE;
-				exit();
 			}
 		}
 		unset($vResultado, $link);
