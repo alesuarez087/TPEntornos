@@ -31,10 +31,10 @@
 	include("cabecera.php");
 	?>
 	<br />
-	
-		<div class="col-sm-4 col-md-4">
-			<h2 class="page-header">Resultados de la b&#250squeda</h2>
-		</div>
+		<div class="container">
+
+			<h2 class="page-header">Resultados de la b&#250squeda </h2>
+		<br />
 		
 		<!-- CARGAS DE RESULTADOS  --->
 		<?php 
@@ -65,6 +65,7 @@
 					}
 		?>
 				</div>
+		</div>
 		<?php
 			}
 include("modal.php");

@@ -255,7 +255,7 @@
 					echo $pagina . " ";
 				} else{
 					//si la página no es la actual, coloco el enlace para ir a esa página
-					echo "<a href='item.php?pagina=" . $i ."'>" . $i . "</a> ";
+					echo "<a href='usuarios.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}
 		}
