@@ -134,6 +134,7 @@
 					<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
 				<?php } ?>
 				  	<input class="btn btn-default" type="reset" value="Cancelar" id="event" name="event" />
+
 			</div>
 		</form>
 		

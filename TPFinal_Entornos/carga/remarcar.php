@@ -120,7 +120,7 @@
 			</div><br />
 			<div class="form-group" align="center">
 				<input class="btn btn-success" type="submit" value="Remarcar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> /> 
-				<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> />
+				<a class="btn btn-secondary" href="remarcar.php">Cancelar</a>
 			</div>
 		</form>
 		

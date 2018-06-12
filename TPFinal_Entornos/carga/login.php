@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	if(!isset($_SESSION["usuario"])){
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -20,7 +21,8 @@
 		apellido = document.formReg.apellido.value
 		dni = document.formReg.dni.value
 		email = document.formReg.email.value
-			
+		emailReg = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;	
+
 		if (isNaN(dni)){
 			alert("El DNI no es un número"); return false;
 		} else if (!isNaN(nombre)){
@@ -29,8 +31,9 @@
 			alert("El Apellido no puede ser un número"); return false;
 		} else if(contrasenia != confirmar){
 			alert("Las contraseñas son distintas"); return false;
-		} 
-		 else return true;
+ 		} else if(emailReg.test(email)==false){
+			alert("El mail no posee el formato adecuado"); return false;
+		} else return true;
 	}
 </script>
 	<?php include("cabecera.php"); ?>
@@ -41,7 +44,7 @@
 			<div class="card">
 		       	<div class="card-body">
 					<h4 class="card-title text-center">Iniciar Sesi&oacute;n</h4>
-					<form role="form" action="loginout.php" method="post" id="login" name="login">
+					<form role="formLog" action="loginout.php" method="post" id="login" name="login">
 						<div class="form-group">
 							<label for="userregister">Usuario:</label> 
 							<input type="text" class="form-control" id="userLogin" name="userLogin" >
@@ -62,7 +65,7 @@
 			<div class="card">
     			<div class="card-body">
 		        	<h4 class="card-title text-center">Registrarse</h4>
-					<form role="form" action="loginout.php" method="post" id="formReg" name="formReg" >
+					<form role="form" action="loginout.php" method="post" id="formReg" name="formReg" onSubmit="return validar()" >
 						<div class="form-group">
 							<label for="user">Usuario</label>
 							<input type="text" class="form-control" id="userCreate" name="userCreate">

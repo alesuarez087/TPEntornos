@@ -124,7 +124,7 @@
 			<br />
 			<div class="form-group" align="center">
 				<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
-			  	<input class="btn btn-default" type="reset" value="Cancelar" id="event" name="event" />
+			  	<a class="btn btn-secondary" href="item.php">Cancelar</a>
 			</div>
 		</form>
 		

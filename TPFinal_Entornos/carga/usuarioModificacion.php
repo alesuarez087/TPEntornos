@@ -28,6 +28,7 @@
 			clave = document.form.clave.value
 			cClave = document.form.confirmarClave.value
 			indiceTipo = document.form.cmbTipo.selectedIndex
+			emailReg = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;	
 			
 			if (!isNaN(nombre)){
 				alert("El Nombre no puede ser un n�mero"); return false;
@@ -35,7 +36,7 @@
 				alert("El Apellido no puede ser un n�mero"); return false;		
 			} else if (isNaN(dni)){
 				alert("El dni no es un n�mero"); return false;
-			} else if(!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email))){
+			} else if(emailReg.test(email)==false){
 				alert("El mail no posee el formato adecuado"); return false;
 			} else if(indiceTipo == null || indiceTipo == 0) {
 				alert("Seleccione un Tipo de Usuario"); return false;
@@ -118,7 +119,7 @@
 			</div><br />
 			<div class="form-group" align="center">
 				<input class="btn btn-success" type="submit" value="Modificar" id="event" name="event" /> 
-				<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
+				<a class="btn btn-secondary" href="usuarios.php">Cancelar</a>
 			</div>
 		</form>
 		
