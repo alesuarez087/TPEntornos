@@ -1,5 +1,5 @@
 <div class="modal fade" id="dialogo">
-	<div class="modal-dialog modal-lg modal-dialog-centered">
+	<div class="modal-dialog modal-lg modal-dialog-centered" style="width:400PX; max-width:100%">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4 class="modal-title">Ingresar</h4>

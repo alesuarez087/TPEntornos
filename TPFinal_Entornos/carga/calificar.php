@@ -19,9 +19,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Calificar</title>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
-<link href="../styles/css/dashboard.css" rel="stylesheet">
-<link href="../styles/css/propio.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="dashboard.css" rel="stylesheet">
+<link href="propio.css" rel="stylesheet">
 </head>
 
 <body>
@@ -39,6 +39,11 @@
 				$vResultado = mysqli_query($link, $vSql);
 				unset($link); 
 				while($fila = mysqli_fetch_array($vResultado)){
+					include ("conexion.inc");
+					$vSql = "CALL ClasificacionesGetOne('$idItem', '$idUsuario')";
+					$vRes = mysqli_query($link, $vSql);
+					$res = mysqli_fetch_row($vRes);
+					unset($link);
 			?>
 				<form action="clasificacion.php" method="post" id="califica" name="califica">
 					<table>
@@ -59,29 +64,35 @@
 									</tr>
 									<tr style="vertical-align:text-bottom">
 										<td colspan="2">
-											<h2>Promedio: <?php if(!isset($fila['prom'])) echo "No fue calificado"; else $fila['prom'];?></h2>
+											<h2>Promedio: <?php if(!isset($fila['prom'])) echo "No fue calificado"; else echo round($fila['prom']);?></h2>
 										</td>
 									</tr>
 									<tr>
 										<td>
-											<p class="clasificacion">
-												<input id="radio1" name="estrellas" disabled="disabled" value="5" type="radio" <?php if(round($fila['prom'])==5){ ?> checked <?php } ?>><label for="radio1">&#9733;</label> 
-												<input id="radio2" name="estrellas" disabled="disabled" value="4" type="radio" <?php if(round($fila['prom'])==4){ ?> checked <?php } ?>><label for="radio2">&#9733;</label> 
-												<input id="radio3" name="estrellas" disabled="disabled" value="3" type="radio" <?php if(round($fila['prom'])==3){ ?> checked <?php } ?>><label for="radio3">&#9733;</label>
-												<input id="radio4" name="estrellas" disabled="disabled" value="2" type="radio" <?php if(round($fila['prom'])==2){ ?> checked <?php } ?>><label for="radio4">&#9733;</label> 
-												<input id="radio5" name="estrellas" disabled="disabled" value="1" type="radio" <?php if(round($fila['prom'])==1){ ?> checked <?php } ?>><label for="radio5">&#9733;</label>
-											</p>
+											<table align="center">
+											<tr>
+												<td><h3>Puntos:</h3></td>
+											<td><select class="form-control" name="estrellas" id="estrellas">
+												<option value="0" <?php if(isset($res[1])){ if($res[1]==0){ ?> selected="selected" <?php } } ?>>0</option>
+												<option value="1" <?php if(isset($res[1])){ if($res[1]==1){ ?> selected="selected" <?php } } ?> >1</option>
+												<option value="2" <?php if(isset($res[1])){ if($res[1]==2){ ?> selected="selected" <?php } } ?> >2</option>
+												<option value="3" <?php if(isset($res[1])){ if($res[1]==3){ ?> selected="selected" <?php } } ?> >3</option>
+												<option value="4" <?php if(isset($res[1])){ if($res[1]==4){ ?> selected="selected" <?php } } ?> >4</option>
+												<option value="5" <?php if(isset($res[1])){ if($res[1]==5){ ?> selected="selected" <?php } } ?> >5</option>
+											</select></td>
+											</tr>
+										</table>
 										</td>
 									</tr>
 									<tr>
 										<td colspan=3 style="text-align: center">
-											<input type="text" class="form-control" id="messageAdd" name="messageAdd" <?php if(isset($fila['mensaje_adjunto'])) { ?> value="<?php echo $fila['mensaje_adjunto']; ?>" <?php } else { ?> placeholder="Comentario" <?php } ?>>
+											<textarea style="height: 200px; width: 100%; overflow: auto;" class="form-control" name="messageAdd" id="messageAdd"></textarea>
 										</td>
 									</tr>
 									<tr>
 										<td colspan="2">
 											<br />
-											<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item'] ?>" /> 
+											<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $idItem; ?>" /> 
 											<input class="btn btn-success" type="submit" value="Calificar" id="event" name="event" /> 
 											<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
 										</td>
@@ -95,7 +106,7 @@
 			</div>
 		</div>
 	</div>
-
+	<br /><br /><br />
 	<div class="col-sm-4 col-md-4">
 		<h3 class="page-header">Comentarios</h3>
 		<?php
@@ -104,25 +115,29 @@
 			$vRes = mysqli_query($link, $vSql);
 			unset($link);
 			if(mysqli_num_rows($vRes) != 0){
-			while($fila = mysqli_fetch_array($vRes)){ if(isset($fila['mensaje_adjunto'])){
+				while($fila = mysqli_fetch_array($vRes)){ 
+					if(isset($fila['mensaje_adjunto'])){
 		?>
-		<div class="col-md">        
-          <div class="card">
-            <div class="card-header">
-            	<?php echo "Usuario: ".$fila['nombre_usuario']; ?></div>
-            </div>
-            <div class="card-body">
-              <p class="card-text"><?php echo $fila['mensaje_adjunto']; ?> </p>
-            </div>
-          </div>          
-      </div>
-	  <br />
-		<?php } } } else{ ?>
-		<h4>Sin Comentarios</h4>
+						<div class="col-md">        
+				          <div class="card">
+				            <div class="card-header">
+            					<?php echo "Usuario: ".$fila['nombre_usuario']; ?></div>
+				            </div>
+				            <div class="card-body">
+				              <p class="card-text"><?php echo $fila['mensaje_adjunto']; ?> </p>
+				            </div>
+				          </div>          
+				      </div>
+					  <br />
+		<?php 
+					} 
+				}
+			} else{ ?>
+				<h4>Sin Comentarios</h4>
 		<?php } ?>
 	</div>
 
 	<?php include("pie.php"); ?>
 </body>
 </html>
-<?php } } else header("location:../pages/resumenCompras.php"); ?>
+<?php } } else header("location:resumenCompras.php"); ?>

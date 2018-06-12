@@ -18,7 +18,7 @@
 	}
 	function error($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";
-		echo "<script type=\"text/javascript\">window.history.back();;</script>";
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
 	function hayStock($id){
 			include("conexion.inc");
@@ -71,14 +71,15 @@
 			$nroCalle = $_POST['nroCalle'];
 			$piso = $_POST['piso']; 
 			$nroDpto = $_POST['nroDpto'];
-			include("../code/conexion.inc");
-			$vSql = "CALL VentasInsert('$idUsuario', '$nroTarjeta', '$titTarjeta', '$cmbProvincia', '$localidad', '$calle', '$nroCalle', '$piso', '$nroDpto')";
+			
+			include("conexion.inc");
+			$vSql = "INSERT INTO ventas(id_usuario, nro_tarjeta, titular_tarjeta, habilitado, fecha, id_provincia, localidad, calle, numero, piso, dpto) VALUES('$idUsuario', '$nroTarjeta', '$titTarjeta', true, CURDATE(), '$cmbProvincia', '$localidad', '$calle', '$nroCalle', '$piso', '$nroDpto')";
 			mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
 			mysqli_close($link);
 			
 			include("conexion.inc");
 			$vSql = "SELECT MAX(id_venta) as id_venta FROM ventas";
-			$vRest = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+			$vRest = mysqli_query($link, $vSql) or die (error("Error al recuperar la compra"));
 			$vID = mysqli_fetch_row($vRest);						 #OBTENGO EL ID DE LA ULTIMA VENTA INSERTADO
 			$idVenta = $vID[0];
 			unset($link);
@@ -89,13 +90,13 @@
 				$cantidad = $item['Cantidad'];
 				$idItem = $item['Id'];
 				$vSql = "CALL VentaItemInsert('$cantidad', '$idItem', '$idVenta')";
-				mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+				mysqli_query($link, $vSql) or die (error("Error al armar las tablas intermedias"));
 				mysqli_close($link);
 
 #				RECUPERO ITEM
 				include("conexion.inc");
 				$vSql = "CALL ItemsGetOne('$idItem')";
-				$vRest = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+				$vRest = mysqli_query($link, $vSql) or die (error("Error al recuperar el Item"));
 				$vItem = mysqli_fetch_row($vRest);
 				$stock = $vItem[3];
 				unset($link);
@@ -104,20 +105,20 @@
 #				ACTUALIZO STOCK				
 				include("conexion.inc");
 				$vSql = "CALL ItemsUpdateStock($idItem, '$stock')";
-				mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+				mysqli_query($link, $vSql) or die (error("Error al actualizar el Stock"));
 				mysqli_close($link);		
 				
 #				SI EL STOCK SE PONE EN 0, DESHABILITO EL ITEM
 				if($stock==0){
 					include("conexion.inc");
 					$vSql = "CALL ItemsDelete('$idItem')";	
-					mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+					mysqli_query($link, $vSql) or die (error("Error al deshabilitar el Producto"));
 					mysqli_close($link);
 				}
 			}
 			unset($_SESSION["carro"]);
-			
-			$email = mail($_SESSION['usuario']['Email'],"Luzbelito informa","La compra fue realizada con éxito");
+			$mail = $usuario['Email']; 
+			$email = mail($mail,"Luzbelito informa","La compra fue realizada con éxito");
 			if($email==TRUE) correcto("Compra exitosa. Pronto recibirá un mail con a confirmación de la misma");
 			else error("Error al enviar el mail");
 		}

@@ -5,33 +5,23 @@
 </head>
 <body>
 <?php 
-	
-	if(isset($_POST['idSelect'])){
-		setcookie("modificar", "", time()-3600, "/"); 
-		setcookie("eliminar", "", time()-3600, "/"); 
-		include("conexion.inc");
-		$fila = "NO ME ANDA";
-		$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
-		$vSql = "CALL ArtistasGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
 
-		$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
-		$fila = mysqli_fetch_row($vResultado);
-	
-		$vHab = FALSE;
-		setcookie("idArtista", $fila[0], time()+3600, "/");
-		setcookie("nombreArtista", $fila[1], time()+3600, "/");
-		if($fila[2]==1) $vHab = TRUE; 
-		setcookie("habilitado", $vHab, time()+3600, "/");																			
-		if($_POST['event'] != 'Eliminar') setcookie("modificar", "Modificar", time()+3600, "/");
-		else setcookie("eliminar", "Eliminar", time()+3600, "/"); 
-		
+	setcookie("idArtista", $_POST['idSelect'], time()+10, "/");	
 
+	if($_POST['event'] == 'Modificar'){
+		header("location:artistasModificacion.php");
 	}
-	
+	if($_POST['event'] == 'Eliminar'){
+		header("location:artistasEliminar.php");
+	}	
 	if($_POST['event'] == 'Buscar'){
 		setcookie("busqueda", '%'.$_POST['buscar'].'%', time()+3600, "/");
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
-	header("location:artistas.php");
+	if($_POST['event'] == 'Reiniciar'){
+		setcookie("busqueda", '', time()-3600, "/");
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
+	}
 
 ?>
 

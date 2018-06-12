@@ -12,7 +12,7 @@
 	}
  	function error($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";
-
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
 	
 	if(isset($_POST['idGenero'])) $vID = $_POST['idGenero'];
@@ -21,7 +21,7 @@
 	else $vHabilitado = FALSE;
 	
 	if($_POST['event'] == 'Cancelar'){
-		header("location:Genero.php");	
+		header("location:genero.php");	
 	} else if($_POST['event'] == 'Eliminar'){
 		include("conexion.inc");
 		$vSql = "CALL GenerosDelete('$vID')";	

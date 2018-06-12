@@ -41,39 +41,7 @@
 		
 		edicion_correcta("Sus datos fueron editados correctamente");
 	}
-	if(isset($_POST['idSelect'])){
-		setcookie("modificar", "", time()-3600, "/"); 
-		setcookie("eliminar", "", time()-3600, "/"); 
-		include("conexion.inc");
-		$fila = "NO ME ANDA";
-		$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
-		$vSql = "CALL UsuariosGetOneForId('$vID')"; //Arma la instrucción SQL y luego la ejecuta
-
-		$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
-		$fila = mysqli_fetch_row($vResultado);
-	
-		setcookie("idUsuario", $fila[0], time()+3600, "/");
-		setcookie("apellido", $fila[2], time()+3600, "/");
-		setcookie("nombre", $fila[1], time()+3600, "/");
-		setcookie("dni", $fila[6], time()+3600, "/");
-		setcookie("email", $fila[8], time()+3600, "/");
-		setcookie("nombreUsuario", $fila[7], time()+3600, "/");
-		setcookie("cmbTipo", $fila[4], time()+3600, "/");
-		$vHab = FALSE;
-		if($fila[3]==1) $vHab = TRUE; 
-		setcookie("habilitado", $vHab, time()+3600, "/");
-
-																			
-		if($_POST['event'] != 'Eliminar') setcookie("modificar", "Modificar", time()+3600, "/");
-		else setcookie("eliminar", "Eliminar", time()+3600, "/"); 
 		
-		header("location:usuarios.php");
-	}
-	
-	if($_POST['event'] == 'Buscar'){
-		setcookie("busqueda", '%'.$_POST['buscar'].'%', time()+3600, "/");
-	}
-	
 	if($_POST['event'] == 'Cancelar'){
 		header("location:usuarios.php");	
 	}

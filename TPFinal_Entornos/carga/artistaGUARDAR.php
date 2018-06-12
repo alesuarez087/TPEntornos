@@ -12,7 +12,7 @@
 	}
  	function error($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";
-
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
 	
 	if(isset($_POST['idArtista'])) $vID = $_POST['idArtista'];
@@ -21,22 +21,28 @@
 	else $vHabilitado = FALSE;
 	
 	if($_POST['event'] == 'Cancelar'){
-		header("artistas.php");	
-	} else if($_POST['event'] == 'Eliminar'){
+		header("location:artistas.php");	
+	} 
+	
+	if($_POST['event'] == 'Eliminar'){
 		include("conexion.inc");
 		$vSql = "CALL ArtistasDelete('$vID')";	
 		mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
 		mysqli_close($link);
 		setcookie("idArtista", '', time()-3600, "/");
 		correcto("Artista eliminado correctamente");
-	} else if($_POST['event'] == 'Modificar'){
+	} 
+	
+	if($_POST['event'] == 'Modificar'){
 		include("conexion.inc");
 		$vSql = "CALL ArtistasUpdate('$vNombreArtista', '$vHabilitado', '$vID')";	
 		mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
 		mysqli_close($link);
 		unset($link);
 		correcto("Artista modificado correctamente");
-	} else if($_POST['event'] == 'Guardar'){
+	}
+	
+	if($_POST['event'] == 'Guardar'){
 		include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
 		$vSql = "CALL ArtistasGetAll()";
 		$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));

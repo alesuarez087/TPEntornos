@@ -6,41 +6,22 @@
 <body>
 
 <?php 
-
-	if(isset($_POST['idSelect'])){
-		setcookie("modificar", "", time()-3600, "/"); 
-		setcookie("eliminar", "", time()-3600, "/"); 
-		include("conexion.inc");
-		$fila = "NO ME ANDA";
-		$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
-		$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
-
-		$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
-		$fila = mysqli_fetch_row($vResultado);
+	setcookie("idItem", $_POST['idSelect'], time()+10, "/");
 	
-		$vHab = FALSE;
-		setcookie("id_item", $fila[0], time()+3600, "/");
-		setcookie("titulo", $fila[1], time()+3600, "/");
-		setcookie("anio", $fila[2], time()+3600, "/");
-		setcookie("stock", $fila[3], time()+3600, "/");
-		if($fila[4]==1) $vHab = TRUE; 
-		setcookie("habilitado", $vHab, time()+3600, "/");
-		setcookie("id_artista", $fila[5], time()+3600, "/");
-		setcookie("id_genero", $fila[6], time()+3600, "/");
-		setcookie("id_tipo_item", $fila[7], time()+3600, "/");
-		setcookie("url", $fila[8], time()+3600, "/");
-		setcookie("precio", $fila[10], time()+3600, "/");
-																			
-		if($_POST['event'] != 'Eliminar') setcookie("modificar", "Modificar", time()+3600, "/");
-		else setcookie("eliminar", "Eliminar", time()+3600, "/"); 
-		
+	if($_POST['event'] == 'Modificar'){
+		header("location:itemModificacion.php");
 	}
-	
+	if($_POST['event'] == 'Eliminar'){
+		header("location:itemEliminar.php");
+	}	
 	if($_POST['event'] == 'Buscar'){
 		setcookie("busqueda", '%'.$_POST['buscar'].'%', time()+3600, "/");
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
-	header("location:item.php");
-
+	if($_POST['event'] == 'Reiniciar'){
+		setcookie("busqueda", '', time()-3600, "/");
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
+	}
 ?>
 
 </body>

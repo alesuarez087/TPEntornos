@@ -14,8 +14,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
-<link href="../styles/css/dashboard.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="dashboard.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Carrito de Compras</title>
@@ -91,16 +91,13 @@ function valida(){
 			<h3>
 				Total: <?php echo "$".$suma ?></h3>
 		</div>
-		<form role="form" action="../code/itemVENTA.php" method="post" id="confirmar" name="confirmar" onSubmit="return valida()">
+		<form role="form" action="itemVENTA.php" method="post" id="confirmar" name="confirmar" onSubmit="return valida()">
 			<table align="center">
 				<tr>
 					<td><b>Provincia</b></td>
 					<td colspan=5>
 						<select class="form-control" id="cmbProvincia" name="cmbProvincia">
 							<option value="0"></option>
-							<%
-          	 			for(Provincia provincia : ctrl.getAllProvincia()){
-		           			%>
 							<?php 
 								include("conexion.inc");
 								$vSql = "CALL ProvinciasGetAll"; 
@@ -164,7 +161,7 @@ function valida(){
 		<?php } else {
 		?>
 			<div style="text-align:center">		
-			<img alt="Brand" src="../styles/img/img_001.png"> <br />
+			<img alt="Brand" src="img_001.png"> <br />
 			<h2>Tu carrito está vacío </h2>
 			</div>
 		<?php }?>

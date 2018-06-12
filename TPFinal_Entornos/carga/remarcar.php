@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Remarcar</title>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -25,7 +25,7 @@
 				alert("El stock no es un número"); return false;
 			} else if(isNaN(precio)){
 				alert("El precio no es un número"); return false;
-			} else if(precio == null || precio.length == 0 || stock == null || stock.length == 0){ 
+			} else if((precio == null || precio.length == 0) && (stock == null || stock.length == 0)){ 
 				alert("Ingrese stock o precio a modificar"); return false;
 			} else return true
 		}

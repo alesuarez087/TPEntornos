@@ -11,8 +11,8 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Artistas</title>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
+<title>Nuevo Artistas</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -21,7 +21,7 @@
 
 <div class="col-sm-5 col-md-5">
 
-	<h2 class="page-header">Artistas</h2>
+	<h2 class="page-header">Nuevo Artista</h2>
 
 		<form role="form" action="artistaGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
@@ -45,7 +45,7 @@
 				<?php } else { ?>
 				  	<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
 				<?php } ?>
-				  	<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
+				  	<input class="btn btn-default" type="reset" value="Cancelar" id="event" name="event" />
 			</div>
 		</form>
 		<?php 
@@ -139,7 +139,7 @@
 				<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
 			</td>
 			<td></td>
-			<form role="form" action="../code/artistaONE.php" method="post" id="botonera" name="botonera">
+			<form role="form" action="artistaONE.php" method="post" id="botonera" name="botonera">
 				<td style="vertical-align: middle">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_artista']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 

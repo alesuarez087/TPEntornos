@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Usuarios</title>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -53,52 +53,51 @@
 	<?php include("cabecera.php"); ?>
 	<div class="col-sm-5 col-md-5">
 
-		<h2 class="page-header">Usuarios</h2><br />
+		<h2 class="page-header">Nuevo Usuario</h2><br />
 
 		<form role="form" action="usuario.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
 				<b>Código:</b>
-				<input type="text" class="form-control" id="idUsuario" name="idUsuario" <?php if(isset($_COOKIE["idUsuario"])) { ?> value="<?php echo $_COOKIE["idUsuario"]; ?>" <?php } ?> readonly="true">
+				<input type="text" class="form-control" id="idUsuario" name="idUsuario" readonly="true">
 			</div>
 			<div class="form-group">
 				<b>Nombre de Usuario:</b>
-				<input type="text" class="form-control" required="required" id="nombreUsuario" name="nombreUsuario"
-<?php if(isset($_COOKIE["eliminar"])||isset($_COOKIE["modificar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["nombreUsuario"])) { ?> value="<?php echo $_COOKIE["nombreUsuario"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" required="required" id="nombreUsuario" name="nombreUsuario" />
 			</div>
 			<div class="form-group">
 				<b>Nombre:</b>
-				<input type="text" class="form-control" required="required" id="nombre" name="nombre" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["nombre"])) { ?> value="<?php echo $_COOKIE["nombre"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" required="required" id="nombre" name="nombre" />
 			</div>
 			<div class="form-group">
 				<b>Apellido:</b>
-				<input type="text" class="form-control" required="required" id="apellido" name="apellido" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["apellido"])) { ?> value="<?php echo $_COOKIE["apellido"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" required="required" id="apellido" name="apellido" />
 			</div>
 			<div class="form-group">
 				<b>DNI:</b>
-				<input type="text" class="form-control" required="required" id="dni" name="dni" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["dni"])) { ?> value="<?php echo $_COOKIE["dni"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" required="required" id="dni" name="dni" />
 			</div>
 			<div class="form-group">
 				<b>Email:</b>
-				<input type="text" class="form-control" required="required" id="email" name="email" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["email"])) { ?> value="<?php echo $_COOKIE["email"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" required="required" id="email" name="email" />
 			</div>
 			<div class="form-group">
 				<b>Clave:</b>
-				<input type="password" class="form-control" required="required" id="clave" name="clave" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> />
+				<input type="password" class="form-control" required="required" id="clave" name="clave" />
 			</div>
 			<div class="form-group">
 				<b>Confirmar Clave:</b>
-				<input type="password" class="form-control" required="required" id="confirmarClave" name="confirmarClave" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> />
+				<input type="password" class="form-control" required="required" id="confirmarClave" name="confirmarClave" />
 			</div>
 			<div class="form-group">
 				<b>Tipo de Usuario:</b>
-				<select class="form-control" id="cmbTipo" name="cmbTipo" required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?>>
+				<select class="form-control" id="cmbTipo" name="cmbTipo" required="required" >
 					<option value="0">Seleccione un Tipo</option>
 					<?php  
 						include("conexion.inc"); 
 						$vSql = 'CALL TiposUsuarioGetAll'; 
 						$vResultado = mysqli_query($link, $vSql) or die (error()); 
 						while($tipo = mysqli_fetch_array($vResultado)){?>
-					<option <?php if(isset($_COOKIE["cmbTipo"])) { if($_COOKIE["cmbTipo"]==$tipo['id_tipo_usuario']) { ?> selected="selected" <?php } } ?> value="<?php echo $tipo['id_tipo_usuario']; ?>">
+					<option value="<?php echo $tipo['id_tipo_usuario']; ?>">
 					<?php echo $tipo['desc_tipo_usuario']; ?>
 					</option>
 					<?php } ?>
@@ -106,35 +105,17 @@
 			</div>
 			<div class="form-group">
 				<b>Habilitado:</b>
-				<input type="checkbox" class="checkbox" id="habilitado"  name="habilitado" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> />
+				<input type="checkbox" class="checkbox" id="habilitado"  name="habilitado" />
 			</div><br />
 			<div class="form-group" align="center">
-				<?php if(isset($_COOKIE["modificar"])) { ?> 
-					<input class="btn btn-success" type="submit" value="Modificar" id="event" name="event" /> 
-				<?php } else if(isset($_COOKIE["eliminar"])) { ?>
-					<input class="btn btn-danger" type="submit" value="Eliminar" id="event" name="event" /> 
-				<?php } else { ?>
-				  	<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
-				<?php } ?>
-				  	<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
+			  	<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
+			  	<input class="btn btn-default" type="reset" value="Cancelar" id="event" name="event" />
 			</div>
 		</form>
-		<?php
-			if(isset($_COOKIE['idUsuario'])) setcookie("idUsuario", '', time()-3600, "/");
-			if(isset($_COOKIE['apellido'])) setcookie("apellido", '', time()-3600, "/");
-			if(isset($_COOKIE['nombre'])) setcookie("nombre", '', time()-3600, "/");
-			if(isset($_COOKIE['dni'])) setcookie("dni", '', time()-3600, "/");
-			if(isset($_COOKIE['email'])) setcookie("email", '', time()-3600, "/");
-			if(isset($_COOKIE['nombreUsuario'])) setcookie("nombreUsuario", '', time()-3600, "/");
-			if(isset($_COOKIE['habilitado'])) setcookie("habilitado", '', time()-3600, "/");
-			if(isset($_COOKIE['cmbTipo'])) setcookie("cmbTipo", '', time()-3600, "/");
-			if(isset($_COOKIE['eliminar'])) setcookie("eliminar", '', time()-3600, "/");
-			if(isset($_COOKIE['modificar'])) setcookie("modificar", '', time()-3600, "/");
-		?>
 		
 		<br> <br> <br>
 	
-		<form role="form" action="usuario.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+		<form role="form" action="usuarioONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
 				<tr>
 					<td><b>Buscar</b></td>
@@ -226,7 +207,7 @@
 				<input type="checkbox" readonly="true" disabled="disabled" <?php if($fila['habilitado']==1){ ?> checked="checked" <?php } ?> />
 			</td>
 			<td></td>
-			<form role="form" action="usuario.php" method="post" id="botonera" name="botonera">
+			<form role="form" action="usuarioONE.php" method="post" id="botonera" name="botonera">
 				<td style="vertical-align: middle">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_usuario']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 

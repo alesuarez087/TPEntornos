@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Item</title>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>	
 <body>
@@ -51,32 +51,29 @@
 		function error(){
 			echo "<script type=\"text/javascript\">location.href='error.html';</script>";
 		}	
-		include_once("../pages/cabecera.php");
+		include("cabecera.php");
 	?>
 	
 
 	<div class="col-sm-5 col-md-5">
-		<?php if(isset($_COOKIE["modificar"])) { ?> <h2 class="page-header">Modificar Item</h2> <?php }
-			  else if(isset($_COOKIE["eliminar"])) { ?> <h2 class="page-header">Eliminar Item</h2> <?php }
-			  else { ?> <h2 class="page-header">Nuevo Item</h2> <?php } ?>	
-
+		<h2 class="page-header">Nuevo Item</h2>
 		<br />
 
 		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
 				<b>Código:</b>
-				<input type="text" class="form-control" id="idItem" name="idItem" <?php if(isset($_COOKIE["id_item"])) { ?> value="<?php echo $_COOKIE["id_item"]; ?>" <?php } ?> readonly="true"/>
+				<input type="text" class="form-control" id="idItem" name="idItem" readonly="true"/>
 			</div>
 			<div class="form-group">
 				<b>Título:</b>
-				<input type="text" class="form-control" id="tituloItem" name="tituloItem" size="55" required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["titulo"])) { ?> value="<?php echo $_COOKIE["titulo"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="tituloItem" name="tituloItem" size="55" required="required" />
 			</div>
 			<div class="form-group">
 				<b>Autor:</b>
-				<select class="form-control" id="cmbArtista" name="cmbArtista"   required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> >
+				<select class="form-control" id="cmbArtista" name="cmbArtista" required="required" >
 					<option>Seleccion Artista</option>
 						<?php include("conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
-					<option <?php if(isset($_COOKIE["id_artista"])) { if($_COOKIE["id_artista"]==$artista['id_artista']) { ?> selected="selected" <?php } } ?> value="<?php echo $artista['id_artista']; ?>">
+					<option value="<?php echo $artista['id_artista']; ?>">
 						<?php echo $artista['nombre_artista']; ?>
 					</option>
 					<?php } ?>
@@ -84,10 +81,10 @@
 			</div>
 			<div class="form-group">
 				<b>Género:</b>
-				<select class="form-control" id="cmbGenero" name="cmbGenero"  required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> >
+				<select class="form-control" id="cmbGenero" name="cmbGenero"  required="required" >
 					<option>Seleccione Género</option>
 						<?php include("conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
-					<option <?php if(isset($_COOKIE["id_genero"])) { if($_COOKIE["id_genero"]==$genero['id_genero']) { ?> selected="selected" <?php } } ?> value="<?php echo $genero['id_genero']; ?>">
+					<option value="<?php echo $genero['id_genero']; ?>">
 						<?php echo $genero['desc_genero']; ?>
 					</option>
 					<?php } ?>
@@ -95,10 +92,10 @@
 			</div>
 			<div class="form-group">
 				<b>Tipo de Disco:</b>
-				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco"  required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> >
+				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco"  required="required" >
 					<option>Seleccione Tipo de Disco</option>
 					<?php include("conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($tipos = mysqli_fetch_array($vResultado)){?>
-					<option <?php if(isset($_COOKIE["id_tipo_item"])) { if($_COOKIE["id_tipo_item"]==$tipos['id_tipo_item']) { ?> selected="selected" <?php } } ?> value="<?php echo $tipos['id_tipo_item']; ?>">
+					<option value="<?php echo $tipos['id_tipo_item']; ?>">
 						<?php echo $tipos['desc_tipo_item']; ?>
 					</option>
 					<?php } ?>
@@ -106,52 +103,30 @@
 			</div>
 			<div class="form-group">
 				<b>Año Lanzamiento: </b>
-				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" required="required" <?php if(isset($_COOKIE["eliminar"])) { ?>  readonly="true" <?php } if(isset($_COOKIE["anio"])) { ?> value="<?php echo $_COOKIE["anio"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" required="required" />
 			</div>
 			<div class="form-group">
 				<b>Precio:</b>
-				<input type="text" class="form-control" id="precioItem" name="precioItem" required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["precio"])) { ?> value="<?php echo $_COOKIE["precio"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="precioItem" name="precioItem" required="required" />
 			</div>
 			<div class="form-group">
 				<b>Stock:</b>
-				<input type="text" class="form-control" id="stock" name="stock" required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["stock"])) { ?> value="<?php echo $_COOKIE["stock"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="stock" name="stock" required="required" />
 			</div>
 			<div class="form-group">
 				<b>URL Portada:</b>
-				<input type="text" class="form-control" id="urlPortada" name="urlPortada" required="required" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["url"])) { ?> value="<?php echo $_COOKIE["url"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="urlPortada" name="urlPortada" required="required"  />
 			</div>
 			<div class="form-group">
 				<b>Habilitado:</b>
-				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> />
+				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" />
 			</div>
 			<br />
 			<div class="form-group" align="center">
-				<?php if(isset($_COOKIE["modificar"])) { ?> 
-					<input class="btn btn-success" type="submit" value="Modificar" id="event" name="event" /> 
-				<?php } else if(isset($_COOKIE["eliminar"])) { ?> 	
-					<input class="btn btn-danger" type="submit" value="Eliminar" id="event" name="event" /> 
-				<?php } else { ?>
-					<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
-				<?php } ?>
-				  	<input class="btn btn-default" type="reset" value="Cancelar" id="event" name="event" />
+				<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
+			  	<input class="btn btn-default" type="reset" value="Cancelar" id="event" name="event" />
 			</div>
 		</form>
-		
-		<?php 
-			#elimnar las cookies
-			if(isset($_COOKIE['id_item'])) setcookie("id_item", '', time()-3600, "/");
-			if(isset($_COOKIE['titulo'])) setcookie("titulo", '', time()-3600, "/");
-			if(isset($_COOKIE['anio'])) setcookie("anio", '', time()-3600, "/");
-			if(isset($_COOKIE['stock'])) setcookie("stock", '', time()-3600, "/");
-			if(isset($_COOKIE['habilitado'])) setcookie("habilitado", '', time()-3600, "/");
-			if(isset($_COOKIE['id_artista'])) setcookie("id_artista", '', time()-3600, "/");
-			if(isset($_COOKIE['id_genero'])) setcookie("id_genero", '', time()-3600, "/");
-			if(isset($_COOKIE['id_tipo_item'])) setcookie("id_tipo_item", '', time()-3600, "/");
-			if(isset($_COOKIE['url'])) setcookie("url", '', time()-3600, "/");
-			if(isset($_COOKIE['precio'])) setcookie("precio", '', time()-3600, "/");
-			if(isset($_COOKIE['modificar'])) setcookie("modificar", '', time()-3600, "/");
-			if(isset($_COOKIE['eliminar'])) setcookie("eliminar", '', time()-3600, "/");
-		?>
 		
 		<br> <br> <br>
 	
@@ -178,7 +153,7 @@
 		<br />			
  
 		<?php
-		include("../code/conexion.inc");
+		include("conexion.inc");
 		$Cant_por_Pag = 10;
 		$pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
 

@@ -11,7 +11,7 @@
 	}
  	function error($texto){
 		echo "<script type=\"text/javascript\">alert('$texto');</script>";
-
+		echo "<script type=\"text/javascript\">window.history.back();</script>";
 	}
 	
 	if(isset($_POST['idItem'])) $vID = $_POST['idItem'];
@@ -74,8 +74,9 @@
 			error("Ese disco ya fue agregado"); 						
 		} else {
 			include("../code/conexion.inc");
-			$vSql = "CALL ItemsInsert('$vAnioLanzamiento', '$vHabilitado', '$vIdArtista', '$vIdGenero', '$vStock', '$vTitulo', '$vIdTipoDisco', '$vImagen')";	
-			mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+#			$vSql = "CALL ItemsInsert('$vAnioLanzamiento', '$vHabilitado', '$vIdArtista', '$vIdGenero', '$vStock', '$vTitulo', '$vIdTipoDisco', '$vImagen')";	
+			$vSql = "INSERT INTO items(anio_lanzamiento, habilitado, id_artista, id_genero, stock, titulo, id_tipo_disco, url_portada) VALUES('$vAnioLanzamiento', true, '$vIdArtista', '$vIdGenero', '$vStock', '$vTitulo', '$vIdTipoDisco', '$vImagen')";
+			mysqli_query($link, $vSql) or die (mysqli_error($link));
 			unset($link);
 				
 			include("../code/conexion.inc");

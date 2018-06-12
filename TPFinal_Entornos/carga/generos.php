@@ -12,7 +12,7 @@
 <head>
 <meta charset="utf-8">
 <title>Generos</title>
-<link rel="stylesheet" href="../styles/css/bootstrap.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
@@ -29,42 +29,30 @@
 
 	<div class="col-sm-5 col-md-5">
 
-	<h2 class="page-header">G&eacute;neros</h2>
+	<h2 class="page-header">Nuevo G&eacute;nero</h2>
 
 		<form role="form" action="generoGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
 				<b>Código:</b>
-				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly="true" <?php if(isset($_COOKIE["idGenero"])) { ?> value="<?php echo $_COOKIE["idGenero"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly="true" />
 			</div>
 			<div class="form-group">
 				<b>Nombre:</b>
-				<input type="text" class="form-control" id="descGenero" name="descGenero" <?php if(isset($_COOKIE["descGenero"])) { ?> value="<?php echo $_COOKIE["descGenero"]; ?>" <?php } if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } ?> />
+				<input type="text" class="form-control" id="descGenero" name="descGenero" required="required" />
 			</div>
 			<div class="form-group">
 				<b>Habilitado:</b>
-				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["eliminar"])) { ?> readonly="true" <?php } if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> />
+				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" />
 			</div>
 			<br />
 			<div class="form-group" align="center">
-				<?php if(isset($_COOKIE["modificar"])) { ?> 
-					<input class="btn btn-success" type="submit" value="Modificar" id="event" name="event" /> 
-				<?php } else if(isset($_COOKIE["eliminar"])) { ?> 	
-					<input class="btn btn-danger" type="submit" value="Eliminar" id="event" name="event" /> 
-				<?php } else { ?>
-					<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
-				<?php } ?>
-				  	<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
+				<input class="btn btn-success" type="submit" value="Guardar" id="event" name="event" /> 
+			  	<input class="btn btn-default" type="submit" value="Cancelar" id="event" name="event" />
 			</div>
 		</form>
-		<?php 
-			#elimnar las cookies
-			if(isset($_COOKIE["idGenero"])) setcookie("idGenero", '', time()-3600, "/");
-			if(isset($_COOKIE["descGenero"])) setcookie("descGenero", '', time()-3600, "/");
-			if(isset($_COOKIE["habilitado"])) setcookie("habilitado", '', time()-3600, "/");
-			if(isset($_COOKIE["modificar"])) setcookie("modificar", '', time()-3600, "/");
-			if(isset($_COOKIE["eliminar"])) setcookie("eliminar", '', time()-3600, "/");
-		?>
+
 		<br> <br> <br>
+
 		<form role="form" action="generoONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
 				<tr>
@@ -79,7 +67,7 @@
 					</td>
 					<td>&nbsp;</td>
 					<td>
-						<input class="btn btn-default btn-sm" type="submit" value="Reiniciar" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php }?> />
+						<input class="btn btn-default btn-sm" type="reset" value="Reiniciar" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php }?> />
 					</td>
 				</tr>
 			</table>
