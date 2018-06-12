@@ -16,13 +16,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modificar Item</title>
 </head>
 
 <body>
-	<script>
+	<script type="text/javascript">
 		function validar(){
 			anio = document.form.anioLanzamiento.value
 			precio = document.form.precioItem.value
@@ -153,7 +153,7 @@
 			</div>
 		</form>
 		
-		<br> <br> <br>
+		<br /> <br /> <br />
 	
 		<form role="form" action="itemONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>

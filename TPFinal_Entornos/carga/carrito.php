@@ -14,10 +14,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<link href="dashboard.css" rel="stylesheet">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<link href="dashboard.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Carrito de Compras</title>
 </head>
 <script type="text/javascript">
@@ -42,10 +42,10 @@ function valida(){
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>Título</th>
+					<th>T&iacute;tulo</th>
 					<th>Autor</th>
-					<th>Año Lanzamiento</th>
-					<th>Género</th>
+					<th>A&ntilde;o Lanzamiento</th>
+					<th>G&eacute;nero</th>
 					<th>Precio</th>
 					<th>Cantidad</th>
 					<th>Quitar del carro</th>
@@ -124,7 +124,7 @@ function valida(){
 					</td>
 				</tr>
 				<tr>
-					<td><b>Número</b></td>
+					<td><b>N&uacute;mero</b></td>
 					<td>
 						<input type="text" class="form-control" id="nroCalle" name="nroCalle">
 					</td>
@@ -139,7 +139,7 @@ function valida(){
 				</tr>
 				<tr style="height: 30px;"></tr>
 				<tr>
-					<td><b>Número de Tarjeta</b></td>
+					<td><b>N&uacute;mero de Tarjeta</b></td>
 					<td colspan=5>
 						<input type="text" class="form-control" id="nroTarjeta" name="nroTarjeta" size="43" placeholder="XXXXXXXXXXXXXXXX">
 					</td>
@@ -162,7 +162,7 @@ function valida(){
 		?>
 			<div style="text-align:center">		
 			<img alt="Brand" src="img_001.png"> <br />
-			<h2>Tu carrito está vacío </h2>
+			<h2>Tu carrito est&aacute; vac&iacute;o </h2>
 			</div>
 		<?php }?>
 	</div>

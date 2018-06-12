@@ -12,11 +12,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Remarcar</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<script>
+<script type="text/javascript">
 		function validar(){
 			precio = document.form.precioNuevo.value
 			stock = document.form.stockNuevo.value
@@ -47,15 +47,15 @@
 
 	<div class="col-sm-5 col-md-5">
 		<h2 class="page-header">Remarcar Precio - Stock</h2>
-		<br>
+		<br />
 
 		<form role="form" action="remarcar_event.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>C&oacute;digo:</b>
 				<input type="text" class="form-control" id="idItem" name="idItem" <?php if(isset($_COOKIE["id_item"])) { ?> value="<?php echo $_COOKIE["id_item"]; ?>" <?php } ?> readonly="true"/>
 			</div>
 			<div class="form-group">
-				<b>Título:</b>
+				<b>T&iacute;tulo:</b>
 				<input type="text" class="form-control" id="tituloItem" name="tituloItem" readonly="true" <?php if(isset($_COOKIE["titulo"])) { ?> value="<?php echo $_COOKIE["titulo"]; ?>" <?php } ?> />
 			</div>
 			<div class="form-group">
@@ -67,7 +67,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Género:</b>
+				<b>G&eacute;nero:</b>
 				<select class="form-control" id="cmbGenero" name="cmbGenero" readonly="true" >
 					<option>Seleccione Género</option>
 					<?php include("conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
@@ -83,7 +83,7 @@
 					</select>
 			</div>
 			<div class="form-group">
-				<b>Año Lanzamiento: </b>
+				<b>A&ntilde;o Lanzamiento: </b>
 				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="true" <?php if(isset($_COOKIE["anio"])) { ?> value="<?php echo $_COOKIE["anio"]; ?>" <?php } ?> />
 			</div>
 			<div class="form-group">
@@ -139,7 +139,7 @@
 			if(isset($_COOKIE['modificar'])) setcookie("modificar", '', time()-3600, "/");
 		?>
 		
-		<br> <br> <br>
+		<br /> <br /> <br />
 	
 		<form role="form" action="remarcar_event.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
@@ -206,11 +206,11 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
-			<th>Título</th>
+			<th>C&oacute;digo</th>
+			<th>T&iacute;tulo</th>
 			<th>Autor</th>
-			<th>Año Lanzamiento</th>
-			<th>Género</th>
+			<th>A&ntilde;o Lanzamiento</th>
+			<th>G&eacute;nero</th>
 			<th>Precio</th>
 			<th>Stock</th>
 			<th>Habilitado</th>

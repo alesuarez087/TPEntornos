@@ -17,8 +17,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Contacto</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 	<?php include("cabecera.php"); ?>
@@ -39,6 +39,9 @@
 			<input type="reset" name="event" id="event" value="Borrar" class="btn btn-default" />
 		</div>
 	</form>
+	<br />
+	<br />
+	<p>N&uacute;mero de contacto:  0303456789</p>
 	</div>
 	
 	<?php 

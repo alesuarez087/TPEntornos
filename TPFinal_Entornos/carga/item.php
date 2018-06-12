@@ -12,11 +12,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Item</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>	
 <body>
-	<script>
+	<script type="text/javascript">
 		function validar(){
 			anio = document.form.anioLanzamiento.value
 			precio = document.form.precioItem.value
@@ -61,16 +61,16 @@
 
 		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
-				<input type="text" class="form-control" id="idItem" name="idItem" readonly="true"/>
+				<b>C&oacute;digo:</b>
+				<input type="text" class="form-control" id="idItem" name="idItem" readonly/>
 			</div>
 			<div class="form-group">
-				<b>Título:</b>
+				<b>T&iacute;tulo:</b>
 				<input type="text" class="form-control" id="tituloItem" name="tituloItem" size="55" required="required" />
 			</div>
 			<div class="form-group">
 				<b>Autor:</b>
-				<select class="form-control" id="cmbArtista" name="cmbArtista" required="required" >
+				<select class="form-control" id="cmbArtista" name="cmbArtista" required >
 					<option>Seleccion Artista</option>
 						<?php include("conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
 					<option value="<?php echo $artista['id_artista']; ?>">
@@ -80,7 +80,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Género:</b>
+				<b>G&eacute;nero:</b>
 				<select class="form-control" id="cmbGenero" name="cmbGenero"  required="required" >
 					<option>Seleccione Género</option>
 						<?php include("conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
@@ -102,7 +102,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Año Lanzamiento: </b>
+				<b>A&ntilde;o Lanzamiento: </b>
 				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" required="required" />
 			</div>
 			<div class="form-group">
@@ -128,7 +128,7 @@
 			</div>
 		</form>
 		
-		<br> <br> <br>
+		<br /> <br /> <br />
 	
 		<form role="form" action="itemONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
@@ -198,11 +198,11 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
-			<th>Título</th>
+			<th>C&oacute;digo</th>
+			<th>T&iacute;tulo</th>
 			<th>Autor</th>
-			<th>Año Lanzamiento</th>
-			<th>Género</th>
+			<th>A&ntilde;o Lanzamiento</th>
+			<th>G&eacute;nero</th>
 			<th>Precio</th>
 			<th>Stock</th>
 			<th>Habilitado</th>

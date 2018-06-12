@@ -13,13 +13,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <title>Usuarios</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-		<script>
+		<script type="text/javascript">
 		function validar(){
 			dni = document.form.dni.value
 			nombre = document.form.nombre.value
@@ -30,11 +30,11 @@
 			indiceTipo = document.form.cmbTipo.selectedIndex
 			
 			if (!isNaN(nombre)){
-				alert("El Nombre no puede ser un número"); return false;
+				alert("El Nombre no puede ser un nï¿½mero"); return false;
 			} else if (!isNaN(apellido)){
-				alert("El Apellido no puede ser un número"); return false;		
+				alert("El Apellido no puede ser un nï¿½mero"); return false;		
 			} else if (isNaN(dni)){
-				alert("El dni no es un número"); return false;
+				alert("El dni no es un nï¿½mero"); return false;
 			} else if(!(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email))){
 				alert("El mail no posee el formato adecuado"); return false;
 			} else if(indiceTipo == null || indiceTipo == 0) {
@@ -66,7 +66,7 @@
 		?>
 		<form role="form" action="usuario.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>Cï¿½digo:</b>
 				<input type="text" class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $fila[0]; ?>" readonly="true" />
 			</div>
 			<div class="form-group">
@@ -122,7 +122,7 @@
 			</div>
 		</form>
 		
-		<br> <br> <br>
+		<br /> <br /> <br />
 	
 		<form role="form" action="usuarioONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
@@ -157,7 +157,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pï¿½ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -188,7 +188,7 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
+			<th>Cï¿½digo</th>
 			<th>Usuario</th>
 			<th>Apellido</th>
 			<th>Nombre</th>
@@ -241,10 +241,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el ï¿½ndice de la pï¿½gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pï¿½gina no es la actual, coloco el enlace para ir a esa pï¿½gina
 					echo "<a href='usuarioModificacion.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}

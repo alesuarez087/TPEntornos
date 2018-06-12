@@ -13,14 +13,14 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <title>Eliminar Generos</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
-	<script>
+	<script type="text/javascript">
 		function busqueda(){
 			buscar = document.form.busqueda.value
 			if(buscar == null){
@@ -35,22 +35,22 @@
 	<h2 class="page-header">Eliminar G&eacute;nero</h2>
 		<?php
 			include("conexion.inc");
-			$vSql = "CALL GenerosGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
+			$vSql = "CALL GenerosGetOne('$vID')"; //Arma la instrucciï¿½n SQL y luego la ejecuta
 			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
 			$fila = mysqli_fetch_row($vResultado);
 		?>
 		<form role="form" action="generoGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
-				<b>Código:</b>
-				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly="true" value="<?php echo $fila[0]; ?>" />
+				<b>Cï¿½digo:</b>
+				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly value="<?php echo $fila[0]; ?>" />
 			</div>
 			<div class="form-group">
 				<b>Nombre:</b>
-				<input type="text" class="form-control" id="descGenero" readonly="true" name="descGenero" value="<?php echo $fila[1]; ?>" />
+				<input type="text" class="form-control" id="descGenero" readonly name="descGenero" value="<?php echo $fila[1]; ?>" />
 			</div>
 			<div class="form-group">
 				<b>Habilitado:</b>
-				<input type="checkbox" class="checkbox" id="habilitado" readonly="true" name="habilitado" <?php if($fila[2]==1) { ?> checked="checked" <?php } ?> />
+				<input type="checkbox" class="checkbox" id="habilitado" readonly name="habilitado" <?php if($fila[2]==1) { ?> checked="checked" <?php } ?> />
 			</div>
 			<br />
 			<div class="form-group" align="center">
@@ -59,7 +59,7 @@
 			</div>
 		</form>
 
-		<br> <br> <br>
+		<br /> <br /> <br />
 		<form role="form" action="generoONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
 				<tr>
@@ -93,7 +93,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pï¿½ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -124,8 +124,8 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
-			<th>Descripción</th>
+			<th>Cï¿½digo</th>
+			<th>Descripciï¿½n</th>
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>
@@ -167,10 +167,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el ï¿½ndice de la pï¿½gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pï¿½gina no es la actual, coloco el enlace para ir a esa pï¿½gina
 					echo "<a href='generosEliminar.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}

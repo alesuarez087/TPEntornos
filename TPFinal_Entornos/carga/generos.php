@@ -12,12 +12,12 @@
 <head>
 <meta charset="utf-8">
 <title>Generos</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
-	<script>
+	<script type="text/javascript">
 		function busqueda(){
 			buscar = document.form.busqueda.value
 			if(buscar == null){
@@ -51,7 +51,7 @@
 			</div>
 		</form>
 
-		<br> <br> <br>
+		<br /> <br /> <br />
 
 		<form role="form" action="generoONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>

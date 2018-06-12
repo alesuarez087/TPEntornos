@@ -12,8 +12,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Editar Datos</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 	<?php include("cabecera.php"); ?>
@@ -48,7 +48,7 @@
 
 		<form role="form" action="usuario.php" method="post" id="formTabla" name="formTabla" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>C&oacute;digo:</b>
 				<input type="text" readonly class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['usuario']['Id']?>"  />
 			</div>
 			<div class="form-group">

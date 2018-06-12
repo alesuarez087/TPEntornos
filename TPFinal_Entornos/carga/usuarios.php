@@ -12,11 +12,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Usuarios</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-		<script>
+		<script type="text/javascript">
 		function validar(){
 			dni = document.form.dni.value
 			nombre = document.form.nombre.value
@@ -57,7 +57,7 @@
 
 		<form role="form" action="usuario.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>C&oacute;digo:</b>
 				<input type="text" class="form-control" id="idUsuario" name="idUsuario" readonly="true">
 			</div>
 			<div class="form-group">
@@ -113,7 +113,7 @@
 			</div>
 		</form>
 		
-		<br> <br> <br>
+		<br /> <br /> <br />
 	
 		<form role="form" action="usuarioONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
@@ -179,7 +179,7 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
+			<th>C&oacute;digo</th>
 			<th>Usuario</th>
 			<th>Apellido</th>
 			<th>Nombre</th>

@@ -28,7 +28,7 @@
 					if(isset($_COOKIE["elegido"])) header('Location:elegido.php');
 					else header('Location:index.php');
 			} else { 
-				error("Usuario o Contraseña incorrecto");
+				error("Usuario o Contrase&ntilde;a incorrecto");
 			}
 		} else if($_POST['event']=='Registrar'){
 				$vUser= $_POST['userCreate'];

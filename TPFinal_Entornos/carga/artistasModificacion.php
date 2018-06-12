@@ -15,8 +15,8 @@
 <head>
 <meta charset="utf-8">
 <title>Nuevo Artistas</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 	<h2 class="page-header">Modificar Artista</h2>
 		<?php
 			include("conexion.inc");
-			$vSql = "CALL ArtistasGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
+			$vSql = "CALL ArtistasGetOne('$vID')"; //Arma la instrucciï¿½n SQL y luego la ejecuta
 			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
 			$fila = mysqli_fetch_row($vResultado);
 
@@ -35,7 +35,7 @@
 		<form role="form" action="artistaGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
 				<b>Id artista:</b>
-				<input type="text" class="form-control" id="idArtista" name="idArtista" value="<?php echo $fila[0]; ?>" readonly="true" />
+				<input type="text" class="form-control" id="idArtista" name="idArtista" value="<?php echo $fila[0]; ?>" readonly />
 			</div>
 			<div class="form-group">
 				<b>Nombre:</b>
@@ -52,7 +52,7 @@
 			</div>
 		</form>
 
-		<br> <br> <br>
+		<br /> <br /> <br />
 
 		<form role="form" action="artistaONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
 			<table>
@@ -86,7 +86,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pï¿½ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -161,10 +161,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el ï¿½ndice de la pï¿½gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pï¿½gina no es la actual, coloco el enlace para ir a esa pï¿½gina
 					echo "<a href='artistasModificacion.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}
