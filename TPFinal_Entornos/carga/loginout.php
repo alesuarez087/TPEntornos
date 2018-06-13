@@ -11,7 +11,7 @@
 		}
 		function error($texto){
 			echo "<script type=\"text/javascript\">alert('$texto');</script>";
-			echo "<script type=\"text/javascript\">window.history.back();;</script>";
+			echo "<script type=\"text/javascript\">window.history.back();</script>";
 		}
 		
 		if($_POST['event']=='Ingresar'){
@@ -40,8 +40,8 @@
 				$vEmail = $_POST['email'];
 			
 				include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
-				$vSql = "CALL UsuariosGetAll";
-				$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+				$vSql = "select * from usuarios";
+				$vResultado = mysqli_query($link, $vSql) or die (error("Error al recuperar los usuarios"));
 				$validar = TRUE;
 				while($fila = mysqli_fetch_array($vResultado)){		
 					if($fila['nombre_usuario']==$vUser){
@@ -58,8 +58,8 @@
 					error("Ese Nombre de Usuario ya fue agregado"); 						
 				} else {
 					include("conexion.inc");
-					$vSql = "CALL UsuariosInsert('$vApellido', '$vPass', '$vEmail', '$vNombre', '$vUser', '3', 'TRUE', '$vDNI')";
-					mysqli_query($link, $vSql) or die (error(mysqli_error($link)));	
+					$vSql = "INSERT INTO usuarios(apellido, clave, email, nombre, nombre_usuario, id_tipo_usuario, habilitado, dni) VALUES ('$vApellido', '$vPass', '$vEmail', '$vNombre', '$vUser', '3', '1', '$vDNI')";
+					mysqli_query($link, $vSql) or die (error("Error al agregar el Usuario"));	
 					mysqli_close($link);				
 					correcto("Usuario agregado correctamente");	
 				}
