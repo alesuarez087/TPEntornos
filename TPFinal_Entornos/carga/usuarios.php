@@ -58,39 +58,39 @@
 
 		<form role="form" action="usuario.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>C&oacute;digo:</b>
+				<b>C&oacute;digo:(*)</b>
 				<input type="text" class="form-control" id="idUsuario" name="idUsuario" readonly="true">
 			</div>
 			<div class="form-group">
-				<b>Nombre de Usuario:</b>
+				<b>Nombre de Usuario:(*)</b>
 				<input type="text" class="form-control" required="required" id="nombreUsuario" name="nombreUsuario" />
 			</div>
 			<div class="form-group">
-				<b>Nombre:</b>
+				<b>Nombre:(*)</b>
 				<input type="text" class="form-control" required="required" id="nombre" name="nombre" />
 			</div>
 			<div class="form-group">
-				<b>Apellido:</b>
+				<b>Apellido:(*)</b>
 				<input type="text" class="form-control" required="required" id="apellido" name="apellido" />
 			</div>
 			<div class="form-group">
-				<b>DNI:</b>
+				<b>DNI:(*)</b>
 				<input type="text" class="form-control" required="required" id="dni" name="dni" />
 			</div>
 			<div class="form-group">
-				<b>Email:</b>
+				<b>Email:(*)</b>
 				<input type="text" class="form-control" required="required" id="email" name="email" />
 			</div>
 			<div class="form-group">
-				<b>Clave:</b>
+				<b>Clave:(*)</b>
 				<input type="password" class="form-control" required="required" id="clave" name="clave" />
 			</div>
 			<div class="form-group">
-				<b>Confirmar Clave:</b>
+				<b>Confirmar Clave:(*)</b>
 				<input type="password" class="form-control" required="required" id="confirmarClave" name="confirmarClave" />
 			</div>
 			<div class="form-group">
-				<b>Tipo de Usuario:</b>
+				<b>Tipo de Usuario:(*)</b>
 				<select class="form-control" id="cmbTipo" name="cmbTipo" required="required" >
 					<option value="0">Seleccione un Tipo</option>
 					<?php  
@@ -105,7 +105,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado"  name="habilitado" />
 			</div><br />
 			<div class="form-group" align="center">

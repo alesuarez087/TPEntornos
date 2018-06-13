@@ -1,3 +1,4 @@
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
 <html>
 <head>
 <title>Subir Item</title>
@@ -28,7 +29,7 @@
 					if(isset($_COOKIE["elegido"])) header('Location:elegido.php');
 					else header('Location:index.php');
 			} else { 
-				error("Usuario o Contrase&ntilde;a incorrecto");
+				error("Usuario o Contraseña incorrecto");
 			}
 		} else if($_POST['event']=='Registrar'){
 				$vUser= $_POST['userCreate'];

@@ -97,7 +97,7 @@
 						<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="true" <?php if(isset($_COOKIE["precio"])) { ?> value="<?php echo $_COOKIE["precio"]; ?>" <?php } ?> />
 					</div>
 					<div class="col-5">
-						<b>Nuevo Precio:</b>
+						<b>Nuevo Precio:(*)</b>
 						<input type="text" class="form-control" id="precioNuevo" name="precioNuevo" />
 					</div>
 				</div>
@@ -109,13 +109,13 @@
 						<input type="text" class="form-control" id="stock" name="stock" readonly="true" <?php if(isset($_COOKIE["stock"])) { ?> value="<?php echo $_COOKIE["stock"]; ?>" <?php } ?> />
 					</div>
 					<div class="col-5">
-						<b>Nuevo Stock:</b>
+						<b>Nuevo Stock:(*)</b>
 						<input type="text" class="form-control" id="stockNuevo" name="stockNuevo" />
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> readonly="true" />
 			</div><br />
 			<div class="form-group" align="center">

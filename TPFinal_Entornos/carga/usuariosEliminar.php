@@ -41,39 +41,39 @@
 		?>
 		<form role="form" action="usuario.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>C&oacute;digo:(*)</b>
 				<input type="text" class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $fila[0]; ?>" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Nombre de Usuario:</b>
+				<b>Nombre de Usuario:(*)</b>
 				<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly="true" value="<?php echo $fila[7]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>Nombre:</b>
+				<b>Nombre:(*)</b>
 				<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $fila[1]; ?>" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Apellido:</b>
+				<b>Apellido:(*)</b>
 				<input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $fila[2]; ?>" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>DNI:</b>
+				<b>DNI:(*)</b>
 				<input type="text" class="form-control" id="dni" name="dni" value="<?php echo $fila[6]; ?>" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Email:</b>
+				<b>Email:(*)</b>
 				<input type="text" class="form-control" id="email" name="email" value="<?php echo $fila[8]; ?>" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Clave:</b>
+				<b>Clave:(*)</b>
 				<input type="password" class="form-control" id="clave" name="clave" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Confirmar Clave:</b>
+				<b>Confirmar Clave:(*)</b>
 				<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Tipo de Usuario:</b>
+				<b>Tipo de Usuario:(*)</b>
 				<select class="form-control" id="cmbTipo" name="cmbTipo" readonly="true" >
 					<option value="0">Seleccione un Tipo</option>
 					<?php  
@@ -89,7 +89,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado"  name="habilitado"  checked="checked" readonly="true" />
 			</div><br />
 			<div class="form-group" align="center">
@@ -164,7 +164,7 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
+			<th>C&oacute;digo</th>
 			<th>Usuario</th>
 			<th>Apellido</th>
 			<th>Nombre</th>

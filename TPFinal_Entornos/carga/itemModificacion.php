@@ -73,15 +73,15 @@
 		?>
 		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>C&oacute;digo:(*)</b>
 				<input type="text" class="form-control" id="idItem" name="idItem" value="<?php echo $fila[0]; ?>" readonly="true"/>
 			</div>
 			<div class="form-group">
-				<b>Título:</b>
+				<b>T&iacute;tulo:(*)</b>
 				<input type="text" class="form-control" id="tituloItem" name="tituloItem" size="55" required="required" value="<?php echo $fila[1] ?>" />
 			</div>
 			<div class="form-group">
-				<b>Autor:</b>
+				<b>Autor:(*)</b>
 				<select class="form-control" id="cmbArtista" name="cmbArtista"   required="required"  >
 					<option>Seleccion Artista</option>
 						<?php 
@@ -96,7 +96,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Género:</b>
+				<b>G&eacute;nero:(*)</b>
 				<select class="form-control" id="cmbGenero" name="cmbGenero"  required="required" >
 					<option>Seleccione Género</option>
 						<?php 
@@ -111,7 +111,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Tipo de Disco:</b>
+				<b>Tipo de Disco:(*)</b>
 				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco"  required="required" >
 					<option>Seleccione Tipo de Disco</option>
 					<?php 
@@ -127,23 +127,23 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Año Lanzamiento: </b>
+				<b>A&ntilde;o Lanzamiento:(*) </b>
 				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" required="required" value="<?php echo $fila[2]; ?>"  />
 			</div>
 			<div class="form-group">
-				<b>Precio:</b>
+				<b>Precio:(*)</b>
 				<input type="text" class="form-control" id="precioItem" name="precioItem" required="required" value="<?php echo $fila[10]; ?>"  />
 			</div>
 			<div class="form-group">
-				<b>Stock:</b>
+				<b>Stock:(*)</b>
 				<input type="text" class="form-control" id="stock" name="stock" required="required" value="<?php echo $fila[3]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>URL Portada:</b>
+				<b>URL Portada:(*)</b>
 				<input type="text" class="form-control" id="urlPortada" name="urlPortada" required="required" value="<?php echo $fila[8]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if($fila[4]==1) { ?> checked="checked" <?php } ?> />
 			</div>
 			<br />
@@ -223,11 +223,11 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
-			<th>Título</th>
+			<th>C&oacute;digo</th>
+			<th>T&iacute;tulo</th>
 			<th>Autor</th>
-			<th>Año Lanzamiento</th>
-			<th>Género</th>
+			<th>A&ntilde;o Lanzamiento</th>
+			<th>G&eacute;nero</th>
 			<th>Precio</th>
 			<th>Stock</th>
 			<th>Habilitado</th>

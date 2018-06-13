@@ -67,30 +67,30 @@
 		        	<h4 class="card-title text-center">Registrarse</h4>
 					<form role="form" action="loginout.php" method="post" id="formReg" name="formReg" onSubmit="return validar()" >
 						<div class="form-group">
-							<label for="user">Usuario</label>
+							<label for="user">Usuario:(*)</label>
 							<input type="text" class="form-control" id="userCreate" name="userCreate">
 						</div>
 						<div class="form-group">
-							<label for="password">Contrase&ntilde;a:</label> 
+							<label for="password">Contrase&ntilde;a:(*)</label> 
 							<input type="password" class="form-control" id="passCreate" name="passCreate">
 						</div>
 						<div class="form-group">
-							<label for="password">Confirmar Contrase&ntilde;a:</label> 
+							<label for="password">Confirmar Contrase&ntilde;a:(*)</label> 
 							<input type="password" class="form-control" id="passConfirm" name="passConfirm">
 						</div>
 						<div class="form-group">
-							<label for="nombre">Nombre:</label>
+							<label for="nombre">Nombre:(*)</label>
 							<input type="text" class="form-control" id="nombre" name="nombre" <?php if(isset($_COOKIE["nombre"])) { ?> value="<?php echo $_COOKIE["nombre"]; ?>" <?php } ?> >
 						</div>
 						<div class="form-group">
-							<label for="apellido">Apellido:</label> <input type="text" class="form-control" id="apellido" name="apellido"<?php if(isset($_COOKIE["apellido"])) { ?> value="<?php echo $_COOKIE["apellido"]; ?>" <?php } ?> >
+							<label for="apellido">Apellido:(*)</label> <input type="text" class="form-control" id="apellido" name="apellido"<?php if(isset($_COOKIE["apellido"])) { ?> value="<?php echo $_COOKIE["apellido"]; ?>" <?php } ?> >
 						</div>
 						<div class="form-group">
-							<label for="dni">DNI:</label> 
+							<label for="dni">DNI:(*)</label> 
 							<input type="text" class="form-control" id="dni" name="dni" <?php if(isset($_COOKIE["dni"])) { ?> value="<?php echo $_COOKIE["dni"]; ?>" <?php } ?> >
 						</div>
 						<div class="form-group">
-							<label for="dni">Email:</label>
+							<label for="dni">Email:(*)</label>
 							<input type="email" class="form-control" id="email" name="email" <?php if(isset($_COOKIE["email"])) { ?> value="<?php echo $_COOKIE["email"]; ?>" <?php } ?> >
 						</div>
 						<div class="form-group">

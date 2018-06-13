@@ -61,15 +61,15 @@
 
 		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
 			<div class="form-group">
-				<b>C&oacute;digo:</b>
+				<b>C&oacute;digo:(*)</b>
 				<input type="text" class="form-control" id="idItem" name="idItem" readonly/>
 			</div>
 			<div class="form-group">
-				<b>T&iacute;tulo:</b>
+				<b>T&iacute;tulo:(*)</b>
 				<input type="text" class="form-control" id="tituloItem" name="tituloItem" size="55" required="required" />
 			</div>
 			<div class="form-group">
-				<b>Autor:</b>
+				<b>Autor:(*)</b>
 				<select class="form-control" id="cmbArtista" name="cmbArtista" required >
 					<option>Seleccion Artista</option>
 						<?php include("conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
@@ -80,9 +80,9 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>G&eacute;nero:</b>
+				<b>G&eacute;nero:(*)</b>
 				<select class="form-control" id="cmbGenero" name="cmbGenero"  required="required" >
-					<option>Seleccione Género</option>
+					<option>Seleccione G&eacute;nero</option>
 						<?php include("conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
 					<option value="<?php echo $genero['id_genero']; ?>">
 						<?php echo $genero['desc_genero']; ?>
@@ -91,7 +91,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Tipo de Disco:</b>
+				<b>Tipo de Disco:(*)</b>
 				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco"  required="required" >
 					<option>Seleccione Tipo de Disco</option>
 					<?php include("conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($tipos = mysqli_fetch_array($vResultado)){?>
@@ -102,23 +102,23 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>A&ntilde;o Lanzamiento: </b>
+				<b>A&ntilde;o Lanzamiento:(*) </b>
 				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" required="required" />
 			</div>
 			<div class="form-group">
-				<b>Precio:</b>
+				<b>Precio:(*)</b>
 				<input type="text" class="form-control" id="precioItem" name="precioItem" required="required" />
 			</div>
 			<div class="form-group">
-				<b>Stock:</b>
+				<b>Stock:(*)</b>
 				<input type="text" class="form-control" id="stock" name="stock" required="required" />
 			</div>
 			<div class="form-group">
-				<b>URL Portada:</b>
+				<b>URL Portada:(*)</b>
 				<input type="text" class="form-control" id="urlPortada" name="urlPortada" required="required"  />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" />
 			</div>
 			<br />

@@ -94,7 +94,7 @@ function valida(){
 		<form role="form" action="itemVENTA.php" method="post" id="confirmar" name="confirmar" onSubmit="return valida()">
 			<table align="center">
 				<tr>
-					<td><b>Provincia</b></td>
+					<td><b>Provincia(*)</b></td>
 					<td colspan=5>
 						<select class="form-control" id="cmbProvincia" name="cmbProvincia">
 							<option value="0"></option>
@@ -112,19 +112,19 @@ function valida(){
 					</td>
 				</tr>
 				<tr>
-					<td><b>Localidad</b></td>
+					<td><b>Localidad(*)</b></td>
 					<td colspan=5>
 						<input type="text" class="form-control" id="localidad" name="localidad" size="43">
 					</td>
 				</tr>
 				<tr>
-					<td><b>Calle</b></td>
+					<td><b>Calle(*)</b></td>
 					<td colspan=5>
 						<input type="text" class="form-control" id="calle" name="calle" size="43">
 					</td>
 				</tr>
 				<tr>
-					<td><b>N&uacute;mero</b></td>
+					<td><b>N&uacute;mero(*)</b></td>
 					<td>
 						<input type="text" class="form-control" id="nroCalle" name="nroCalle">
 					</td>
@@ -139,13 +139,13 @@ function valida(){
 				</tr>
 				<tr style="height: 30px;"></tr>
 				<tr>
-					<td><b>N&uacute;mero de Tarjeta</b></td>
+					<td><b>N&uacute;mero de Tarjeta(*)</b></td>
 					<td colspan=5>
 						<input type="text" class="form-control" id="nroTarjeta" name="nroTarjeta" size="43" placeholder="XXXXXXXXXXXXXXXX">
 					</td>
 				</tr>
 				<tr>
-					<td><b>Titular Tarjeta</b></td>
+					<td><b>Titular Tarjeta(*)</b></td>
 					<td colspan=5>
 						<input type="text" class="form-control" id="titTarjeta" name="titTarjeta">
 					</td>

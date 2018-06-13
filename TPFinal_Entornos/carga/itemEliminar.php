@@ -50,15 +50,15 @@
 		?>
 		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>C&oacute;digo:(*)</b>
 				<input type="text" class="form-control" id="idItem" name="idItem" value="<?php echo $fila[0]; ?>" readonly="true"/>
 			</div>
 			<div class="form-group">
-				<b>Título:</b>
+				<b>T&iacute;tulo:(*)</b>
 				<input type="text" class="form-control" id="tituloItem" name="tituloItem" value="<?php echo $fila[1] ?>" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Autor:</b>
+				<b>Autor:(*)</b>
 				<select class="form-control" id="cmbArtista" name="cmbArtista" readonly="true" >
 					<option>Seleccion Artista</option>
 						<?php 
@@ -73,7 +73,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Género:</b>
+				<b>G&eacute;nero:(*)</b>
 				<select class="form-control" id="cmbGenero" name="cmbGenero" readonly="true" >
 					<option>Seleccione Género</option>
 						<?php 
@@ -88,7 +88,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Tipo de Disco:</b>
+				<b>Tipo de Disco:(*)</b>
 				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco" readonly="true">
 					<option>Seleccione Tipo de Disco</option>
 					<?php 
@@ -104,23 +104,23 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<b>Año Lanzamiento: </b>
+				<b>A&ntilde;o Lanzamiento:(*) </b>
 				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="true" value="<?php echo $fila[2]; ?>"  />
 			</div>
 			<div class="form-group">
-				<b>Precio:</b>
+				<b>Precio:(*)</b>
 				<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="true" value="<?php echo $fila[10]; ?>"  />
 			</div>
 			<div class="form-group">
-				<b>Stock:</b>
+				<b>Stock:(*)</b>
 				<input type="text" class="form-control" id="stock" name="stock" readonly="true" value="<?php echo $fila[3]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>URL Portada:</b>
+				<b>URL Portada:(*)</b>
 				<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="true" value="<?php echo $fila[8]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" readonly="true" checked="checked" />
 			</div>
 			<br />
@@ -200,11 +200,11 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>Código</th>
-			<th>Título</th>
+			<th>C&oacute;digo</th>
+			<th>T&iacute;tulo</th>
 			<th>Autor</th>
-			<th>Año Lanzamiento</th>
-			<th>Género</th>
+			<th>A&ntilde;o Lanzamiento</th>
+			<th>G&eacute;nero</th>
 			<th>Precio</th>
 			<th>Stock</th>
 			<th>Habilitado</th>

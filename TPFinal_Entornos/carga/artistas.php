@@ -25,15 +25,15 @@
 
 		<form role="form" action="artistaGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
-				<b>Id artista:</b>
+				<b>Id artista:(*)</b>
 				<input type="text" class="form-control" id="idArtista" name="idArtista"	 />
 			</div>
 			<div class="form-group">
-				<b>Nombre:</b>
+				<b>Nombre:(*)</b>
 				<input type="text" class="form-control" id="nombreArtista" name="nombreArtista" />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" />
 			</div>
 			<br />

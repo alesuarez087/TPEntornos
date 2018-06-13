@@ -33,15 +33,15 @@
 
 		<form role="form" action="generoGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
-				<b>Código:</b>
+				<b>Código:(*)</b>
 				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly="true" />
 			</div>
 			<div class="form-group">
-				<b>Nombre:</b>
+				<b>Nombre:(*)</b>
 				<input type="text" class="form-control" id="descGenero" name="descGenero" required="required" />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" />
 			</div>
 			<br />

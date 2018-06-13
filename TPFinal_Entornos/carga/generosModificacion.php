@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 	if(isset($_COOKIE['idGenero'])){ 
 		$vID = $_COOKIE['idGenero'];
 		setcookie("idGenero", $_POST['idSelect'], time()-3600, "/");
@@ -41,15 +41,15 @@
 		?>
 		<form role="form" action="generoGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
-				<b>C�digo:</b>
+				<b>C&oacute;digo:(*)</b>
 				<input type="text" class="form-control" id="idGenero" name="idGenero" readonly value="<?php echo $fila[0]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>Nombre:</b>
+				<b>Nombre:(*)</b>
 				<input type="text" class="form-control" id="descGenero" name="descGenero" value="<?php echo $fila[1]; ?>" />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if($fila[2]==1) { ?> checked="checked" <?php } ?> />
 			</div>
 			<br />
@@ -124,8 +124,8 @@
 	?>
 	<table class="table table-hover">
 		<thead>
-			<th>C�digo</th>
-			<th>Descripci�n</th>
+			<th>C&oacute;digo</th>
+			<th>Descripci&oacute;n</th>
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>

@@ -27,11 +27,11 @@
 	<h2>Contacto</h2>
 	<form name="form" action="mail.php" method="post">
 		<div class="form-group">
-			<b>Mail de Contacto: </b>
+			<b>Mail de Contacto:(*) </b>
 			<input type="text" class="form-control" required="required" name="mail" id="mail" width="350px" value="<?php if(isset($_SESSION["usuario"]["Email"])) echo($_SESSION["usuario"]["Email"]) ?> "/>
 		</div>
 		<div class="form-group">
-			<b>Texto:</b><br />
+			<b>Texto:(*)</b><br />
 			<textarea style="height: 200px; width: 100%; overflow: auto;" required="required" class="form-control" name="tex" id="tex"></textarea>
 		</div><br />
 		<div class="form-group" style="text-align:center">

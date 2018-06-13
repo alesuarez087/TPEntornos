@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 	if(isset($_COOKIE['idArtista'])){ 
 		$vID = $_COOKIE['idArtista'];
 		setcookie("idArtista", "", time()-3600, "/");
@@ -34,15 +34,15 @@
 		?>
 		<form role="form" action="artistaGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
-				<b>Id artista:</b>
+				<b>Id artista:(*)</b>
 				<input type="text" class="form-control" id="idArtista" name="idArtista" value="<?php echo $fila[0]; ?>" readonly />
 			</div>
 			<div class="form-group">
-				<b>Nombre:</b>
+				<b>Nombre:(*)</b>
 				<input type="text" class="form-control" id="nombreArtista" name="nombreArtista" value="<?php echo $fila[1] ?>" />
 			</div>
 			<div class="form-group">
-				<b>Habilitado:</b>
+				<b>Habilitado:(*)</b>
 				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if($fila[2]==1) { ?> checked="checked" <?php } ?> />
 			</div>
 			<br />
