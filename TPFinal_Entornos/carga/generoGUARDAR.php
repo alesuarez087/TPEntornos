@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Documento sin t&iacute;tulo</title>
 </head>
 <body>
@@ -17,8 +17,8 @@
 	
 	if(isset($_POST['idGenero'])) $vID = $_POST['idGenero'];
 	if(isset($_POST['descGenero'])) $vDescripcionGenero = $_POST['descGenero'];
-	if(isset($_POST['habilitado'])) $vHabilitado = TRUE;
-	else $vHabilitado = FALSE;
+	if(isset($_POST['habilitado'])) $vHabilitado = 1;
+	else $vHabilitado = 0;
 	
 	if($_POST['event'] == 'Cancelar'){
 		header("location:genero.php");	
@@ -37,7 +37,7 @@
 		unset($link);
 		correcto("Genero modificado correctamente");
 	} else if($_POST['event'] == 'Guardar'){
-		include("conexion.inc"); //Arma la instrucci�n SQL y luego la ejecuta
+		include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
 		$vSql = "CALL GenerosGetAll()";
 		$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
 		$validar = TRUE;

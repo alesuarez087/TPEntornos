@@ -1,6 +1,7 @@
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Subir Item</title>
 </head>
 <body>
@@ -29,7 +30,7 @@
 					if(isset($_COOKIE["elegido"])) header('Location:elegido.php');
 					else header('Location:index.php');
 			} else { 
-				error("Usuario o Contraseña incorrecto");
+				error("Usuario o ContraseÃ±a incorrecto");
 			}
 		} else if($_POST['event']=='Registrar'){
 				$vUser= $_POST['userCreate'];
@@ -39,7 +40,7 @@
 				$vDNI= $_POST['dni'];
 				$vEmail = $_POST['email'];
 			
-				include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
+				include("conexion.inc"); //Arma la instrucciÃ³n SQL y luego la ejecuta
 				$vSql = "select * from usuarios";
 				$vResultado = mysqli_query($link, $vSql) or die (error("Error al recuperar los usuarios"));
 				$validar = TRUE;

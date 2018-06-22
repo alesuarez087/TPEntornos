@@ -17,8 +17,8 @@
 	
 	if(isset($_POST['idArtista'])) $vID = $_POST['idArtista'];
 	if(isset($_POST['nombreArtista'])) $vNombreArtista = $_POST['nombreArtista'];
-	if(isset($_POST['habilitado'])) $vHabilitado = TRUE;
-	else $vHabilitado = FALSE;
+	if(isset($_POST['habilitado'])) $vHabilitado = 1;
+	else $vHabilitado = 0;
 	
 	if($_POST['event'] == 'Cancelar'){
 		header("location:artistas.php");	
@@ -45,7 +45,7 @@
 	if($_POST['event'] == 'Guardar'){
 		include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
 		$vSql = "CALL ArtistasGetAll()";
-		$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+		$vResultado = mysqli_query($link, $vSql) or die ("error de bd");
 		$validar = TRUE;
 		while($fila = mysqli_fetch_array($vResultado)){		
 			if($fila['nombre_artista']==$vNombreArtista){
@@ -55,11 +55,11 @@
 		unset($vResultado, $link);
 	
 		if(!$validar){
-			error("Ese Artista ya fue agregado"); 						
+//			error("Ese Artista ya fue agregado"); 						
 		} else {
 			include("conexion.inc");
 			$vSql = "CALL ArtistasInsert('$vNombreArtista', '$vHabilitado')";	
-			mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
+			mysqli_query($link, $vSql) or die ("error al registrar artista");
 			unset($link);
 				
 			correcto("Artista agregado correctamente");	

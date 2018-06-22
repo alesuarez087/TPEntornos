@@ -1,4 +1,4 @@
-<?php 
+ï»¿<?php 
 	session_start(); 
 	$tipoUsuario = NULL;
 	$vNRO = NULL;
@@ -10,15 +10,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Editar Datos</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 	<?php include("cabecera.php"); ?>
 	
-	<script>
+	<script type="text/javascript">
 		function validar(){
 			dni = document.formTabla.dni.value
 			nombre = document.formTabla.nombre.value
@@ -28,11 +28,11 @@
 			cClave = document.formTabla.confirmarClave.value
 			
 			if (!isNaN(nombre)){
-				alert("El Nombre no puede ser un número"); return false;
+				alert("El Nombre no puede ser un nÃºmero"); return false;
 			} else if (!isNaN(apellido)){
-				alert("El Apellido no puede ser un número"); return false;		
+				alert("El Apellido no puede ser un nÃºmero"); return false;		
 			} else if (isNaN(dni)){
-				alert("El dni no es un número"); return false;
+				alert("El dni no es un nÃºmero"); return false;
 			} else if(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(email)){
 				alert("El mail no posee el formato adecuado"); return false;
 			} else if(clave != cClave){
@@ -44,16 +44,16 @@
 
 		<h2 class="page-header">Editar Datos</h2>
 
-		<br>
+		<br />
 
-		<form role="form" action="usuario.php" method="post" id="formTabla" name="formTabla" onSubmit="return validar()">
+		<form  action="usuario.php" method="post" id="formTabla" name="formTabla" onsubmit="return validar()">
 			<div class="form-group">
 				<b>C&oacute;digo:(*)</b>
-				<input type="text" readonly class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['usuario']['Id']?>"  />
+				<input type="text" readonly="readonly" class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $_SESSION['usuario']['Id']?>"  />
 			</div>
 			<div class="form-group">
 				<b>Nombre de Usuario:(*)</b>
-				<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly value="<?php echo $_SESSION['usuario']['Usuario']?>" />
+				<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly="readonly" value="<?php echo $_SESSION['usuario']['Usuario']?>" />
 			</div>
 			<div class="form-group">
 				<b>Nombre:(*)</b>

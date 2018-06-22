@@ -1,4 +1,4 @@
-<?php 
+ï»¿<?php 
 	if(isset($_COOKIE['idItem'])){ 
 		$vID = $_COOKIE['idItem'];
 		setcookie("idItem", $_POST['idSelect'], time()-3600, "/");
@@ -15,8 +15,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Eliminar Item</title>
 </head>
@@ -44,22 +44,22 @@
 		<br />
 		<?php
 			include("conexion.inc");
-			$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
+			$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucciÃ³n SQL y luego la ejecuta
 			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
 			$fila = mysqli_fetch_row($vResultado);
 		?>
-		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form">
+		<form  action="itemGUARDAR.php" method="post" id="form" name="form">
 			<div class="form-group">
 				<b>C&oacute;digo:(*)</b>
-				<input type="text" class="form-control" id="idItem" name="idItem" value="<?php echo $fila[0]; ?>" readonly="true"/>
+				<input type="text" class="form-control" id="idItem" name="idItem" value="<?php echo $fila[0]; ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>T&iacute;tulo:(*)</b>
-				<input type="text" class="form-control" id="tituloItem" name="tituloItem" value="<?php echo $fila[1] ?>" readonly="true" />
+				<input type="text" class="form-control" id="tituloItem" name="tituloItem" value="<?php echo $fila[1] ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Autor:(*)</b>
-				<select class="form-control" id="cmbArtista" name="cmbArtista" readonly="true" >
+				<select class="form-control" id="cmbArtista" name="cmbArtista"  >
 					<option>Seleccion Artista</option>
 						<?php 
 							include("conexion.inc"); 
@@ -74,8 +74,8 @@
 			</div>
 			<div class="form-group">
 				<b>G&eacute;nero:(*)</b>
-				<select class="form-control" id="cmbGenero" name="cmbGenero" readonly="true" >
-					<option>Seleccione Género</option>
+				<select class="form-control" id="cmbGenero" name="cmbGenero" >
+					<option>Seleccione GÃ©nero</option>
 						<?php 
 							include("conexion.inc"); 
 							$vSql = 'CALL GenerosGetAllHabilitado'; 
@@ -89,7 +89,7 @@
 			</div>
 			<div class="form-group">
 				<b>Tipo de Disco:(*)</b>
-				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco" readonly="true">
+				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco" readonly="readonly">
 					<option>Seleccione Tipo de Disco</option>
 					<?php 
 						include("conexion.inc"); 
@@ -105,23 +105,23 @@
 			</div>
 			<div class="form-group">
 				<b>A&ntilde;o Lanzamiento:(*) </b>
-				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="true" value="<?php echo $fila[2]; ?>"  />
+				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="readonly" value="<?php echo $fila[2]; ?>"  />
 			</div>
 			<div class="form-group">
 				<b>Precio:(*)</b>
-				<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="true" value="<?php echo $fila[10]; ?>"  />
+				<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="readonly" value="<?php echo $fila[10]; ?>"  />
 			</div>
 			<div class="form-group">
 				<b>Stock:(*)</b>
-				<input type="text" class="form-control" id="stock" name="stock" readonly="true" value="<?php echo $fila[3]; ?>" />
+				<input type="text" class="form-control" id="stock" name="stock" readonly="readonly" value="<?php echo $fila[3]; ?>" />
 			</div>
 			<div class="form-group">
 				<b>URL Portada:(*)</b>
-				<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="true" value="<?php echo $fila[8]; ?>" />
+				<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="readonly" value="<?php echo $fila[8]; ?>" />
 			</div>
 			<div class="form-group">
 				<b>Habilitado:(*)</b>
-				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" readonly="true" checked="checked" />
+				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" readonly="readonly" checked="checked" />
 			</div>
 			<br />
 			<div class="form-group" align="center">
@@ -132,7 +132,7 @@
 		
 		<br /> <br /> <br />
 	
-		<form role="form" action="itemONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+		<form  action="itemONE.php" method="post" id="busqueda" name="busqueda" onclick="return busqueda()">
 			<table>
 				<tr>
 					<td><b>Buscar</b></td>
@@ -165,7 +165,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pÃ¡ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -199,7 +199,7 @@
 #		$total_registros=mysqli_num_rows($vResultado);
 	?>
 	<table class="table table-hover">
-		<thead>
+		<tr>
 			<th>C&oacute;digo</th>
 			<th>T&iacute;tulo</th>
 			<th>Autor</th>
@@ -210,7 +210,7 @@
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>
-		</thead>
+		</tr>
 
 		<?php
 			while ($fila = mysqli_fetch_array($vResultado))
@@ -225,10 +225,10 @@
 			<td><?php echo $fila['monto']; ?></td>
 			<td><?php echo $fila['stock']; ?></td>
 			<td style="vertical-olign: middle">
-				<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
+				<input type="checkbox" readonly="readonly" disabled="disabled" <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
 			</td>
 			<td></td>
-			<form role="form" action="itemONE.php" method="post" id="botonera" name="botonera">
+			<form  action="itemONE.php" method="post" id="botonera" name="botonera">
 				<td style="vertical-align: middle">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 
@@ -253,10 +253,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el Ã­ndice de la pÃ¡gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pÃ¡gina no es la actual, coloco el enlace para ir a esa pÃ¡gina
 					echo "<a href='itemEliminar.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}

@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Usuario</title>
 </head>
 <body>
 <?php
@@ -61,8 +61,9 @@
 	if(isset($_POST['email'])) $vEmail = $_POST['email'];
 	if(isset($_POST['clave'])) $vClave = $_POST['clave'];
 	if(isset($_POST['dni'])) $vDNI = $_POST['dni'];
-	if(isset($_POST['habilitado'])) $vHabilitado = TRUE;
-	else $vHabilitado = FALSE;
+	if(isset($_POST['habilitado'])) $vHabilitado = 1;
+	else $vHabilitado = 0;
+	
 	
 	if($_POST['event'] == 'Modificar'){
 		$vID = $_POST['idUsuario'];
@@ -76,7 +77,7 @@
 	
 	if($_POST['event'] == 'Guardar'){
 		if(isset($_POST['nombreUsuario'])) $vNombreUsuario = $_POST['nombreUsuario'];
-		include("conexion.inc"); //Arma la instrucci�n SQL y luego la ejecuta
+		include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
 		$vSql = "CALL UsuariosGetAll()";
 		$vResultado = mysqli_query($link, $vSql) or die (error("Error al recuperar los usuarios"));
 		$validar = TRUE;
@@ -92,9 +93,9 @@
 		} else {
 			include("conexion.inc");
 			$vSql = "CALL UsuariosInsert('$vApellido', '$vClave', '$vEmail', '$vNombre', '$vNombreUsuario', '$vTipo', '$vHabilitado', '$vDNI')";	
-			mysqli_query($link, $vSql) or die (error("Error al agregar el usuario"));
+			mysqli_query($link, $vSql) or die (error("Error al insertar el Usuario"));
 			unset($link);
-				
+
 			correcto("Usuario agregado correctamente");	
 		}
 	}

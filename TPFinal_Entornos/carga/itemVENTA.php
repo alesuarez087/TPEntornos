@@ -1,10 +1,10 @@
-<?php 
+ï»¿<?php 
 	session_start();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 </head>
 <body>
@@ -49,7 +49,7 @@
 			$carro[$id] = array('Id'=>$id, 'Cantidad'=>$cant, 'Stock'=>$stock);
 			$_SESSION["carro"] = $carro;
 			correcto("Item agregado correctamente");
-		} else error("El item ".$titulo." no se encuentra en el stock solicitado. Serás redirigido a la página anterior");
+		} else error("El item ".$titulo." no se encuentra en el stock solicitado. SerÃ¡s redirigido a la pÃ¡gina anterior");
 	} 
 	if($_POST['event'] == 'Eliminar'){
 		$id = $_POST['idSelected'];
@@ -118,8 +118,8 @@
 			}
 			unset($_SESSION["carro"]);
 			$mail = $usuario['Email']; 
-			$email = mail($mail,"Luzbelito informa","La compra fue realizada con éxito");
-			if($email==TRUE) correcto("Compra exitosa. Pronto recibirá un mail con a confirmación de la misma");
+			$email = mail($mail,"Luzbelito informa","La compra fue realizada con Ã©xito");
+			if($email==TRUE) correcto("Compra exitosa. Pronto recibirÃ¡ un mail con a confirmaciÃ³n de la misma");
 			else error("Error al enviar el mail");
 		}
 	}

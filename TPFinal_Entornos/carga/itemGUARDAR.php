@@ -1,6 +1,7 @@
+ï»¿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Guardar Item</title>
 </head>
 <body>
@@ -23,8 +24,8 @@
 	if(isset($_POST['precioItem'])) $vPrecioItem = $_POST['precioItem']; 
 	if(isset($_POST['stock'])) $vStock = $_POST['stock']; 
 	if(isset($_POST['urlPortada'])) $vImagen = $_POST['urlPortada']; 
-	if(isset($_POST['habilitado'])) $vHabilitado = TRUE;
-	else $vHabilitado = FALSE;
+	if(isset($_POST['habilitado'])) $vHabilitado = 1;
+	else $vHabilitado = 0;
 	
 	if($_POST['event'] == 'Cancelar'){
 		header("location:item.php");	
@@ -60,7 +61,7 @@
 		correcto("Item modificado correctamente");
 
 	} else if($_POST['event'] == 'Guardar'){
-		include("conexion.inc"); //Arma la instrucción SQL y luego la ejecuta
+		include("conexion.inc"); //Arma la instrucciÃ³n SQL y luego la ejecuta
 		$vSql = "CALL ItemsGetAllForArtista('$vIdArtista')";
 		$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
 		$validar = TRUE;
@@ -81,7 +82,7 @@
 				
 			include("conexion.inc");
 			$vSql = "SELECT MAX(id_item) as id_item FROM items";
-			$vRest = mysqli_query($link, $vSql) or die ("No recupera el último item");
+			$vRest = mysqli_query($link, $vSql) or die ("No recupera el Ãºltimo item");
 			$vID = mysqli_fetch_row($vRest);						 #OBTENGO EL ID DEL ULTIMO ITEM INSERTADO
 			unset($link);
 		

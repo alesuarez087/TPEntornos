@@ -12,13 +12,13 @@
 		
 	
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Compras</title>
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <link href="dashboard.css" rel="stylesheet" type="text/css" />
 <link href="propio.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,7 +54,7 @@
 				<td><?php echo $filaI['titulo']; ?></td>
 				<td><?php echo $filaI['nombre_artista']; ?></td>
 				<td><?php echo round($filaI['prom']); ?></td>
-				<form role="form" action="calificar.php" method="post" id="botonera" name="botonera">
+				<form  action="calificar.php" method="post" id="botonera" name="botonera">
 					<td style="vertical-align: middle">
 						<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $filaI['id_item'] ?>" /> 
 						<input class="btn btn-success btn-sm" type="submit" value="Calificar" id="eventSelect" name="eventSelect" />

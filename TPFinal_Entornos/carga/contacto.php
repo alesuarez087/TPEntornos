@@ -15,9 +15,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Contacto</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
@@ -32,7 +32,7 @@
 		</div>
 		<div class="form-group">
 			<b>Texto:(*)</b><br />
-			<textarea style="height: 200px; width: 100%; overflow: auto;" required="required" class="form-control" name="tex" id="tex"></textarea>
+			<textarea style="height: 200px; width: 100%; overflow: auto;" rows="" cols="" required="required" class="form-control" name="tex" id="tex"></textarea>
 		</div><br />
 		<div class="form-group" style="text-align:center">
 			<input type="submit" name="event" id="event" value="Enviar" class="btn btn-success" />

@@ -1,7 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
 </head>
 <body>
@@ -20,7 +20,7 @@
 		include("conexion.inc");
 		$fila = "NO ME ANDA";
 		$vID = $_POST['idSelect']; //Captura datos desde el Form anterior
-		$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucci�n SQL y luego la ejecuta
+		$vSql = "CALL ItemsGetOne('$vID')"; //Arma la instrucción SQL y luego la ejecuta
 
 		$vResultado = mysqli_query($link, $vSql) or die (error(mysqli_error($link)));
 		$fila = mysqli_fetch_row($vResultado);

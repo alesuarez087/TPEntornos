@@ -1,3 +1,4 @@
+
 <?php 
 	session_start(); 
 	$tipoUsuario = NULL;
@@ -10,15 +11,15 @@
 	}
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Discos</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <link href="dashboard.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
 </head>
 <?php  
 		function error(){
@@ -88,7 +89,7 @@
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
           <div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" />
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
 				<h4>$<?php echo($vItem['monto']);?></h4>
@@ -112,7 +113,7 @@
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
           <div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" />
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
 				<h4>$<?php echo($vItem['monto']);?></h4>
@@ -136,7 +137,7 @@
 				while ($vItem = mysqli_fetch_array($vResultado)){ 
 			?>
           <div class="col-xs-6 col-sm-3 placeholder">
-				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+				<img src="<?php echo($vItem['url_portada']); ?>" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail" />
 				<h5><?php echo($vItem['titulo']);?></h5>
 				<h5 class="text-muted"><?php echo($vItem['nombre_artista']);  ?></h5>
 				<h4>$<?php echo($vItem['monto']);?></h4>

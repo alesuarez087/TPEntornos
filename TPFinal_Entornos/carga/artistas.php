@@ -7,12 +7,12 @@
 		$nombreUsuario = $fila['Usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
 ?>
-<!doctype html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Nuevo Artistas</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"  type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 
@@ -23,14 +23,14 @@
 
 	<h2 class="page-header">Nuevo Artista</h2>
 
-		<form role="form" action="artistaGUARDAR.php" method="post" id="formTabla" name="formTabla">
+		<form  action="artistaGUARDAR.php" method="post" id="formTabla" name="formTabla">
 			<div class="form-group">
 				<b>Id artista:(*)</b>
-				<input type="text" class="form-control" id="idArtista" name="idArtista"	 />
+				<input type="text" class="form-control" id="idArtista" name="idArtista" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Nombre:(*)</b>
-				<input type="text" class="form-control" id="nombreArtista" name="nombreArtista" />
+				<input type="text" class="form-control" id="nombreArtista" name="nombreArtista" required="required" />
 			</div>
 			<div class="form-group">
 				<b>Habilitado:(*)</b>
@@ -44,13 +44,13 @@
 		</form>
 		
 		<br /> <br /> <br />
-		<form role="form" action="artistaONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+		<form  action="artistaONE.php" method="post" id="busqueda" name="busqueda" onclick="return busqueda()">
 			<table>
 				<tr>
 					<td><b>Buscar</b></td>
 					<td>&nbsp;</td>
 					<td>
-						<input type="text" class="form-control" id="buscar" name="buscar" placeholder = "Buscar" />
+						<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Buscar" />
 					</td>
 					<td>&nbsp;</td>
 					<td>
@@ -58,7 +58,7 @@
 					</td>
 					<td>&nbsp;</td>
 					<td>
-						<input class="btn btn-default btn-sm" type="submit" value="Reiniciar" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php }?> />
+						<input class="btn btn-default btn-sm" type="submit" value="Reiniciar" id="event" name="event" <?php if(!isset($_COOKIE['busqueda'])){ ?>disabled="disabled"<?php } ?> />
 					</td>
 				</tr>
 			</table>
@@ -123,10 +123,10 @@
 			<td><?php echo $fila['id_artista']; ?></td>
 			<td><?php echo $fila['nombre_artista']; ?></td>
 			<td style="vertical-olign: middle">
-				<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
+				<input type="checkbox" readonly="readonly" disabled="disabled" <?php if($fila['habilitado']){ ?>  checked="checked" <?php } ?> > 
 			</td>
 			<td></td>
-			<form role="form" action="artistaONE.php" method="post" id="botonera" name="botonera">
+			<form  action="artistaONE.php" method="post" id="botonera" name="botonera">
 				<td style="vertical-align: middle">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_artista']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 

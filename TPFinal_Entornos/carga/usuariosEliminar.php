@@ -13,9 +13,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Eliminar Usuario</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
@@ -39,42 +39,42 @@
 			$vResultado = mysqli_query($link, $vSql) or die (mysqli_error());
 			$fila = mysqli_fetch_row($vResultado);
 		?>
-		<form role="form" action="usuario.php" method="post" id="form" name="form" onSubmit="return validar()">
+		<form action="usuario.php" method="post" id="form" name="form" onsubmit="return validar()">
 			<div class="form-group">
 				<b>C&oacute;digo:(*)</b>
-				<input type="text" class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $fila[0]; ?>" readonly="true" />
+				<input type="text" class="form-control" id="idUsuario" name="idUsuario" value="<?php echo $fila[0]; ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Nombre de Usuario:(*)</b>
-				<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly="true" value="<?php echo $fila[7]; ?>" />
+				<input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" readonly="readonly" value="<?php echo $fila[7]; ?>" />
 			</div>
 			<div class="form-group">
 				<b>Nombre:(*)</b>
-				<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $fila[1]; ?>" readonly="true" />
+				<input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $fila[1]; ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Apellido:(*)</b>
-				<input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $fila[2]; ?>" readonly="true" />
+				<input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $fila[2]; ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>DNI:(*)</b>
-				<input type="text" class="form-control" id="dni" name="dni" value="<?php echo $fila[6]; ?>" readonly="true" />
+				<input type="text" class="form-control" id="dni" name="dni" value="<?php echo $fila[6]; ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Email:(*)</b>
-				<input type="text" class="form-control" id="email" name="email" value="<?php echo $fila[8]; ?>" readonly="true" />
+				<input type="text" class="form-control" id="email" name="email" value="<?php echo $fila[8]; ?>" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Clave:(*)</b>
-				<input type="password" class="form-control" id="clave" name="clave" readonly="true" />
+				<input type="password" class="form-control" id="clave" name="clave" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Confirmar Clave:(*)</b>
-				<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" readonly="true" />
+				<input type="password" class="form-control" id="confirmarClave" name="confirmarClave" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>Tipo de Usuario:(*)</b>
-				<select class="form-control" id="cmbTipo" name="cmbTipo" readonly="true" >
+				<select class="form-control" id="cmbTipo" name="cmbTipo"  >
 					<option value="0">Seleccione un Tipo</option>
 					<?php  
 						include("conexion.inc"); 
@@ -90,7 +90,7 @@
 			</div>
 			<div class="form-group">
 				<b>Habilitado:(*)</b>
-				<input type="checkbox" class="checkbox" id="habilitado"  name="habilitado"  checked="checked" readonly="true" />
+				<input type="checkbox" class="checkbox" id="habilitado"  name="habilitado"  checked="checked" readonly="readonly" />
 			</div><br />
 			<div class="form-group" align="center">
 				<input class="btn btn-danger" type="submit" value="Eliminar" id="event" name="event" /> 
@@ -100,7 +100,7 @@
 		
 		<br /> <br /> <br />
 	
-		<form role="form" action="usuarioONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+		<form role="form" action="usuarioONE.php" method="post" id="busqueda" name="busqueda" onclick="return busqueda()">
 			<table>
 				<tr>
 					<td><b>Buscar</b></td>
@@ -133,7 +133,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pï¿½ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -163,7 +163,7 @@
 		}
 	?>
 	<table class="table table-hover">
-		<thead>
+		<tr>
 			<th>C&oacute;digo</th>
 			<th>Usuario</th>
 			<th>Apellido</th>
@@ -174,7 +174,7 @@
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>
-		</thead>
+		</tr>
 
 		<?php
 			while ($fila = mysqli_fetch_array($vResultado))
@@ -189,10 +189,10 @@
 			<td><?php echo $fila['email']; ?></td>
 			<td><?php echo $fila['desc_tipo_usuario']; ?></td>
 			<td style="vertical-olign: middle">
-				<input type="checkbox" readonly="true" disabled="disabled" <?php if($fila['habilitado']==1){ ?> checked="checked" <?php } ?> />
+				<input type="checkbox" readonly="readonly" disabled="disabled" <?php if($fila['habilitado']==1){ ?> checked="checked" <?php } ?> />
 			</td>
 			<td></td>
-			<form role="form" action="usuarioONE.php" method="post" id="botonera" name="botonera">
+			<form action="usuarioONE.php" method="post" id="botonera" name="botonera">
 				<td style="vertical-align: middle">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_usuario']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 
@@ -217,10 +217,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el ï¿½ndice de la pï¿½gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pï¿½gina no es la actual, coloco el enlace para ir a esa pï¿½gina
 					echo "<a href='usuariosEliminar.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}

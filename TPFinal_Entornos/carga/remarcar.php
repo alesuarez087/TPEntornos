@@ -1,4 +1,4 @@
-<?php 
+ï»¿<?php 
 	session_start(); 
 	$tipoUsuario = NULL;
 	$vNRO = NULL;
@@ -10,10 +10,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Remarcar</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <script type="text/javascript">
@@ -22,9 +22,9 @@
 			stock = document.form.stockNuevo.value
 					
 			if (isNaN(stock)){
-				alert("El stock no es un número"); return false;
+				alert("El stock no es un nÃºmero"); return false;
 			} else if(isNaN(precio)){
-				alert("El precio no es un número"); return false;
+				alert("El precio no es un nÃºmero"); return false;
 			} else if((precio == null || precio.length == 0) && (stock == null || stock.length == 0)){ 
 				alert("Ingrese stock o precio a modificar"); return false;
 			} else return true
@@ -49,18 +49,18 @@
 		<h2 class="page-header">Remarcar Precio - Stock</h2>
 		<br />
 
-		<form role="form" action="remarcar_event.php" method="post" id="form" name="form" onSubmit="return validar()">
+		<form action="remarcar_event.php" method="post" id="form" name="form" onsubmit="return validar()">
 			<div class="form-group">
 				<b>C&oacute;digo:</b>
-				<input type="text" class="form-control" id="idItem" name="idItem" <?php if(isset($_COOKIE["id_item"])) { ?> value="<?php echo $_COOKIE["id_item"]; ?>" <?php } ?> readonly="true"/>
+				<input type="text" class="form-control" id="idItem" name="idItem" <?php if(isset($_COOKIE["id_item"])) { ?> value="<?php echo $_COOKIE["id_item"]; ?>" <?php } ?> readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>T&iacute;tulo:</b>
-				<input type="text" class="form-control" id="tituloItem" name="tituloItem" readonly="true" <?php if(isset($_COOKIE["titulo"])) { ?> value="<?php echo $_COOKIE["titulo"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="tituloItem" name="tituloItem" readonly="readonly" <?php if(isset($_COOKIE["titulo"])) { ?> value="<?php echo $_COOKIE["titulo"]; ?>" <?php } ?> />
 			</div>
 			<div class="form-group">
 				<b>Autor:</b>
-				<select class="form-control" id="cmbArtista" name="cmbArtista" readonly="true">
+				<select class="form-control" id="cmbArtista" name="cmbArtista" >
 					<option>Seleccion Artista</option>
 					<?php include("conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
 					<option <?php if(isset($_COOKIE["id_artista"])) { if($_COOKIE["id_artista"]==$artista['id_artista']) { ?> selected="selected" <?php } } ?> value="<?php echo $artista['id_artista']; ?>"><?php echo $artista['nombre_artista']; ?></option><?php } ?>
@@ -68,15 +68,15 @@
 			</div>
 			<div class="form-group">
 				<b>G&eacute;nero:</b>
-				<select class="form-control" id="cmbGenero" name="cmbGenero" readonly="true" >
-					<option>Seleccione Género</option>
+				<select class="form-control" id="cmbGenero" name="cmbGenero"  >
+					<option>Seleccione GÃ©nero</option>
 					<?php include("conexion.inc"); $vSql = 'CALL GenerosGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($genero = mysqli_fetch_array($vResultado)){?>
 					<option <?php if(isset($_COOKIE["id_genero"])) { if($_COOKIE["id_genero"]==$genero['id_genero']) { ?> selected="selected" <?php } } ?> value="<?php echo $genero['id_genero']; ?>"> <?php echo $genero['desc_genero']; ?></option><?php } ?>
 				</select>
 			</div>
 			<div class="form-group">
 				<b>Tipo de Disco:</b>
-				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco" readonly="true" >
+				<select class="form-control" id="cmbTipoDisco" name="cmbTipoDisco"  >
 					<option>Seleccione Tipo de Disco</option>
 						<?php include("conexion.inc"); $vSql = 'CALL TiposItemGetAllHabilitados'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($tipos = mysqli_fetch_array($vResultado)){?>
 					<option <?php if(isset($_COOKIE["id_tipo_item"])) { if($_COOKIE["id_tipo_item"]==$tipos['id_tipo_item']) { ?> selected="selected" <?php } } ?> value="<?php echo $tipos['id_tipo_item']; ?>"><?php echo $tipos['desc_tipo_item']; ?></option><?php } ?>
@@ -84,17 +84,17 @@
 			</div>
 			<div class="form-group">
 				<b>A&ntilde;o Lanzamiento: </b>
-				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="true" <?php if(isset($_COOKIE["anio"])) { ?> value="<?php echo $_COOKIE["anio"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="anioLanzamiento" name="anioLanzamiento" readonly="readonly" <?php if(isset($_COOKIE["anio"])) { ?> value="<?php echo $_COOKIE["anio"]; ?>" <?php } ?> />
 			</div>
 			<div class="form-group">
 				<b>URL Portada:</b>
-				<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="true" <?php if(isset($_COOKIE["url"])) { ?> value="<?php echo $_COOKIE["url"]; ?>" <?php } ?> />
+				<input type="text" class="form-control" id="urlPortada" name="urlPortada" readonly="readonly" <?php if(isset($_COOKIE["url"])) { ?> value="<?php echo $_COOKIE["url"]; ?>" <?php } ?> />
 			</div>
 			<div class="form-group">
 				<div class="row">
 					<div class="col-5">
 						<b>Precio:</b>
-						<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="true" <?php if(isset($_COOKIE["precio"])) { ?> value="<?php echo $_COOKIE["precio"]; ?>" <?php } ?> />
+						<input type="text" class="form-control" id="precioItem" name="precioItem" readonly="readonly" <?php if(isset($_COOKIE["precio"])) { ?> value="<?php echo $_COOKIE["precio"]; ?>" <?php } ?> />
 					</div>
 					<div class="col-5">
 						<b>Nuevo Precio:(*)</b>
@@ -106,7 +106,7 @@
 				<div class="row">
 					<div class="col-5">
 						<b>Stock:</b>
-						<input type="text" class="form-control" id="stock" name="stock" readonly="true" <?php if(isset($_COOKIE["stock"])) { ?> value="<?php echo $_COOKIE["stock"]; ?>" <?php } ?> />
+						<input type="text" class="form-control" id="stock" name="stock" readonly="readonly" <?php if(isset($_COOKIE["stock"])) { ?> value="<?php echo $_COOKIE["stock"]; ?>" <?php } ?> />
 					</div>
 					<div class="col-5">
 						<b>Nuevo Stock:(*)</b>
@@ -116,7 +116,7 @@
 			</div>
 			<div class="form-group">
 				<b>Habilitado:(*)</b>
-				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> readonly="true" />
+				<input type="checkbox" class="checkbox" id="habilitado" name="habilitado" <?php if(isset($_COOKIE["habilitado"])) { if($_COOKIE["habilitado"]) { ?> checked="checked" <?php } } ?> readonly />
 			</div><br />
 			<div class="form-group" align="center">
 				<input class="btn btn-success" type="submit" value="Remarcar" id="event" name="event" <?php if(!isset($_COOKIE['id_item'])){ ?> disabled="disabled"<?php } ?> /> 
@@ -141,7 +141,7 @@
 		
 		<br /> <br /> <br />
 	
-		<form role="form" action="remarcar_event.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+		<form action="remarcar_event.php" method="post" id="busqueda" name="busqueda" onclick="return busqueda()">
 			<table>
 				<tr>
 					<td><b>Buscar</b></td>
@@ -174,7 +174,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pÃ¡ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -205,7 +205,7 @@
 
 	?>
 	<table class="table table-hover">
-		<thead>
+		<tr>
 			<th>C&oacute;digo</th>
 			<th>T&iacute;tulo</th>
 			<th>Autor</th>
@@ -216,7 +216,7 @@
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>
-		</thead>
+		</tr>
 
 		<?php
 			while ($fila = mysqli_fetch_array($vResultado))
@@ -231,7 +231,7 @@
 			<td><?php echo $fila['monto']; ?></td>
 			<td><?php echo $fila['stock']; ?></td>
 			<td style="vertical-olign: middle">
-				<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
+				<input type="checkbox" readonly="readonly" disabled="disabled" <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
 			</td>
 			<td></td>
 			<form role="form" action="remarcar_event.php" method="post" id="botonera" name="botonera">
@@ -258,10 +258,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el Ã­ndice de la pÃ¡gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pÃ¡gina no es la actual, coloco el enlace para ir a esa pÃ¡gina
 					echo "<a href='remarcar.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}

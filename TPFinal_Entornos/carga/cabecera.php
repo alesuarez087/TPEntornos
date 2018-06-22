@@ -53,7 +53,7 @@
 				</li>
 			<?php } ?>
     		    </ul>
-	    	    <form action="../pages/busqueda.php" method="post" class="form-inline my-2 my-md-0" >
+	    	    <form action="busqueda.php" method="post" class="form-inline my-2 my-md-0" >
 					<input type="text" class="form-control" id="buscar" name="buscar" placeholder="Que est&aacute;s buscando?">
 				</form>
 				<ul class="navbar-nav my-2 my-md-0">

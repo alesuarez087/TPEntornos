@@ -34,7 +34,7 @@
 			<a href="remarcar.php">Remarcar Precios y/o Stock</a><br />
 			<?php } if ($tipoUsuario==3) { ?>
 			<a href="carrito.php">Carrito de Compras</a><br />
-			<a href="itemsComprados.php">Listados de Compras</a><br />
+			<a href="itemsComprados.php">Calificar</a><br />
 			<a href="resumenCompras.php">Resumen de Compras</a><br />
 			<?php }?>
 			</div>

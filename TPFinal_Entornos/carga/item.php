@@ -7,12 +7,12 @@
 		$nombreUsuario = $fila['Usuario'];
 		$tipoUsuario = $fila['TipoUsuario'];
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Item</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" type="text/css" /> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"  type="text/css" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>	
 <body>
@@ -26,11 +26,11 @@
 			indiceTipoDisco = document.form.cmbTipoDisco.selectedIndex
 					
 			if (isNaN(anio)){
-				alert("El año no es un número"); return false;
+				alert("El aÃ±o no es un nÃºmero"); return false;
 			} else if (isNaN(stock)){
-				alert("El stock no es un número"); return false;
+				alert("El stock no es un nÃºmero"); return false;
 			} else if(isNaN(precio)){
-				alert("El precio no es un número"); return false;
+				alert("El precio no es un nÃºmero"); return false;
 			} else if(indiceArtista == null || indiceArtista == 0) {
 				alert("Seleccione un Artista"); return false;
 			} else if(indiceGenero == null || indiceGenero == 0) {
@@ -59,10 +59,10 @@
 		<h2 class="page-header">Nuevo Item</h2>
 		<br />
 
-		<form role="form" action="itemGUARDAR.php" method="post" id="form" name="form" onSubmit="return validar()">
+		<form action="itemGUARDAR.php" method="post" id="form" name="form" onsubmit="return validar()">
 			<div class="form-group">
 				<b>C&oacute;digo:(*)</b>
-				<input type="text" class="form-control" id="idItem" name="idItem" readonly/>
+				<input type="text" class="form-control" id="idItem" name="idItem" readonly="readonly" />
 			</div>
 			<div class="form-group">
 				<b>T&iacute;tulo:(*)</b>
@@ -70,7 +70,7 @@
 			</div>
 			<div class="form-group">
 				<b>Autor:(*)</b>
-				<select class="form-control" id="cmbArtista" name="cmbArtista" required >
+				<select class="form-control" id="cmbArtista" name="cmbArtista" required="required" >
 					<option>Seleccion Artista</option>
 						<?php include("conexion.inc"); $vSql = 'CALL ArtistasGetAllHabilitado'; $vResultado = mysqli_query($link, $vSql) or die (error()); while($artista = mysqli_fetch_array($vResultado)){?>
 					<option value="<?php echo $artista['id_artista']; ?>">
@@ -130,7 +130,7 @@
 		
 		<br /> <br /> <br />
 	
-		<form role="form" action="itemONE.php" method="post" id="busqueda" name="busqueda" onClick="return busqueda()">
+		<form action="itemONE.php" method="post" id="busqueda" name="busqueda" onclick="return busqueda()">
 			<table>
 				<tr>
 					<td><b>Buscar</b></td>
@@ -163,7 +163,7 @@
 		}
 		else {
 			$inicio = ($pagina - 1) * $Cant_por_Pag;
-		}// total de páginas
+		}// total de pÃ¡ginas
 		if(isset($_COOKIE['busqueda'])) { 
 			unset($link);
 			$vBuscar = $_COOKIE['busqueda'];
@@ -197,7 +197,7 @@
 #		$total_registros=mysqli_num_rows($vResultado);
 	?>
 	<table class="table table-hover">
-		<thead>
+		<tr>
 			<th>C&oacute;digo</th>
 			<th>T&iacute;tulo</th>
 			<th>Autor</th>
@@ -208,7 +208,7 @@
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>
-		</thead>
+		</tr>
 
 		<?php
 			while ($fila = mysqli_fetch_array($vResultado))
@@ -223,10 +223,10 @@
 			<td><?php echo $fila['monto']; ?></td>
 			<td><?php echo $fila['stock']; ?></td>
 			<td style="vertical-olign: middle">
-				<input type="checkbox" readonly disabled <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
+				<input type="checkbox" readonly="readonly" disabled="disabled" <?php if($fila['habilitado']){ ?>  checked <?php } ?> > 
 			</td>
 			<td></td>
-			<form role="form" action="itemONE.php" method="post" id="botonera" name="botonera">
+			<form  action="itemONE.php" method="post" id="botonera" name="botonera">
 				<td style="vertical-align: middle">
 					<input type="hidden" name="idSelect" id="idSelect" value="<?php echo $fila['id_item']; ?>" /> 
 					<input class="btn btn-success btn-sm" type="submit" value="Modificar" id="event" name="event" /> 
@@ -251,10 +251,10 @@
 		if ($total_paginas > 1){
 			for ($i=1;$i<=$total_paginas;$i++){
 				if ($pagina == $i){
-					//si muestro el índice de la página actual, no coloco enlace
+					//si muestro el Ã­ndice de la pÃ¡gina actual, no coloco enlace
 					echo $pagina . " ";
 				} else{
-					//si la página no es la actual, coloco el enlace para ir a esa página
+					//si la pÃ¡gina no es la actual, coloco el enlace para ir a esa pÃ¡gina
 					echo "<a href='item.php?pagina=" . $i ."'>" . $i . "</a> ";
 				}
 			}
