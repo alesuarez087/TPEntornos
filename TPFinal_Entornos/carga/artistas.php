@@ -107,13 +107,13 @@
 		}
 	?>
 	<table class="table table-hover">
-		<thead>
+		<tr>
 			<th>Id</th>
 			<th>Nombre</th>
 			<th>Habilitado</th>
 			<th></th>
 			<th></th>
-		</thead>
+		</tr>
 
 		<?php
 			while ($fila = mysqli_fetch_array($vResultado))

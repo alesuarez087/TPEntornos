@@ -23,11 +23,15 @@
 <link href="propio.css" rel="stylesheet" type="text/css" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <script type="text/javascript">
-	function validar(){
+	function validar(stock){
+		
 		indiceCantidad = document.compra.cmbCantidad.selectedIndex
-		if(indiceCantidad == null || indiceCantidad == 0) {
+		
+		if(indiceCantidad == null || indiceCantidad == 0) {	
 			alert("Seleccione Cantidad"); return false;
-		} else return true
+		} 
+		else if(indiceCantidad>stock){alert("Supera el stock"); return false;}
+		else return true;
 	}
 </script>
 <?php
@@ -40,23 +44,23 @@
 
 <body>
 
-
+	<?php 
+							include("conexion.inc");
+							$vSql = "CALL ItemsGetOne('$idItem')"; 
+							$vResultado = mysqli_query($link, $vSql) or die(error(mysqli_error()));
+							$fila = mysqli_fetch_array($vResultado)
+						?>
 	<?php include_once("cabecera.php") ?>
 
 	<div class="col-sm-4 col-md-4">
 		<h2 class="page-header">Disco</h2>
 	</div>
 	<div class="container">
-		<form action="itemVENTA.php" method="post" id="compra" name="compra" onsubmit="return validar()">
+		<form action="itemVENTA.php" method="post" id="compra" name="compra" onsubmit="return validar(<?php echo($fila['stock']) ?>)">
 			<div class="row placeholders">
 				<div class="placeholder">
 					<table>
-						<?php 
-							include("conexion.inc");
-							$vSql = "CALL ItemsGetOne('$idItem')"; 
-							$vResultado = mysqli_query($link, $vSql) or die(error(mysqli_error()));
-							while ($fila = mysqli_fetch_array($vResultado)){
-						?>
+						
 						
 						<tr>
 							<td>
@@ -105,7 +109,7 @@
 								</table>
 							</td>		
 						</tr>
-							<?php } 
+							<?php 
 								if(isset($_COOKIE["elegido"])) setcookie("elegido", "", time()-3600, "/");
 							?>	
 						</table>
